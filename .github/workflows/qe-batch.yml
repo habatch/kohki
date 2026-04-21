@@ -92,19 +92,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Quantum ESPRESSO + ASE
+      - name: Install Quantum ESPRESSO + ASE (conda-forge)
         shell: bash
         run: |
           set -euo pipefail
-          # Ubuntu ships quantum-espresso in universe. Not the freshest
-          # (~7.0 on 24.04) but more than enough for PBE SCF of common
-          # semiconductors. Installs in ~30 s versus 10+ min conda.
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            quantum-espresso python3-ase python3-spglib python3-numpy
-          pw.x -version 2>&1 | head -3 || true
-          which pw.x mpirun
-          python3 -c "import ase; print('ase', ase.__version__)"
+          # conda-forge ships QE under the package name `qe` (not
+          # `quantum-espresso`). This build is MUCH cleaner than Ubuntu's
+          # apt package which crashes with __fortify_fail on certain
+          # inputs. ~2 minutes first time, cached on subsequent runs.
+          mkdir -p "$HOME/bin"
+          curl -L https://micro.mamba.pm/api/micromamba/linux-64/latest \
+            | tar -xvj -C "$HOME" bin/micromamba
+          export PATH="$HOME/bin:$PATH"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+          export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+          echo "MAMBA_ROOT_PREFIX=$HOME/micromamba" >> "$GITHUB_ENV"
+          micromamba create -y -n qe -c conda-forge python=3.12 qe ase spglib
+          micromamba run -n qe pw.x -version 2>&1 | head -3 || true
+          micromamba run -n qe python3 -c "import ase; print('ase', ase.__version__)"
 
       - name: Resolve CIF (fixture first, then Materials Project)
         shell: bash
@@ -144,7 +149,7 @@ jobs:
         run: |
           set -euo pipefail
           cd work
-          python3 - <<'PY'
+          micromamba run -n qe python3 - <<'PY'
           import os, sys
           sys.path.insert(0, os.environ["GITHUB_WORKSPACE"] + "/research/paper1-benchmark")
           from pathlib import Path
@@ -216,7 +221,7 @@ jobs:
           cd work
           formula="${{ matrix.formula }}"
           t0=$(date +%s)
-          mpirun -n 2 --oversubscribe pw.x -in "${formula}.scf.in" > "${formula}.scf.out" 2>&1 || {
+          micromamba run -n qe mpirun -n 2 --oversubscribe pw.x -in "${formula}.scf.in" > "${formula}.scf.out" 2>&1 || {
             echo "::error::pw.x failed. Last 40 lines:"
             tail -40 "${formula}.scf.out" >&2
             exit 1

@@ -1,0 +1,149 @@
+# Tier A — classic semiconductors (20 materials)
+#
+# These are the "LLM should know these cold" calibration baseline. MP ids
+# are pinned to the canonical ground-state polymorph at PBE. Any LLM that
+# gets these wrong means the rest of Paper 1 is moot.
+#
+# All mp_ids verified against the current Materials Project database
+# (next-gen.materialsproject.org). If an id is unavailable we fall back
+# to running PBE ourselves.
+
+[[material]]
+formula   = "Si"
+structure = "diamond"
+tier      = "A"
+mp_id     = "mp-149"
+notes     = "indirect gap ~0.61 eV (PBE), ~1.17 eV (expt)"
+
+[[material]]
+formula   = "Ge"
+structure = "diamond"
+tier      = "A"
+mp_id     = "mp-32"
+notes     = "indirect gap, PBE wrongly predicts near-zero"
+
+[[material]]
+formula   = "C"
+structure = "diamond"
+tier      = "A"
+mp_id     = "mp-66"
+notes     = "indirect gap ~4.1 eV (PBE), ~5.5 eV (expt)"
+
+[[material]]
+formula   = "SiC"
+structure = "zincblende-3C"
+tier      = "A"
+mp_id     = "mp-8062"
+notes     = "indirect gap, polytype 3C"
+
+[[material]]
+formula   = "GaAs"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-2534"
+notes     = "direct gap ~0.5 eV (PBE), ~1.52 eV (expt)"
+
+[[material]]
+formula   = "GaP"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-2490"
+notes     = "indirect gap"
+
+[[material]]
+formula   = "GaSb"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-1156"
+notes     = "direct gap"
+
+[[material]]
+formula   = "InP"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-20351"
+notes     = "direct gap ~1.35 eV (expt)"
+
+[[material]]
+formula   = "InAs"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-20305"
+notes     = "direct narrow gap"
+
+[[material]]
+formula   = "InSb"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-20012"
+notes     = "smallest III-V gap"
+
+[[material]]
+formula   = "AlAs"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-2172"
+notes     = "indirect"
+
+[[material]]
+formula   = "AlP"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-1550"
+notes     = "indirect"
+
+[[material]]
+formula   = "AlN"
+structure = "wurtzite"
+tier      = "A"
+mp_id     = "mp-661"
+notes     = "wide direct gap"
+
+[[material]]
+formula   = "GaN"
+structure = "wurtzite"
+tier      = "A"
+mp_id     = "mp-804"
+notes     = "wurtzite direct"
+
+[[material]]
+formula   = "InN"
+structure = "wurtzite"
+tier      = "A"
+mp_id     = "mp-20411"
+notes     = "narrow direct"
+
+[[material]]
+formula   = "ZnO"
+structure = "wurtzite"
+tier      = "A"
+mp_id     = "mp-2133"
+notes     = "PBE severely underestimates (0.7 eV vs expt 3.4 eV)"
+
+[[material]]
+formula   = "ZnS"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-10695"
+notes     = "wide direct"
+
+[[material]]
+formula   = "ZnSe"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-1190"
+notes     = "direct"
+
+[[material]]
+formula   = "CdS"
+structure = "wurtzite"
+tier      = "A"
+mp_id     = "mp-672"
+notes     = "direct"
+
+[[material]]
+formula   = "CdTe"
+structure = "zincblende"
+tier      = "A"
+mp_id     = "mp-406"
+notes     = "direct, classic thin-film PV absorber"

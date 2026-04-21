@@ -1,0 +1,20 @@
+# Paper 1 benchmark — keep only code & manifests in git.
+
+results/
+*.cif
+!materials/*.cif
+pseudo/
+tmp/
+*.wfc*
+*.save/
+*.hdf5
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+
+# Secrets — never commit
+*.env
+.env
+.env.local
+kaggle.json

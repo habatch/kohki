@@ -1,0 +1,12 @@
+{
+  "id": "habatch/paper1-qe-gpu",
+  "title": "Paper 1 — DFT Ground Truth on Kaggle T4",
+  "code_file": "kaggle_qe_gpu.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "keywords": ["dft", "quantum-espresso", "semiconductor", "llm-benchmark"],
+  "dataset_sources": []
+}

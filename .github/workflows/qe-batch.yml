@@ -1,0 +1,254 @@
+name: QE Benchmark Batch
+
+# Paper 1 DFT runner. Dispatched manually (pilot) or by a matrix over a
+# tier list. Each job:
+#   1. Installs QE via micromamba (conda-forge::quantum-espresso)
+#   2. Stages the input CIF + SSSP pseudos
+#   3. Runs pw.x SCF (and optionally NSCF/DOS/bands)
+#   4. Uploads the provenance zip as an artifact
+#
+# Public repos: unlimited Actions minutes. Private repos: 2,000 min/month.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "Which tier to run"
+        required: true
+        default: "pilot"
+        type: choice
+        options: [pilot, A, B, C]
+      material:
+        description: "Formula (pilot mode only). Ignored for A/B/C."
+        required: false
+        default: "Si"
+      steps:
+        description: "QE steps: comma-sep from scf,nscf,dos,bands,relax"
+        required: false
+        default: "scf"
+
+concurrency:
+  # Same tier concurrent runs are OK; same tier + same sha is not.
+  group: qe-batch-${{ github.ref }}-${{ inputs.tier }}
+  cancel-in-progress: false
+
+jobs:
+  # --- 1. Expand the tier list into a job matrix -------------------------
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.pick.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build material matrix
+        id: pick
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > matrix.json
+          import json, os, sys, tomllib
+          from pathlib import Path
+
+          tier = os.environ["TIER"]
+          material = os.environ.get("MATERIAL", "Si")
+          root = Path("research/paper1-benchmark/materials")
+
+          def load(t):
+              p = root / f"tier_{t.lower()}.toml"
+              if not p.exists():
+                  return []
+              with p.open("rb") as f:
+                  return tomllib.load(f)["material"]
+
+          if tier == "pilot":
+              entries = [{"formula": material, "structure": "diamond", "mp_id": ""}]
+          else:
+              entries = load(tier)
+
+          # Trim to the keys the shell steps need.
+          out = []
+          for e in entries:
+              out.append({
+                  "formula":   e.get("formula", ""),
+                  "structure": e.get("structure", ""),
+                  "mp_id":     e.get("mp_id", ""),
+              })
+          print(json.dumps({"include": out}))
+          PY
+          echo "matrix=$(cat matrix.json)" >> "$GITHUB_OUTPUT"
+        env:
+          TIER: ${{ inputs.tier }}
+          MATERIAL: ${{ inputs.material }}
+
+  # --- 2. Fan out one job per material ----------------------------------
+  run-qe:
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    timeout-minutes: 350      # GH Actions hard cap is 6h per job
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install micromamba + Quantum ESPRESSO
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-name: qe
+          create-args: >-
+            python=3.12
+            quantum-espresso=7.3
+            ase
+            spglib
+          cache-environment: true
+          init-shell: bash
+
+      - name: Resolve CIF from Materials Project
+        shell: bash -l {0}
+        env:
+          MP_API_KEY: ${{ secrets.MP_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p work
+          cd work
+          python3 - <<PY
+          import os, sys
+          sys.path.insert(0, "${GITHUB_WORKSPACE}/research/paper1-benchmark")
+          from orchestrator.mp_client import MPClient
+          mp_id = "${{ matrix.mp_id }}"
+          formula = "${{ matrix.formula }}"
+          if not mp_id:
+              print(f"::warning::no mp_id for {formula}, using bundled fixture", file=sys.stderr)
+              sys.exit(0)
+          client = MPClient()
+          cif = client.cif(mp_id)
+          open(f"{formula}.cif", "w").write(cif)
+          print(f"wrote {formula}.cif ({len(cif)} bytes)")
+          PY
+
+      - name: Generate pw.x input
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          cd work
+          python3 - <<'PY'
+          import os, sys
+          sys.path.insert(0, os.environ["GITHUB_WORKSPACE"] + "/research/paper1-benchmark")
+          from pathlib import Path
+          from ase.io import read, write
+          from orchestrator.qe_inputs import suggest_config
+
+          formula = "${{ matrix.formula }}"
+          cif = Path(f"{formula}.cif")
+          if not cif.exists():
+              print("::error::no CIF present, cannot proceed")
+              sys.exit(1)
+          atoms = read(str(cif))
+          elements = sorted({a.symbol for a in atoms})
+          cfg = suggest_config(elements)
+          # ase's espresso-in writer takes pseudopotentials dict + kspacing
+          pseudos = {el: f"{el}.upf" for el in elements}
+          write(
+              f"{formula}.scf.in",
+              atoms,
+              format="espresso-in",
+              input_data={
+                  "calculation": "scf",
+                  "prefix": formula,
+                  "pseudo_dir": "./pseudo",
+                  "outdir": "./tmp",
+                  "ecutwfc": cfg.ecutwfc,
+                  "ecutrho": cfg.ecutrho,
+                  "occupations": "smearing",
+                  "smearing": cfg.smearing,
+                  "degauss": cfg.degauss,
+                  "conv_thr": cfg.conv_thr,
+                  "mixing_beta": 0.4,
+              },
+              pseudopotentials=pseudos,
+              kpts=list(cfg.kpoints),
+          )
+          print(f"wrote {formula}.scf.in  ecutwfc={cfg.ecutwfc}Ry k={cfg.kpoints}")
+          PY
+
+      - name: Fetch SSSP Efficiency pseudopotentials
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          mkdir -p work/pseudo
+          cd work
+          # Pull the SSSP Efficiency PBE tarball once; it is ~40 MB and
+          # covers every element we touch in tiers A-B-C.
+          if [ ! -f "pseudo/.staged" ]; then
+            curl -L -o sssp.tar.gz \
+              "https://archive.materialscloud.org/record/file?filename=SSSP_1.3.0_PBE_efficiency.tar.gz&record_id=1732"
+            tar -xzf sssp.tar.gz -C pseudo --strip-components=1
+            touch pseudo/.staged
+          fi
+          # Rename matched pseudos into ``{Element}.upf`` so input files
+          # are portable.
+          python3 - <<'PY'
+          import re, shutil
+          from pathlib import Path
+          p = Path("pseudo")
+          for upf in p.glob("*.upf"):
+              m = re.match(r"([A-Z][a-z]?)[_.].*\.upf$", upf.name)
+              if m:
+                  dest = p / f"{m.group(1)}.upf"
+                  if not dest.exists() or dest.samefile(upf):
+                      shutil.copy(upf, dest)
+          PY
+
+      - name: Run pw.x (SCF)
+        id: scf
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          cd work
+          formula="${{ matrix.formula }}"
+          t0=$(date +%s)
+          mpirun -n 2 pw.x -in "${formula}.scf.in" > "${formula}.scf.out" 2>&1 || {
+            echo "::error::pw.x failed. Last 40 lines:"
+            tail -40 "${formula}.scf.out" >&2
+            exit 1
+          }
+          t1=$(date +%s)
+          echo "wall_seconds=$((t1 - t0))" >> "$GITHUB_OUTPUT"
+          grep -E "^!.*total energy" "${formula}.scf.out" || true
+          grep -E "Fermi energy" "${formula}.scf.out" || true
+
+      - name: Bundle provenance
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          cd work
+          python3 - <<PY
+          import sys
+          sys.path.insert(0, "${GITHUB_WORKSPACE}/research/paper1-benchmark")
+          from pathlib import Path
+          from orchestrator.provenance import bundle_dft_run, current_env
+
+          formula = "${{ matrix.formula }}"
+          env = current_env()
+          qin = Path(f"{formula}.scf.in").read_text()
+          qout = Path(f"{formula}.scf.out").read_text()
+          obs = {"wall_seconds": ${{ steps.scf.outputs.wall_seconds || 0 }}}
+          out = bundle_dft_run(
+              Path("bundles"),
+              material=formula,
+              qe_input=qin,
+              qe_output=qout,
+              observables=obs,
+              env=env,
+          )
+          print(f"wrote {out}")
+          PY
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: qe-${{ matrix.formula }}
+          path: work/bundles/*.zip
+          retention-days: 14
+          if-no-files-found: error

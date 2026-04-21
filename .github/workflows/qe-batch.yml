@@ -93,23 +93,31 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install micromamba + Quantum ESPRESSO
-        uses: mamba-org/setup-micromamba@v2
-        with:
-          environment-name: qe
-          create-args: >-
-            python=3.12
-            quantum-espresso
-            ase
-            spglib
-          condarc: |
-            channels:
-              - conda-forge
-            channel_priority: strict
-          cache-environment: true
-          init-shell: bash
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Bypass setup-micromamba (v1 post-cleanup regression, v2 channel
+          # resolution quirks). Raw install from the official URL is 15
+          # lines and 100% predictable.
+          mkdir -p "$HOME/bin"
+          curl -L https://micro.mamba.pm/api/micromamba/linux-64/latest \
+            | tar -xvj -C "$HOME" bin/micromamba
+          export PATH="$HOME/bin:$PATH"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+          micromamba --version
+          # Write a repo-local condarc instead of relying on the action
+          export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+          micromamba config append channels conda-forge
+          micromamba config set channel_priority strict
+          micromamba create -y -n qe -c conda-forge \
+            python=3.12 quantum-espresso ase spglib
+          micromamba run -n qe pw.x -h 2>&1 | head -3 || true
+          micromamba run -n qe pw.x -version 2>&1 | head -3 || true
+          # Remember env so subsequent bash -l steps see it
+          echo "MAMBA_ROOT_PREFIX=$HOME/micromamba" >> "$GITHUB_ENV"
 
       - name: Resolve CIF (fixture first, then Materials Project)
-        shell: bash -l {0}
+        shell: bash
         env:
           MP_API_KEY: ${{ secrets.MP_API_KEY }}
         run: |
@@ -142,11 +150,11 @@ jobs:
           exit 1
 
       - name: Generate pw.x input
-        shell: bash -l {0}
+        shell: bash
         run: |
           set -euo pipefail
           cd work
-          python3 - <<'PY'
+          micromamba run -n qe python3 - <<'PY'
           import os, sys
           sys.path.insert(0, os.environ["GITHUB_WORKSPACE"] + "/research/paper1-benchmark")
           from pathlib import Path
@@ -187,7 +195,7 @@ jobs:
           PY
 
       - name: Stage pseudopotentials (bundled ONCV PBE)
-        shell: bash -l {0}
+        shell: bash
         run: |
           set -euo pipefail
           mkdir -p work/pseudo
@@ -212,13 +220,13 @@ jobs:
 
       - name: Run pw.x (SCF)
         id: scf
-        shell: bash -l {0}
+        shell: bash
         run: |
           set -euo pipefail
           cd work
           formula="${{ matrix.formula }}"
           t0=$(date +%s)
-          mpirun -n 2 pw.x -in "${formula}.scf.in" > "${formula}.scf.out" 2>&1 || {
+          micromamba run -n qe mpirun -n 2 pw.x -in "${formula}.scf.in" > "${formula}.scf.out" 2>&1 || {
             echo "::error::pw.x failed. Last 40 lines:"
             tail -40 "${formula}.scf.out" >&2
             exit 1
@@ -229,7 +237,7 @@ jobs:
           grep -E "Fermi energy" "${formula}.scf.out" || true
 
       - name: Bundle provenance
-        shell: bash -l {0}
+        shell: bash
         run: |
           set -euo pipefail
           cd work

@@ -1,0 +1,14 @@
+# Place at: C:\Users\<YourName>\.wslconfig
+# Takes effect after: wsl --shutdown (from PowerShell), then reopen WSL
+#
+# Current WSL RAM: 7.6 GiB → tight for 64-atom Si supercells.
+# If your physical RAM is 16 GB+, give WSL 12 GiB. 32 GB+ → 20 GiB.
+
+[wsl2]
+memory=12GB
+processors=12
+swap=4GB
+# mirrored networking: simplifies localhost port forwarding
+networkingMode=mirrored
+# Auto-release memory back to Windows when unused (WSL 2.0.5+)
+autoMemoryReclaim=gradual

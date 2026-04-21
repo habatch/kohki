@@ -104,7 +104,7 @@ jobs:
           cache-environment: true
           init-shell: bash
 
-      - name: Resolve CIF from Materials Project
+      - name: Resolve CIF (fixture first, then Materials Project)
         shell: bash -l {0}
         env:
           MP_API_KEY: ${{ secrets.MP_API_KEY }}
@@ -112,20 +112,30 @@ jobs:
           set -euo pipefail
           mkdir -p work
           cd work
-          python3 - <<PY
-          import os, sys
+          formula="${{ matrix.formula }}"
+          mp_id="${{ matrix.mp_id }}"
+          fixture="${GITHUB_WORKSPACE}/research/paper1-benchmark/materials/fixtures/${formula}.cif"
+
+          if [ -f "$fixture" ]; then
+            cp "$fixture" "${formula}.cif"
+            echo "✓ using bundled fixture: $fixture ($(wc -c < "${formula}.cif") bytes)"
+            exit 0
+          fi
+
+          if [ -n "$mp_id" ] && [ -n "${MP_API_KEY:-}" ]; then
+            python3 - <<PY
+          import sys
           sys.path.insert(0, "${GITHUB_WORKSPACE}/research/paper1-benchmark")
           from orchestrator.mp_client import MPClient
-          mp_id = "${{ matrix.mp_id }}"
-          formula = "${{ matrix.formula }}"
-          if not mp_id:
-              print(f"::warning::no mp_id for {formula}, using bundled fixture", file=sys.stderr)
-              sys.exit(0)
-          client = MPClient()
-          cif = client.cif(mp_id)
-          open(f"{formula}.cif", "w").write(cif)
-          print(f"wrote {formula}.cif ({len(cif)} bytes)")
+          cif = MPClient().cif("${mp_id}")
+          open("${formula}.cif", "w").write(cif)
+          print(f"✓ fetched from MP: ${formula}.cif ({len(cif)} bytes)")
           PY
+            exit 0
+          fi
+
+          echo "::error::no fixture and (no mp_id OR no MP_API_KEY) for $formula"
+          exit 1
 
       - name: Generate pw.x input
         shell: bash -l {0}
@@ -172,32 +182,28 @@ jobs:
           print(f"wrote {formula}.scf.in  ecutwfc={cfg.ecutwfc}Ry k={cfg.kpoints}")
           PY
 
-      - name: Fetch SSSP Efficiency pseudopotentials
+      - name: Stage pseudopotentials (bundled ONCV PBE)
         shell: bash -l {0}
         run: |
           set -euo pipefail
           mkdir -p work/pseudo
           cd work
-          # Pull the SSSP Efficiency PBE tarball once; it is ~40 MB and
-          # covers every element we touch in tiers A-B-C.
-          if [ ! -f "pseudo/.staged" ]; then
-            curl -L -o sssp.tar.gz \
-              "https://archive.materialscloud.org/record/file?filename=SSSP_1.3.0_PBE_efficiency.tar.gz&record_id=1732"
-            tar -xzf sssp.tar.gz -C pseudo --strip-components=1
-            touch pseudo/.staged
-          fi
-          # Rename matched pseudos into ``{Element}.upf`` so input files
-          # are portable.
+          # SSSP Efficiency pseudos bundled in the repo. The elements
+          # covered today: Si, Ga, As, N. We copy + rename them to
+          # {Element}.upf so ASE-generated input files are portable.
           python3 - <<'PY'
-          import re, shutil
+          import os, re, shutil, sys
           from pathlib import Path
-          p = Path("pseudo")
-          for upf in p.glob("*.upf"):
+          src = Path(os.environ["GITHUB_WORKSPACE"]) / "research/paper1-benchmark/materials/pseudos"
+          dst = Path("pseudo")
+          staged = []
+          for upf in src.glob("*.upf"):
               m = re.match(r"([A-Z][a-z]?)[_.].*\.upf$", upf.name)
               if m:
-                  dest = p / f"{m.group(1)}.upf"
-                  if not dest.exists() or dest.samefile(upf):
-                      shutil.copy(upf, dest)
+                  out = dst / f"{m.group(1)}.upf"
+                  shutil.copy(upf, out)
+                  staged.append(out.name)
+          print("staged:", ", ".join(staged) or "(none)")
           PY
 
       - name: Run pw.x (SCF)

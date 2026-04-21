@@ -2,7 +2,7 @@
 
 results/
 *.cif
-!materials/*.cif
+!materials/fixtures/*.cif
 pseudo/
 tmp/
 *.wfc*

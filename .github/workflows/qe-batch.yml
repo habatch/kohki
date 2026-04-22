@@ -163,7 +163,8 @@ jobs:
               sys.exit(1)
           atoms = read(str(cif))
           elements = sorted({a.symbol for a in atoms})
-          cfg = suggest_config(elements)
+          abc = tuple(atoms.cell.cellpar()[:3])
+          cfg = suggest_config(elements, n_atoms=len(atoms), cell_abc_ang=abc)
           # ase's espresso-in writer takes pseudopotentials dict + kspacing
           pseudos = {el: f"{el}.upf" for el in elements}
           write(

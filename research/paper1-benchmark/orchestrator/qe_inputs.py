@@ -52,14 +52,39 @@ class QeConfig:
     outdir: str = "./tmp"
 
 
-def suggest_config(elements: list[str], likely_metal: bool = False) -> QeConfig:
+def suggest_config(
+    elements: list[str],
+    likely_metal: bool = False,
+    *,
+    n_atoms: int | None = None,
+    cell_abc_ang: tuple[float, float, float] | None = None,
+) -> QeConfig:
+    """Suggest ecutwfc/ecutrho/kpoints given elements + cell context.
+
+    k-grid scaling matters: a 2×2×2 supercell of Si has a Brillouin zone
+    8× smaller than the primitive, so using the same 6×6×6 mesh is 8×
+    wasted compute. We target a k-spacing of ~0.25 Å⁻¹ which is plenty
+    for semiconductors, and floor at 2×2×2 so γ-only pitfalls (symmetry
+    under-sampling) are avoided for non-tiny cells.
+    """
     ecw = max(SSSP_EFFICIENCY_CUTOFFS.get(el, (40, 320))[0] for el in elements)
     ecr = max(SSSP_EFFICIENCY_CUTOFFS.get(el, (40, 320))[1] for el in elements)
-    # For pilot we use 6×6×6 Monkhorst-Pack everywhere — plenty for SCF
-    # accuracy on cubic semiconductors, cheap to compute. The main tier
-    # runner will refine per-material.
-    return QeConfig(ecutwfc=float(ecw), ecutrho=float(ecr), kpoints=(6, 6, 6),
-                    smearing=("marzari-vanderbilt" if likely_metal else "gaussian"))
+
+    kpts = (6, 6, 6)  # default for primitive / unknown
+    if cell_abc_ang is not None:
+        # Target reciprocal-space density ~0.25 /Å, which maps to
+        # n_k ≈ 2π / (a·0.25) = 25 / a for a in Å. Round up, floor to 2,
+        # ceiling to 8 so we don't blow memory on huge cells.
+        def pick(a: float) -> int:
+            return max(2, min(8, int(25.0 / max(a, 1.0)) + 1))
+        kpts = tuple(pick(a) for a in cell_abc_ang)  # type: ignore[assignment]
+
+    return QeConfig(
+        ecutwfc=float(ecw),
+        ecutrho=float(ecr),
+        kpoints=kpts,
+        smearing=("marzari-vanderbilt" if likely_metal else "gaussian"),
+    )
 
 
 def build_scf_input(material: Material, cif_path: Path | str, cfg: QeConfig) -> str:

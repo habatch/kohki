@@ -180,6 +180,43 @@ def cmd_provenance_show(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_results(args: argparse.Namespace) -> int:
+    """Walk a directory of provenance zips and print a tab-separated summary."""
+    from orchestrator.qe_parser import parse_pw_output
+    import zipfile
+    root = Path(args.dir)
+    rows = []
+    for z in sorted(root.rglob("*.zip")):
+        try:
+            with zipfile.ZipFile(z) as zf:
+                text = zf.read("output.out").decode("utf-8", errors="replace")
+                try:
+                    meta = json.loads(zf.read("metadata.json"))
+                except KeyError:
+                    meta = {}
+            obs = parse_pw_output(text)
+            rows.append((z, obs, meta))
+        except Exception as e:
+            print(f"{z}: skip ({e})", file=sys.stderr)
+    cols = ["material", "natoms", "nkpt", "iter", "converged",
+            "E_Ry", "E_F_eV", "gap_eV", "wall_s"]
+    print("\t".join(cols))
+    for z, obs, meta in rows:
+        mat = meta.get("material", z.stem.split("-")[0])
+        def f(v, w=None):
+            if v is None: return "-"
+            if isinstance(v, float): return f"{v:.4f}"
+            return str(v)
+        print("\t".join([
+            str(mat),
+            f(obs.n_atoms), f(obs.n_kpoints),
+            f(obs.n_scf_iter), "yes" if obs.converged else "no",
+            f(obs.total_energy_Ry), f(obs.fermi_energy_eV), f(obs.band_gap_eV),
+            f(obs.wall_seconds),
+        ]))
+    return 0
+
+
 def cmd_parse(args: argparse.Namespace) -> int:
     """Parse a pw.x output file or a provenance bundle into observables."""
     from orchestrator.qe_parser import parse_pw_file, parse_pw_output
@@ -238,6 +275,10 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("parse", help="Parse a pw.x .out or a provenance .zip")
     s.add_argument("path")
     s.set_defaults(func=cmd_parse)
+
+    s = sub.add_parser("results", help="Summarise all .zip bundles under a dir")
+    s.add_argument("dir")
+    s.set_defaults(func=cmd_results)
 
     return p
 

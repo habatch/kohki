@@ -180,6 +180,25 @@ def cmd_provenance_show(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_parse(args: argparse.Namespace) -> int:
+    """Parse a pw.x output file or a provenance bundle into observables."""
+    from orchestrator.qe_parser import parse_pw_file, parse_pw_output
+    import zipfile
+    p = Path(args.path)
+    if p.suffix == ".zip":
+        with zipfile.ZipFile(p) as z:
+            try:
+                text = z.read("output.out").decode("utf-8", errors="replace")
+            except KeyError:
+                print(f"{p}: no output.out in bundle", file=sys.stderr)
+                return 2
+            obs = parse_pw_output(text)
+    else:
+        obs = parse_pw_file(p)
+    print(json.dumps(obs.to_dict(), indent=2))
+    return 0
+
+
 def _guess_elements(formula: str) -> list[str]:
     """Return element symbols from a pretty formula like 'GaAs' or 'Cs2PbI4'."""
     import re
@@ -215,6 +234,10 @@ def build_parser() -> argparse.ArgumentParser:
     sh = s2.add_parser("show")
     sh.add_argument("bundle")
     sh.set_defaults(func=cmd_provenance_show)
+
+    s = sub.add_parser("parse", help="Parse a pw.x .out or a provenance .zip")
+    s.add_argument("path")
+    s.set_defaults(func=cmd_parse)
 
     return p
 

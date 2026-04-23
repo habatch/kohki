@@ -1,6 +1,7 @@
 # Paper 1 benchmark — keep only code & manifests in git.
 
 results/
+!experiments/*/results/
 *.cif
 !materials/fixtures/*.cif
 pseudo/

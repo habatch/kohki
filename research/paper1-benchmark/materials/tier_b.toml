@@ -1,0 +1,212 @@
+# Tier B — PV / emerging / 2D materials (25 materials)
+#
+# The "LLM under pressure" set. Classic LLM training data is thin on these
+# (halide perovskites post-2013, chalcogenides, 2D TMDCs), so systematic
+# LLM vs PBE error bars here are the real differentiator of Paper 1.
+#
+# mp_ids are the Materials Project canonical ground-state polymorph where
+# known. Items marked `# mp_verify` have ids I'm not 100% sure of — they
+# will be confirmed by `python3 -m orchestrator mp-sync --tier B` once an
+# MP_API_KEY is available, and wrong ids will surface as lookup errors.
+
+# ====================================================================
+#   Halide perovskites (6) — the PV hot-topic of the last decade
+# ====================================================================
+
+[[material]]
+formula   = "CsPbI3"
+structure = "perovskite-cubic"
+tier      = "B"
+mp_id     = "mp-1120768"
+notes     = "γ-phase (cubic Pm-3m, high-T). PBE gap ~1.5 eV, expt ~1.73"
+
+[[material]]
+formula   = "CsPbBr3"
+structure = "perovskite-cubic"
+tier      = "B"
+mp_id     = "mp-567629"
+notes     = "direct gap, efficient LED material. PBE ~1.8 eV"
+
+[[material]]
+formula   = "CsPbCl3"
+structure = "perovskite-cubic"
+tier      = "B"
+mp_id     = "mp-23037"
+notes     = "UV-blue emission, wider gap sibling"
+
+[[material]]
+formula   = "CsSnI3"
+structure = "perovskite-orthorhombic"
+tier      = "B"
+mp_id     = "mp-614013"
+notes     = "Pb-free halide PV candidate, narrow gap"
+
+[[material]]
+formula   = "CsSnBr3"
+structure = "perovskite-cubic"
+tier      = "B"
+mp_id     = "mp-27214"
+notes     = "Pb-free, wider gap than CsSnI3 # mp_verify"
+
+[[material]]
+formula   = "CsGeI3"
+structure = "perovskite-rhombohedral"
+tier      = "B"
+mp_id     = "mp-581024"
+notes     = "Ge variant, ferroelectric interest # mp_verify"
+
+# ====================================================================
+#   Oxide perovskites & photocatalysts (5)
+# ====================================================================
+
+[[material]]
+formula   = "SrTiO3"
+structure = "perovskite-cubic"
+tier      = "B"
+mp_id     = "mp-5229"
+notes     = "canonical oxide perovskite, water-splitting photocatalyst"
+
+[[material]]
+formula   = "BaTiO3"
+structure = "perovskite-tetragonal"
+tier      = "B"
+mp_id     = "mp-2998"
+notes     = "ferroelectric, PBE indirect gap ~1.7 eV"
+
+[[material]]
+formula   = "KNbO3"
+structure = "perovskite-orthorhombic"
+tier      = "B"
+mp_id     = "mp-4342"
+notes     = "ferroelectric + ferroelastic # mp_verify"
+
+[[material]]
+formula   = "BiVO4"
+structure = "scheelite-monoclinic"
+tier      = "B"
+mp_id     = "mp-19006"
+notes     = "visible-light photocatalyst, 2.4 eV expt gap"
+
+[[material]]
+formula   = "LaAlO3"
+structure = "perovskite-rhombohedral"
+tier      = "B"
+mp_id     = "mp-2920"
+notes     = "oxide substrate / 2DEG host # mp_verify"
+
+# ====================================================================
+#   Thin-film PV absorbers (8) — CZTS/CIGS family
+# ====================================================================
+
+[[material]]
+formula   = "Cu2O"
+structure = "cuprite"
+tier      = "B"
+mp_id     = "mp-361"
+notes     = "direct gap 2.1 eV expt, PBE gives ~0.6 eV (underestimate)"
+
+[[material]]
+formula   = "Cu2ZnSnS4"
+structure = "kesterite"
+tier      = "B"
+mp_id     = "mp-4774"
+notes     = "CZTS thin-film PV, 1.5 eV. Heavy — 8 atoms prim"
+
+[[material]]
+formula   = "Cu2ZnSnSe4"
+structure = "kesterite"
+tier      = "B"
+mp_id     = "mp-12086"
+notes     = "CZTSe, narrower gap than CZTS # mp_verify"
+
+[[material]]
+formula   = "CuInSe2"
+structure = "chalcopyrite"
+tier      = "B"
+mp_id     = "mp-22736"
+notes     = "CIGS base, 1.0 eV # mp_verify"
+
+[[material]]
+formula   = "CuInS2"
+structure = "chalcopyrite"
+tier      = "B"
+mp_id     = "mp-22840"
+notes     = "CIGS S variant # mp_verify"
+
+[[material]]
+formula   = "Sb2Se3"
+structure = "orthorhombic"
+tier      = "B"
+mp_id     = "mp-2160"
+notes     = "emerging quasi-1D PV absorber, 1.17 eV"
+
+[[material]]
+formula   = "Sb2S3"
+structure = "orthorhombic"
+tier      = "B"
+mp_id     = "mp-2809"
+notes     = "1.7 eV, wider variant # mp_verify"
+
+[[material]]
+formula   = "SnS"
+structure = "herzenbergite"
+tier      = "B"
+mp_id     = "mp-2231"
+notes     = "abundant PV absorber, 1.1 eV # mp_verify"
+
+# ====================================================================
+#   2D materials (5) — Van der Waals gapped systems
+# ====================================================================
+
+[[material]]
+formula   = "MoS2"
+structure = "2H-monolayer"
+tier      = "B"
+mp_id     = "mp-1434"
+notes     = "canonical TMDC, direct 1.8 eV in monolayer"
+
+[[material]]
+formula   = "WS2"
+structure = "2H-monolayer"
+tier      = "B"
+mp_id     = "mp-224"
+notes     = "paired with MoS2 for TMDC heterostructures # mp_verify"
+
+[[material]]
+formula   = "MoSe2"
+structure = "2H-monolayer"
+tier      = "B"
+mp_id     = "mp-1023934"
+notes     = "Se variant, narrower gap # mp_verify"
+
+[[material]]
+formula   = "WSe2"
+structure = "2H-monolayer"
+tier      = "B"
+mp_id     = "mp-1821"
+notes     = "TMDC, ~1.6 eV direct in monolayer # mp_verify"
+
+[[material]]
+formula   = "BN"
+structure = "hexagonal"
+tier      = "B"
+mp_id     = "mp-984"
+notes     = "h-BN, wide indirect gap substrate # mp_verify"
+
+# ====================================================================
+#   Oxide / metal-oxide misc (2)
+# ====================================================================
+
+[[material]]
+formula   = "TiO2"
+structure = "anatase"
+tier      = "B"
+mp_id     = "mp-390"
+notes     = "anatase TiO2, photocatalyst. PBE ~2.1 eV"
+
+[[material]]
+formula   = "TiO2"
+structure = "rutile"
+tier      = "B"
+mp_id     = "mp-2657"
+notes     = "rutile, 3.0 eV expt. Same formula, different polymorph"

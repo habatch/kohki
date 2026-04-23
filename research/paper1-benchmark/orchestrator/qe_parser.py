@@ -52,11 +52,17 @@ RE_VOLUME = re.compile(r"unit-cell volume\s*=\s*(\d+\.\d+)\s*\(a\.u\.\)")
 RE_NATOMS = re.compile(r"number of atoms/cell\s*=\s*(\d+)")
 RE_NKP    = re.compile(r"number of k points=\s*(\d+)")
 RE_VERSION = re.compile(r"Program PWSCF v\.(\S+)\s+starts")
+# QE prints PWSCF timing in several forms:
+#   "PWSCF  :  9m19.66s CPU   4m41.49s WALL"    (short runs)
+#   "PWSCF  :  2h45m CPU      1h21m WALL"        (long runs, no seconds)
+#   "PWSCF  :  45.23s CPU      23.01s WALL"      (trivial runs)
+# We parse lazily: h, m, s fragments each optional so long as ≥1 is present.
 RE_PWSCF_CPU = re.compile(
     r"PWSCF\s*:\s*"
-    r"(?:(\d+)h\s*)?(?:(\d+)m\s*)?([\d.]+)s CPU\s+"
-    r"(?:(\d+)h\s*)?(?:(\d+)m\s*)?([\d.]+)s WALL"
+    r"((?:\d+h\s*)?(?:\d+m\s*)?(?:[\d.]+s)?)\s*CPU\s+"
+    r"((?:\d+h\s*)?(?:\d+m\s*)?(?:[\d.]+s)?)\s*WALL"
 )
+_DURATION_RE = re.compile(r"(?:(\d+)h)?\s*(?:(\d+)m)?\s*(?:([\d.]+)s)?")
 
 
 BOHR_TO_ANG = 0.529177210903
@@ -95,21 +101,28 @@ def _last_int(pattern: re.Pattern[str], text: str) -> int | None:
     return int(matches[-1]) if matches else None
 
 
+def _parse_duration(s: str) -> float | None:
+    """Parse strings like '2h45m', '9m19.66s', '45.23s' into seconds."""
+    s = s.strip()
+    if not s:
+        return None
+    m = _DURATION_RE.fullmatch(s)
+    if not m:
+        return None
+    h, mn, sec = m.groups()
+    total = 0.0
+    if h:   total += int(h) * 3600
+    if mn:  total += int(mn) * 60
+    if sec: total += float(sec)
+    return total if (h or mn or sec) else None
+
+
 def _parse_pwscf_timing(text: str) -> tuple[float | None, float | None]:
     m = RE_PWSCF_CPU.search(text)
     if not m:
         return None, None
-
-    def hms(h, mn, s):
-        total = float(s)
-        if mn:
-            total += int(mn) * 60
-        if h:
-            total += int(h) * 3600
-        return total
-
-    cpu = hms(m.group(1), m.group(2), m.group(3))
-    wall = hms(m.group(4), m.group(5), m.group(6))
+    cpu = _parse_duration(m.group(1))
+    wall = _parse_duration(m.group(2))
     return wall, cpu
 
 

@@ -1,0 +1,125 @@
+# Tier C — doped Si supercells (12 materials)
+#
+# Paper 1's differentiator. LLMs know "Si:P is n-type" but cannot
+# reliably predict:
+#   - donor/acceptor level position relative to CBM/VBM
+#   - formation energy of the dopant
+#   - lattice relaxation around the dopant
+#   - how these change with concentration
+#
+# All entries are GENERATED from pristine Si (no MP id). The recipe
+# fields drive orchestrator/doped_si_gen.py. CIFs are written to
+# materials/fixtures/ on demand and NOT committed.
+#
+# Fields:
+#   recipe.type          = substitutional | vacancy | interstitial
+#   recipe.supercell     = "2x2x2" | "3x3x3" | "4x4x4" of Si diamond conv
+#   recipe.dopant        = element symbol (substitutional/interstitial)
+#   recipe.site_index    = which Si atom to replace (int, 0-based, in
+#                          supercell order). Omit for random-centre.
+#   recipe.a_ang         = Si lattice constant (default 5.43)
+#
+# Expected cell sizes:
+#   2x2x2 → 64 atoms
+#   3x3x3 → 216 atoms (too heavy for Actions free tier; needed for
+#                      dilute concentrations only)
+
+# ====================================================================
+#   64-atom supercells (1.56% concentration) — base benchmark
+# ====================================================================
+
+[[material]]
+formula   = "Si63P1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "n-type donor, classic n-Si"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "P",  site_index = 0 }
+
+[[material]]
+formula   = "Si63B1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "p-type acceptor, classic p-Si"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "B",  site_index = 0 }
+
+[[material]]
+formula   = "Si63Al1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "p-type acceptor, different valence shell than B"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "Al", site_index = 0 }
+
+[[material]]
+formula   = "Si63As1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "n-type, same column as P but 4s²4p³"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "As", site_index = 0 }
+
+[[material]]
+formula   = "Si63Ga1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "p-type, deeper acceptor than B/Al"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "Ga", site_index = 0 }
+
+[[material]]
+formula   = "Si63Sb1"
+structure = "Si 2x2x2 substitutional"
+tier      = "C"
+notes     = "n-type, heavier donor (less common in Si)"
+recipe    = { type = "substitutional", supercell = "2x2x2", dopant = "Sb", site_index = 0 }
+
+# ====================================================================
+#   Intrinsic point defects (2)
+# ====================================================================
+
+[[material]]
+formula   = "Si63"
+structure = "Si 2x2x2 vacancy"
+tier      = "C"
+notes     = "Si monovacancy — classic DFT benchmark (negative-U etc.)"
+recipe    = { type = "vacancy", supercell = "2x2x2", site_index = 0 }
+
+[[material]]
+formula   = "Si64H1"
+structure = "Si 2x2x2 interstitial-H"
+tier      = "C"
+notes     = "Hydrogen interstitial — passivation studies"
+recipe    = { type = "interstitial", supercell = "2x2x2", dopant = "H" }
+
+# ====================================================================
+#   Higher concentration (16-atom supercells, 6.25% doping)
+# ====================================================================
+
+[[material]]
+formula   = "Si15P1"
+structure = "Si 2x2x1 substitutional"
+tier      = "C"
+notes     = "heavy P doping limit, dopant band formation expected"
+recipe    = { type = "substitutional", supercell = "2x2x1", dopant = "P",  site_index = 0 }
+
+[[material]]
+formula   = "Si15B1"
+structure = "Si 2x2x1 substitutional"
+tier      = "C"
+notes     = "heavy B doping limit, strong acceptor overlap"
+recipe    = { type = "substitutional", supercell = "2x2x1", dopant = "B",  site_index = 0 }
+
+# ====================================================================
+#   Sanity control (pristine at same cell size)
+# ====================================================================
+
+[[material]]
+formula   = "Si64"
+structure = "Si 2x2x2 pristine"
+tier      = "C"
+notes     = "control — identical cell to dopant supercells, no defect"
+recipe    = { type = "pristine", supercell = "2x2x2" }
+
+[[material]]
+formula   = "Si16"
+structure = "Si 2x2x1 pristine"
+tier      = "C"
+notes     = "control for heavy-doping series"
+recipe    = { type = "pristine", supercell = "2x2x1" }

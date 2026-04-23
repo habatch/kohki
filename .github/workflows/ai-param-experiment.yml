@@ -1,0 +1,221 @@
+name: AI-Param Experiment
+
+# Reads experiments/ai-param-v1/predictions/{formula}.json, feeds those
+# LLM-proposed parameters straight into pw.x, and bundles the resulting
+# run alongside the full provenance (prompt, response, adopted params,
+# QE input/output, parsed observables).
+
+on:
+  workflow_dispatch:
+    inputs:
+      experiment:
+        description: "experiment id"
+        required: true
+        default: "ai-param-v1"
+      formulas:
+        description: "comma-separated formulas (blank = all in predictions/)"
+        required: false
+        default: ""
+
+concurrency:
+  group: ai-param-${{ github.ref }}-${{ inputs.experiment }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.pick.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: pick
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > matrix.json
+          import json, os
+          from pathlib import Path
+          exp = os.environ["EXP"]
+          want = os.environ["FORMULAS"].strip()
+          pred_dir = Path(f"research/paper1-benchmark/experiments/{exp}/predictions")
+          files = sorted(pred_dir.glob("*.json"))
+          if want:
+              wanted = {w.strip() for w in want.split(",") if w.strip()}
+              files = [f for f in files if f.stem in wanted]
+          entries = [{"formula": f.stem, "json_path": str(f)} for f in files]
+          print(json.dumps({"include": entries}))
+          PY
+          echo "matrix=$(cat matrix.json)" >> "$GITHUB_OUTPUT"
+        env:
+          EXP: ${{ inputs.experiment }}
+          FORMULAS: ${{ inputs.formulas }}
+
+  run-qe:
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install QE + ASE (conda-forge `qe` package)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/bin"
+          curl -L https://micro.mamba.pm/api/micromamba/linux-64/latest \
+            | tar -xvj -C "$HOME" bin/micromamba
+          export PATH="$HOME/bin:$PATH"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+          export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+          echo "MAMBA_ROOT_PREFIX=$HOME/micromamba" >> "$GITHUB_ENV"
+          micromamba create -y -n qe -c conda-forge python=3.12 qe ase spglib numpy
+
+      - name: Stage inputs — CIF, pseudos, AI-chosen params
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work/pseudo
+          FORMULA="${{ matrix.formula }}"
+          ROOT="${GITHUB_WORKSPACE}/research/paper1-benchmark"
+
+          # CIF
+          cp "$ROOT/materials/fixtures/${FORMULA}.cif" "work/${FORMULA}.cif"
+
+          # Pseudos — rename {Element}_ONCV_PBE-1.2.upf → {Element}.upf
+          python3 - <<'PY'
+          import os, re, shutil
+          from pathlib import Path
+          src = Path(os.environ["GITHUB_WORKSPACE"]) / "research/paper1-benchmark/materials/pseudos"
+          dst = Path("work/pseudo")
+          for upf in src.glob("*.upf"):
+              m = re.match(r"([A-Z][a-z]?)[_.].*\.upf$", upf.name)
+              if m:
+                  shutil.copy(upf, dst / f"{m.group(1)}.upf")
+          PY
+
+          # Copy prediction JSON into work/ for later bundling
+          cp "${{ matrix.json_path }}" "work/prediction.json"
+
+      - name: Build pw.x input from AI prediction
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd work
+          micromamba run -n qe python3 - <<'PY'
+          import json, sys
+          from ase.io import read, write
+          FORMULA = "${{ matrix.formula }}"
+          pred = json.loads(open("prediction.json").read())
+          p = pred["params"]
+          atoms = read(f"{FORMULA}.cif")
+          pseudos = {el: f"{el}.upf" for el in {a.symbol for a in atoms}}
+          write(
+              f"{FORMULA}.scf.in",
+              atoms,
+              format="espresso-in",
+              input_data={
+                  "calculation": "scf",
+                  "prefix":      FORMULA,
+                  "pseudo_dir":  "./pseudo",
+                  "outdir":      "./tmp",
+                  "verbosity":   "high",
+                  "ecutwfc":     p["ecutwfc"],
+                  "ecutrho":     p["ecutrho"],
+                  "occupations": "smearing",
+                  "smearing":    p["smearing"],
+                  "degauss":     p["degauss"],
+                  "conv_thr":    p["conv_thr"],
+                  "mixing_beta": p["mixing_beta"],
+              },
+              pseudopotentials=pseudos,
+              kpts=list(p["kpoints"]),
+          )
+          print(f"{FORMULA}: ecut={p['ecutwfc']}/{p['ecutrho']}Ry k={p['kpoints']} conv_thr={p['conv_thr']}")
+          PY
+
+      - name: Run pw.x
+        id: scf
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd work
+          F="${{ matrix.formula }}"
+          t0=$(date +%s)
+          micromamba run -n qe mpirun -n 2 --oversubscribe pw.x -in "${F}.scf.in" > "${F}.scf.out" 2>&1 || {
+            echo "::error::pw.x failed. Last 40 lines:"
+            tail -40 "${F}.scf.out" >&2
+            exit 1
+          }
+          t1=$(date +%s)
+          echo "wall_seconds=$((t1-t0))" >> "$GITHUB_OUTPUT"
+          grep -E "^!.*total energy|Fermi energy|convergence has been achieved" "${F}.scf.out" || true
+
+      - name: Parse + bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd work
+          F="${{ matrix.formula }}"
+          micromamba run -n qe python3 - <<PY
+          import sys, json, zipfile, hashlib, time, platform
+          sys.path.insert(0, "${GITHUB_WORKSPACE}/research/paper1-benchmark")
+          from pathlib import Path
+          from orchestrator.qe_parser import parse_pw_file
+          from orchestrator.provenance import current_env, sha256_text
+
+          F = "${F}"
+          exp = "${{ inputs.experiment }}"
+          pred = json.loads(Path("prediction.json").read_text())
+          obs = parse_pw_file(f"{F}.scf.out")
+          qe_in = Path(f"{F}.scf.in").read_text()
+          qe_out = Path(f"{F}.scf.out").read_text()
+          env = current_env()
+
+          meta = {
+              "schema": "paper3.provenance.ai-param.v1",
+              "experiment": exp,
+              "material": F,
+              "prediction": pred,
+              "env": env.__dict__,
+              "input_sha256":  sha256_text(qe_in),
+              "output_sha256": sha256_text(qe_out),
+              "wall_seconds_observed": ${{ steps.scf.outputs.wall_seconds || 0 }},
+              "observables": obs.to_dict(),
+          }
+
+          out_zip = Path(f"{F}.zip")
+          with zipfile.ZipFile(out_zip, "w", zipfile.ZIP_DEFLATED) as z:
+              z.writestr("prediction.json", json.dumps(pred, indent=2))
+              z.writestr("input.in", qe_in)
+              z.writestr("output.out", qe_out)
+              z.writestr("metadata.json", json.dumps(meta, indent=2, sort_keys=True))
+
+          # Stand-alone summary line for the cross-material JSONL
+          summary_line = {
+              "material": F,
+              "converged": obs.converged,
+              "n_scf_iter": obs.n_scf_iter,
+              "total_energy_Ry": obs.total_energy_Ry,
+              "fermi_energy_eV": obs.fermi_energy_eV,
+              "band_gap_eV": obs.band_gap_eV,
+              "wall_seconds": obs.wall_seconds,
+              "params": pred["params"],
+              "llm_model_id": pred["llm"]["model_id"],
+          }
+          Path(f"{F}.summary.json").write_text(json.dumps(summary_line, indent=2, sort_keys=True))
+          print(f"bundled {out_zip}")
+          PY
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-param-${{ matrix.formula }}
+          path: |
+            work/${{ matrix.formula }}.zip
+            work/${{ matrix.formula }}.summary.json
+          retention-days: 30
+          if-no-files-found: error

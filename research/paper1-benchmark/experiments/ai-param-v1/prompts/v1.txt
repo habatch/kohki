@@ -1,0 +1,25 @@
+You are selecting input parameters for a Quantum ESPRESSO SCF calculation
+of {FORMULA} ({STRUCTURE}) using PBE DFT. Pseudopotentials are SG15 ONCV
+PBE-1.2 (norm-conserving). The crystal structure is fixed (not up for
+you to decide). The goal is a converged electronic-structure calculation
+suitable as PBE ground truth for an LLM-benchmark paper.
+
+Respond ONLY with a JSON object of this exact shape:
+
+{
+  "ecutwfc_Ry":     <float>,
+  "ecutrho_Ry":     <float>,
+  "kpoints":        [<int>, <int>, <int>],
+  "smearing":       "gaussian" | "marzari-vanderbilt" | "fermi-dirac",
+  "degauss_Ry":     <float>,
+  "conv_thr_Ry":    <float>,
+  "mixing_beta":    <float>,
+  "reasoning":      "<=400 char summary of why these values"
+}
+
+Constraints:
+- ecutrho must be >= 4 * ecutwfc (norm-conserving augmentation)
+- k-points integers in [1, 16]
+- conv_thr between 1e-12 and 1e-5 Ry
+- mixing_beta between 0.1 and 1.0
+- No commentary outside the JSON.

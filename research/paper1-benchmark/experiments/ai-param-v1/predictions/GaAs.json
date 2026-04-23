@@ -1,0 +1,23 @@
+{
+  "material": "GaAs",
+  "structure": "zincblende-primitive",
+  "cif_fixture": "materials/fixtures/GaAs.cif",
+  "llm": {
+    "model_id": "claude-opus-4-7[1m] (Claude Code CLI session, non-reproducible)",
+    "temperature": "unknown-session-default (~1.0)",
+    "seed": null,
+    "timestamp_utc": "2026-04-23T08:10:01Z",
+    "prompt_file": "prompts/v1.txt",
+    "prompt_subs": {"FORMULA": "GaAs", "STRUCTURE": "zincblende primitive 2-atom cell"},
+    "response_raw": "{\"ecutwfc_Ry\": 60.0, \"ecutrho_Ry\": 480.0, \"kpoints\": [8, 8, 8], \"smearing\": \"gaussian\", \"degauss_Ry\": 0.005, \"conv_thr_Ry\": 1e-10, \"mixing_beta\": 0.5, \"reasoning\": \"Ga 3d10 is in valence for SG15 ONCV, so ecutwfc needs ~55-65 Ry (60 chosen). ecutrho=4x is the NC minimum but I pick 8x=480 Ry to damp core-state wiggles from Ga 3d in charge density. k=8x8x8 matches Si density; GaAs is direct-gap at Γ so we want Γ-inclusive or well-sampled. mixing_beta=0.5 lower than Si because 3d adds charge-sloshing risk.\"}"
+  },
+  "params": {
+    "ecutwfc": 60.0,
+    "ecutrho": 480.0,
+    "kpoints": [8, 8, 8],
+    "smearing": "gaussian",
+    "degauss": 0.005,
+    "conv_thr": 1.0e-10,
+    "mixing_beta": 0.5
+  }
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: 15 16 20;
+  --fg: 231 232 234;
+  --muted: 156 159 168;
+  --border: 36 39 46;
+  --surface: 22 24 30;
+  --surface-2: 28 30 38;
+}
+
+html, body { background: rgb(var(--bg)); color: rgb(var(--fg)); }
+body { font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; }
+.bg-surface { background-color: rgb(var(--surface)); }
+.bg-surface-2 { background-color: rgb(var(--surface-2)); }
+.border-border { border-color: rgb(var(--border)); }
+.text-muted-foreground { color: rgb(var(--muted)); }
+.scrollbar-slim::-webkit-scrollbar { width: 8px; height: 8px; }
+.scrollbar-slim::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 4px; }

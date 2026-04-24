@@ -1,0 +1,9 @@
+{
+  "ecutwfc_Ry": 80.0,
+  "ecutrho_Ry": 320.0,
+  "kpoints": [8, 8, 8],
+  "smearing": "gaussian",
+  "degauss_Ry": 0.01,
+  "conv_thr_Ry": 1e-8,
+  "mixing_beta": 0.7
+}

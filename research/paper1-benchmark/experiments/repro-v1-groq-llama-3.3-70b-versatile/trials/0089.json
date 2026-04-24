@@ -1,0 +1,41 @@
+{
+  "model": "llama-3.3-70b-versatile",
+  "ollama_eval_count": 97,
+  "ollama_eval_duration_s": 3.4229118824005127,
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 160.0,
+    "ecutwfc_Ry": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "provider": "groq",
+  "response_sha256": "d55cc9980b85720a0f3c6f74068713b252167b5921e5dc821a7e9eaf9ccda66f",
+  "response_text": "{\n  \"ecutwfc_Ry\":     40.0,\n  \"ecutrho_Ry\":     160.0,\n  \"kpoints\":        [8, 8, 8],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-8,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-24T07:34:23Z",
+  "trial_index": 89,
+  "wall_seconds": 3.4229118824005127
+}

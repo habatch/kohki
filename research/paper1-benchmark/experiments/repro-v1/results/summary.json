@@ -1,0 +1,84 @@
+{
+  "experiment": "repro-v1",
+  "fully_reproducible_params": true,
+  "fully_reproducible_response": true,
+  "model": "qwen2.5:7b",
+  "n_parse_failures": 0,
+  "n_trials": 100,
+  "n_valid": 100,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-10": 100
+    },
+    "degauss": {
+      "0.05": 100
+    },
+    "ecutrho": {
+      "120.0": 100
+    },
+    "ecutwfc": {
+      "30.0": 100
+    },
+    "kpoints": {
+      "[4,4,4]": 100
+    },
+    "mixing_beta": {
+      "0.7": 100
+    },
+    "smearing": {
+      "fermi-dirac": 100
+    }
+  },
+  "param_set_hash_counts": {
+    "d18c06ffc8c69ac7391b2e1800fb48ef2987383c870855a45ac179b463bd6ae1": 100
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "response_hash_counts": {
+    "9a5770e769c077a6814c67064feb45785bd919e3ee68435c4326f3530076989b": 100
+  },
+  "schema": "paper3.repro.v1",
+  "seed_base": 42,
+  "stats": {
+    "conv_thr_Ry": {
+      "max": 1e-10,
+      "mean": 1e-10,
+      "min": 1e-10,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "degauss_Ry": {
+      "max": 0.05,
+      "mean": 0.05,
+      "min": 0.05,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "ecutrho_Ry": {
+      "max": 120.0,
+      "mean": 120.0,
+      "min": 120.0,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "ecutwfc_Ry": {
+      "max": 30.0,
+      "mean": 30.0,
+      "min": 30.0,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "mixing_beta": {
+      "max": 0.7,
+      "mean": 0.7,
+      "min": 0.7,
+      "n": 100,
+      "stdev": 0.0
+    }
+  },
+  "status": "completed",
+  "temperature": 0.0,
+  "unique_param_set_count": 1,
+  "unique_response_count": 1,
+  "wall_seconds_per_trial_mean": 27.64,
+  "wall_seconds_total": 2763.9
+}

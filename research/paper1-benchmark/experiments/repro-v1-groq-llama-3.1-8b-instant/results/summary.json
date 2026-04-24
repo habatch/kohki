@@ -1,0 +1,84 @@
+{
+  "experiment": "repro-v1-groq-llama-3.1-8b-instant",
+  "fully_reproducible_params": true,
+  "fully_reproducible_response": true,
+  "model": "llama-3.1-8b-instant",
+  "n_parse_failures": 0,
+  "n_trials": 67,
+  "n_valid": 67,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-12": 67
+    },
+    "degauss": {
+      "0.01": 67
+    },
+    "ecutrho": {
+      "120.0": 67
+    },
+    "ecutwfc": {
+      "30.0": 67
+    },
+    "kpoints": {
+      "[4,4,4]": 67
+    },
+    "mixing_beta": {
+      "0.7": 67
+    },
+    "smearing": {
+      "gaussian": 67
+    }
+  },
+  "param_set_hash_counts": {
+    "254c224e124540a444eefa60e9fe0eea1f5fb715e6ef6daffc28bc0b3eed67a9": 67
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "response_hash_counts": {
+    "46f5a477822f0bc31e9f0c00da7472b1bd3e7296b15ccb9ea96d49771d3a3885": 67
+  },
+  "schema": "paper3.repro.v1",
+  "seed_base": 42,
+  "stats": {
+    "conv_thr_Ry": {
+      "max": 1e-12,
+      "mean": 1e-12,
+      "min": 1e-12,
+      "n": 67,
+      "stdev": 0.0
+    },
+    "degauss_Ry": {
+      "max": 0.01,
+      "mean": 0.01,
+      "min": 0.01,
+      "n": 67,
+      "stdev": 0.0
+    },
+    "ecutrho_Ry": {
+      "max": 120.0,
+      "mean": 120.0,
+      "min": 120.0,
+      "n": 67,
+      "stdev": 0.0
+    },
+    "ecutwfc_Ry": {
+      "max": 30.0,
+      "mean": 30.0,
+      "min": 30.0,
+      "n": 67,
+      "stdev": 0.0
+    },
+    "mixing_beta": {
+      "max": 0.7,
+      "mean": 0.7,
+      "min": 0.7,
+      "n": 67,
+      "stdev": 0.0
+    }
+  },
+  "status": "completed",
+  "temperature": 0.0,
+  "unique_param_set_count": 1,
+  "unique_response_count": 1,
+  "wall_seconds_per_trial_mean": 2.2,
+  "wall_seconds_total": 147.4
+}

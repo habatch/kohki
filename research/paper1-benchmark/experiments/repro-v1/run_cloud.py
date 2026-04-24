@@ -134,7 +134,7 @@ def write_summary(rows, model: str, temperature: float, seed: int | None,
 
 
 def run(provider: str, model: str, n: int, temperature: float, seed: int | None,
-        out_root: Path) -> None:
+        out_root: Path, max_tokens: int = 512) -> None:
     trials_dir = out_root / "trials"
     results_dir = out_root / "results"
     prompts_dir = out_root / "prompts"
@@ -153,7 +153,7 @@ def run(provider: str, model: str, n: int, temperature: float, seed: int | None,
     rows: list[dict[str, Any]] = []
     for i in range(n):
         try:
-            resp: CloudResponse = client.ask(prompt, temperature=temperature, seed=seed)
+            resp: CloudResponse = client.ask(prompt, temperature=temperature, seed=seed, max_tokens=max_tokens)
         except Exception as e:
             print(f"  [{i:03d}] FAIL: {e}", file=sys.stderr)
             continue
@@ -210,12 +210,15 @@ def main() -> int:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--subdir", default=None,
                    help="experiments/<subdir>/ に出力。省略時は experiments/repro-v1-<provider>-<model_safe>")
+    p.add_argument("--max-tokens", type=int, default=512,
+                   help="応答の最大トークン数。reasoning モデルは 4096 程度必要")
     args = p.parse_args()
 
     safe = re.sub(r"[^a-zA-Z0-9_.-]", "-", args.model)
     sub = args.subdir or f"repro-v1-{args.provider}-{safe}"
     out_root = EXP_DIR.parent / sub
-    run(args.provider, args.model, args.n, args.temperature, args.seed, out_root)
+    run(args.provider, args.model, args.n, args.temperature, args.seed, out_root,
+        max_tokens=args.max_tokens)
     return 0
 
 

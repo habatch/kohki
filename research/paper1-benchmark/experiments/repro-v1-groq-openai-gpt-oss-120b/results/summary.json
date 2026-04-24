@@ -1,0 +1,95 @@
+{
+  "experiment": "repro-v1-groq-openai-gpt-oss-120b",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "model": "openai/gpt-oss-120b",
+  "n_parse_failures": 0,
+  "n_trials": 74,
+  "n_valid": 74,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 74
+    },
+    "degauss": {
+      "0.01": 73,
+      "0.02": 1
+    },
+    "ecutrho": {
+      "320.0": 74
+    },
+    "ecutwfc": {
+      "80.0": 74
+    },
+    "kpoints": {
+      "[6,6,6]": 61,
+      "[8,8,8]": 13
+    },
+    "mixing_beta": {
+      "0.7": 74
+    },
+    "smearing": {
+      "gaussian": 71,
+      "marzari-vanderbilt": 3
+    }
+  },
+  "param_set_hash_counts": {
+    "60b70cf185f5636b325073b765c874ae63ad24555b3aab4645ac7c801f37daef": 12,
+    "6fc1ce215decfb1a6559d5227effa78605c6322b45748f16d4edef572b192f74": 1,
+    "8650fb854347f4818fccbb16d3d3d2df9fc439070559ceb8629c878dbcba0a9f": 59,
+    "d541b41a569c6c873c3818b1c5db8426850a3d8de1eaa45d1ac0b5bb92569cf0": 1,
+    "e4029b15e930664ab3babdb6fbf4cbeb9f293f246cfab4d6a2b38c603376656b": 1
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "response_hash_counts": {
+    "2f3edfa7e925699644f3bff23abb225bbf3082ae558abe4921f813d5cec341c3": 1,
+    "aef2d4b642ac773b26bd6817467f2e68e1e1ef0aa33510cb49b419bb619e5046": 59,
+    "c26696440148035a7e4df8cb00183d007c9e5f68e3f6a44c648dd3287edaeae8": 12,
+    "c46264df4d061ae7ff501f7d3a722b47bbadbc73835781dbc79b0c9c329878e6": 1,
+    "d5a57da6d13873c1decc15e7fb1ca809b009426abe98c789f9ea8c7204011db0": 1
+  },
+  "schema": "paper3.repro.v1",
+  "seed_base": 42,
+  "stats": {
+    "conv_thr_Ry": {
+      "max": 1e-08,
+      "mean": 1e-08,
+      "min": 1e-08,
+      "n": 74,
+      "stdev": 0.0
+    },
+    "degauss_Ry": {
+      "max": 0.02,
+      "mean": 0.010135135135135136,
+      "min": 0.01,
+      "n": 74,
+      "stdev": 0.0011624763874381928
+    },
+    "ecutrho_Ry": {
+      "max": 320.0,
+      "mean": 320.0,
+      "min": 320.0,
+      "n": 74,
+      "stdev": 0.0
+    },
+    "ecutwfc_Ry": {
+      "max": 80.0,
+      "mean": 80.0,
+      "min": 80.0,
+      "n": 74,
+      "stdev": 0.0
+    },
+    "mixing_beta": {
+      "max": 0.7,
+      "mean": 0.7,
+      "min": 0.7,
+      "n": 74,
+      "stdev": 0.0
+    }
+  },
+  "status": "completed",
+  "temperature": 0.0,
+  "unique_param_set_count": 5,
+  "unique_response_count": 5,
+  "wall_seconds_per_trial_mean": 3.02,
+  "wall_seconds_total": 223.7
+}

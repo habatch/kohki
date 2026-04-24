@@ -1,0 +1,90 @@
+{
+  "experiment": "repro-v1-groq-llama-3.3-70b-versatile",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "model": "llama-3.3-70b-versatile",
+  "n_parse_failures": 0,
+  "n_trials": 100,
+  "n_valid": 100,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 100
+    },
+    "degauss": {
+      "0.01": 100
+    },
+    "ecutrho": {
+      "160.0": 100
+    },
+    "ecutwfc": {
+      "40.0": 100
+    },
+    "kpoints": {
+      "[4,4,4]": 62,
+      "[8,8,8]": 38
+    },
+    "mixing_beta": {
+      "0.7": 100
+    },
+    "smearing": {
+      "fermi-dirac": 99,
+      "gaussian": 1
+    }
+  },
+  "param_set_hash_counts": {
+    "208240bf3a0eb9dce94cb34ec0cf0ef72d71c65bc9486220772fc1b7b1394330": 1,
+    "3203007f0e3da7e5385cecc00e906029c4f41ee6527f403ce0460a1c2c11af4a": 38,
+    "4debe7dd906de26e3032f0ec35888fe7504aee88bbb23736599ddb04a0dfeba6": 61
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "response_hash_counts": {
+    "7f76eb53b04a0eb4c9b1d031c1a8daaf5502c247c62149e83b94f71441526929": 1,
+    "c2503015c85aa23bcfe7f5c1f4ed06ab7e493d947d43a41037980c41e9eb639b": 61,
+    "d55cc9980b85720a0f3c6f74068713b252167b5921e5dc821a7e9eaf9ccda66f": 38
+  },
+  "schema": "paper3.repro.v1",
+  "seed_base": 42,
+  "stats": {
+    "conv_thr_Ry": {
+      "max": 1e-08,
+      "mean": 1e-08,
+      "min": 1e-08,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "degauss_Ry": {
+      "max": 0.01,
+      "mean": 0.01,
+      "min": 0.01,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "ecutrho_Ry": {
+      "max": 160.0,
+      "mean": 160.0,
+      "min": 160.0,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "ecutwfc_Ry": {
+      "max": 40.0,
+      "mean": 40.0,
+      "min": 40.0,
+      "n": 100,
+      "stdev": 0.0
+    },
+    "mixing_beta": {
+      "max": 0.7,
+      "mean": 0.7,
+      "min": 0.7,
+      "n": 100,
+      "stdev": 0.0
+    }
+  },
+  "status": "completed",
+  "temperature": 0.0,
+  "unique_param_set_count": 3,
+  "unique_response_count": 3,
+  "wall_seconds_per_trial_mean": 2.33,
+  "wall_seconds_total": 233.0
+}

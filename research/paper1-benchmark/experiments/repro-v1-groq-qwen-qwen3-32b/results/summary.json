@@ -1,0 +1,120 @@
+{
+  "experiment": "repro-v1-groq-qwen-qwen3-32b",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "model": "qwen/qwen3-32b",
+  "n_parse_failures": 9,
+  "n_trials": 20,
+  "n_valid": 11,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 6,
+      "1e-10": 5
+    },
+    "degauss": {
+      "0.01": 11
+    },
+    "ecutrho": {
+      "240.0": 1,
+      "280.0": 7,
+      "320.0": 3
+    },
+    "ecutwfc": {
+      "60.0": 1,
+      "70.0": 7,
+      "80.0": 3
+    },
+    "kpoints": {
+      "[6,6,6]": 3,
+      "[8,8,8]": 8
+    },
+    "mixing_beta": {
+      "0.2": 1,
+      "0.7": 10
+    },
+    "smearing": {
+      "gaussian": 6,
+      "marzari-vanderbilt": 5
+    }
+  },
+  "param_set_hash_counts": {
+    "3626a5f05db63cd2be16a9a23dd25168092328b5b2a525201076c620f15bf992": 1,
+    "3ba2cb41c61dd54ddaf44d47e045e2ba1c1cbc54bcb0f4087764976a18be85b3": 1,
+    "508bc5e4805274c15858dffa6521d711ca7099941dd2f6e613d9436a3b0aa344": 1,
+    "635ce8fb96b5fd7b868c07a0fb0eb7fd6a24557d98bfdccccf4b065ee866321d": 1,
+    "6ef6a8d1034182ed2547adc658e9d90d08cddf1e3f620f33cb5f014f14354f7d": 1,
+    "9c926a393c81da7a9b34172080c366a4637294a6530f363013f0b79696d2ec95": 2,
+    "abb720cadaa886fe68bdd31fcac32ee4f90ed484cfc02274a1737f83ec3181e5": 1,
+    "d541b41a569c6c873c3818b1c5db8426850a3d8de1eaa45d1ac0b5bb92569cf0": 1,
+    "d83aa97c740b6fb17dba7cb9d57c3570aa64e44579d42075f8d5f2ab09c391d3": 1,
+    "dd530d6ca920362a79c5a0abbfc76adfd8872b9ae725647ecf286701544b9664": 1
+  },
+  "prompt_sha256": "1567a9f7ae8873af8fbb731b9ab4c08d488b78adf1a30f554dc54c320ebd5ddd",
+  "response_hash_counts": {
+    "06b81f3b7f6140d48f1fd45c4b45ef9a8c314e857988a1d803b494e923e4b9c4": 1,
+    "0cc22d83f449fcc4b7e15fdf4ebc46dee9e7a7081d51f6493f76be6fa6dc220c": 1,
+    "0e10833472dedba7e332a61822c563f306f4aefa28a7f440af71d6e09028f2ad": 1,
+    "14233c94797968db6c09725acd6c6117d23246a89477bcea8de1f9115f8957e3": 1,
+    "50ab150c427127c151c8d09296fe895b45a67b98a3f6a22dac1626c39b507868": 1,
+    "5a419e028410684376544e2261ebd72be1ad4ffb60f4fdca173659ded6e839d4": 1,
+    "5cca4fec754656e7e84c35b3e33d32836df88525f5326b1026490551edf857c2": 1,
+    "68138ed29e5a1664759e721f8f0cfffc8c26415688ce16d8344599cdc5089d05": 1,
+    "7bda0baf31cf4b629077f0137ee24534426909ae70d11e9235b9e3370bd047b5": 1,
+    "868d55b66b7cc178161c453bd8983b65a0a468ed80f88213c69fc17ccf88ccf3": 1,
+    "86984574c832408b9b15f701fe59e0449de732317ee71da057054e1431df0787": 1,
+    "97c906312068ff1530575d2035cbf7fff579b285a44e4f78df7fba8293c7181a": 1,
+    "a1c0c0cd1870a72144c52099bdb87e761b1965e9b2f98a81f180f1e7fb722f58": 1,
+    "ae4b2027738ab50d83e9c1db913d16d2623954c5e789aac938f058b698be7ade": 1,
+    "b5bb6592e4e4fd286c3f088b789875cd233d3b0b3f86655db66ec0231ab2a428": 1,
+    "d371e5b7e308b2f26dc88cf8b9d16e49f1f4ad80b354d99afc72c882aa75b2db": 1,
+    "df7f8287c7aa1472e3f77863c1bc47e88f0b0ab87ceb7f07fc01b1c8a5862d23": 1,
+    "e062f6a190f1be9b87fef6424d5d34263c63104fe453ff64db117f4ac1f93cdf": 1,
+    "e7f7b466bffe3bcfd0ccb8201164a88f7e872bfc674de949eedce760daa2cd18": 1,
+    "ff5e87bbb72aeef1b57a8e2590907fb3af9548e6948da552ec090b6acc219278": 1
+  },
+  "schema": "paper3.repro.v1",
+  "seed_base": 42,
+  "stats": {
+    "conv_thr_Ry": {
+      "max": 1e-08,
+      "mean": 5.5000000000000004e-09,
+      "min": 1e-10,
+      "n": 11,
+      "stdev": 5.170106381884226e-09
+    },
+    "degauss_Ry": {
+      "max": 0.01,
+      "mean": 0.01,
+      "min": 0.01,
+      "n": 11,
+      "stdev": 0.0
+    },
+    "ecutrho_Ry": {
+      "max": 320.0,
+      "mean": 287.27272727272725,
+      "min": 240.0,
+      "n": 11,
+      "stdev": 24.12090756622109
+    },
+    "ecutwfc_Ry": {
+      "max": 80.0,
+      "mean": 71.81818181818181,
+      "min": 60.0,
+      "n": 11,
+      "stdev": 6.030226891555272
+    },
+    "mixing_beta": {
+      "max": 0.7,
+      "mean": 0.6545454545454545,
+      "min": 0.2,
+      "n": 11,
+      "stdev": 0.1507556722888818
+    }
+  },
+  "status": "completed",
+  "temperature": 0.0,
+  "unique_param_set_count": 10,
+  "unique_response_count": 20,
+  "wall_seconds_per_trial_mean": 5.07,
+  "wall_seconds_total": 101.4
+}

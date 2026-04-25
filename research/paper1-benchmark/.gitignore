@@ -19,3 +19,7 @@ __pycache__/
 .env
 .env.local
 kaggle.json
+
+# RAG environment & index
+.rag-env/
+.rag-db/

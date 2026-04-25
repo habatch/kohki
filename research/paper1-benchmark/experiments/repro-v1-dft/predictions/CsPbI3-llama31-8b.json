@@ -1,0 +1,25 @@
+{
+  "material": "CsPbI3-llama31-8b",
+  "structure": "perovskite-cubic-CsPbI3",
+  "cif_fixture": "materials/fixtures/CsPbI3-llama31-8b.cif",
+  "llm": {
+    "model_id": "llama-3.1-8b-instant (Groq)",
+    "source_experiment": "repro-v1 (most common params over 100 trials)",
+    "temperature": 0.0,
+    "seed": 42,
+    "rationale": "Mode parameters from N=100 reproducibility trials"
+  },
+  "params": {
+    "ecutwfc": 30.0,
+    "ecutrho": 120.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "smearing": "gaussian",
+    "degauss": 0.01,
+    "conv_thr": 1e-12,
+    "mixing_beta": 0.7
+  }
+}

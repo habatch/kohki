@@ -1,0 +1,25 @@
+{
+  "material": "CsPbI3-qwen3-32b",
+  "structure": "perovskite-cubic-CsPbI3",
+  "cif_fixture": "materials/fixtures/CsPbI3-qwen3-32b.cif",
+  "llm": {
+    "model_id": "qwen/qwen3-32b reasoning (Groq)",
+    "source_experiment": "repro-v1 (most common params over 100 trials)",
+    "temperature": 0.0,
+    "seed": 42,
+    "rationale": "Mode parameters from N=100 reproducibility trials"
+  },
+  "params": {
+    "ecutwfc": 70.0,
+    "ecutrho": 280.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "smearing": "gaussian",
+    "degauss": 0.01,
+    "conv_thr": 1e-08,
+    "mixing_beta": 0.7
+  }
+}

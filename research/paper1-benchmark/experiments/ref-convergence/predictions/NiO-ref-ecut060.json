@@ -1,0 +1,24 @@
+{
+  "cif_fixture": "materials/fixtures/NiO_rocksalt.cif",
+  "llm": {
+    "is_reference": true,
+    "model_id": "reference-convergence-test-ecut60",
+    "rationale": "Reference convergence sweep point: ecutwfc=60 Ry",
+    "source_experiment": "ref-convergence"
+  },
+  "material": "NiO-ref-ecut060",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.005,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.4,
+    "smearing": "gaussian"
+  },
+  "structure": "rocksalt Fm-3m (\u78c1\u6027: \u771f\u306e\u57fa\u5e95\u72b6\u614b\u306f AFM-II\u3001\u672c\u5b9f\u9a13\u3067\u306f nspin=1 \u3067\u8a55\u4fa1)"
+}

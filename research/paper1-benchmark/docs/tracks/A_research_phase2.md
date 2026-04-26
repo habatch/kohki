@@ -4,11 +4,24 @@
 ステータス: **active** (Phase 1 完了直後に Phase 2 着手)
 出発点: Phase 1 (repro-v1 + repro-v1-dft) の知見
 
-## 中心研究課題
+**改訂履歴**:
+- 2026-04-25: 初版 (3 hypothesis H1-H3、5 LLM × 20 材料 plan)
+- 2026-04-26 朝: ensemble 統合 (H4-H6 追加、4 ensemble 手法)、N=10 確定
+- 2026-04-26 午後: **TritonDFT (arXiv 2603.03372) 発見後の再位置付け**
+  - 同テーマで 8 LLM (proprietary) × 68 材料の先行研究があった
+  - 本研究の差別化軸 (open-source LLM / reasoning 軸 / ensemble / repro) を明確化
+  - 1 meV/atom 互換 metric 追加、NiO (磁性系) 追加 (TritonDFT 直接対比)
 
-> **「LLM が生成した DFT パラメータは、実際に pw.x に投入したとき、どの程度の物理的正確性を示すか」を統計的・物理的に明らかにする**
+## 中心研究課題 (TritonDFT 後の再定義)
 
-これは旧 Phase 2-C「Ensemble + guardrail で解決する」とは異なり、
+> **「Open-source LLM 単独 + Ensemble 集約は、proprietary agentic 系 (TritonDFT)
+>   と比べて第一原理計算 param 提案でどこまで実用的か?」**
+
+旧版 ("LLM 提案 params の正確性を測ること自体") は TritonDFT に既に踏まれており、
+本研究は **proprietary 一辺倒の状況に対する OSS + ensemble の代替提示** として
+位置付け直す。これは「測定」から「**測定 + 代替提案**」への研究目標 upgrade。
+
+これは旧 Phase 2-C「Ensemble + guardrail で解決する」と異なり、
 **「現状の LLM 提案 params の正確性を *測ること自体* を主目的とする**」 という研究志向。
 
 ## 今までの研究結果のサマリ (Phase 1 末時点)
@@ -52,8 +65,16 @@
 | **(C) guardrail + voting** | 物理制約 (smearing/ecut/degauss range) で不合理提案をフィルタ、残りで (A) | 0 | 0 |
 | **(E) MoE 材料ルーティング** | 各 Tier で最良の LLM を選び、材料種別で割り当てた virtual ensemble | 0 | 0 |
 
-**Phase 2 では追加 DFT を実行しない方針** (2026-04-26 user 判断)。
-ensemble の最終的な物理検証は Phase 3 (将来) に持ち越し。
+**Phase 2 では ensemble 検証用 DFT を当初行わない方針 (2026-04-26 朝)** だったが、
+**午後にユーザ判断で 40 ensemble cell の DFT も実行に変更**。GH Actions ai-param-experiment.yml
+で個別 50 cell + ensemble 39 cell + NiO 拡張 10 cell = 99 cell を並列実行。
+
+### TritonDFT 対比評価 (H7、2026-04-26 午後 追加)
+
+| 仮説 | 検証方法 |
+|---|---|
+| **H7**: Open-source LLM (qwen / llama / phi / deepseek 系) は proprietary LLM (GPT-5 / Claude / Gemini) と DFT param 提案の正確性で **どこまで肩を並べるか** | TritonDFT (Wang et al. 2026) の 1 meV/atom pass rate と本研究の OSS LLM 結果を同 metric で並置。同 LLM サイズ帯 (~70B) で OSS と proprietary の gap を測定 |
+| **H8** (派生): 磁性系では OSS LLM も proprietary LLM 同様に失敗するか | NiO で 5 OSS LLM の DFT+U / nspin / starting_magnetization 言及率を測定し、TritonDFT 報告 (proprietary 全 LLM <6% pass) と比較 |
 
 ## Phase 2 実行計画 (Step 1-7)
 
@@ -122,11 +143,31 @@ deliverable: `analyses/track-a-phase2/` 配下に Jupyter notebook + figures
 ### Step 6: 論文 draft 作成 (2 週)
 
 target journal: npj Computational Materials, Digital Discovery, NPJ Quantum Materials のいずれか
-- 論文タイトル草案 (2026-04-26 改訂、ensemble 統合版):
+
+- 論文タイトル草案 (2026-04-26 午後 改訂、TritonDFT 後の re-positioning 版):
+  "Are open-source LLMs and ensemble methods competitive with proprietary
+   agentic systems for first-principles parameter selection?
+   A complementary 7-LLM × 11-material benchmark with 1 meV/atom accuracy
+   and reproducibility metrics"
+
+- 旧版 (ensemble 統合版、TritonDFT 発見前):
   "Can ensemble methods make LLMs reliable for first-principles parameter
    selection? A 5-model × 10-material study with 4 ensemble baselines"
-- main figure: H1 のスケーリング、H2 の材料群比較、H3 の独立性、H4 ensemble vs 個別、H5 guardrail 効果、H6 MoE
-- supplementary: 全 50 cell の生データ + raw provenance + ensemble post-hoc 解析
+
+- main figure:
+  - Fig 1: H1 LLM サイズ vs 正確性 (log-linear) — open-source / proprietary 軸を色分け
+  - Fig 2: H2 材料群比較 (Tier A/B/C + 磁性 NiO) — TritonDFT との pass rate 並置
+  - Fig 3: H3 再現性 (unique 数) vs 正確性 (E_total deviation) 散布図 — N=10 trials 由来
+  - Fig 4: H4 ensemble vs 個別 LLM の 1 meV/atom pass rate
+  - Fig 5: H5 guardrail 効果 (ensemble C vs A の差分)
+  - Fig 6: H6 MoE 材料ルーティング vs 単一 LLM
+  - Fig 7: TritonDFT 既往データとの直接対比表 (open-source と proprietary の同条件比較)
+
+- supplementary:
+  - 全 cell 生データ (LLM call response + DFT input/output + provenance)
+  - ensemble post-hoc 解析の中間ファイル
+  - reference convergence test 全 ecut sweep カーブ
+  - NiO の magnetic config 議論 (LLM が DFT+U / nspin=2 を提案しなかった事実)
 
 deliverable: `papers/track-a-phase2/draft.md` + figures
 

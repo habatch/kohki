@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/MoS2_monolayer.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": true,
+    "model_family": "Alibaba",
+    "model_id": "qwen/qwen3-32b",
+    "model_size_B": 32.0,
+    "model_tag": "qwen3-32b",
+    "n_trials": 3,
+    "n_valid": 3,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen3-32b/MoS2/summary.json",
+    "unique_param_set_count": 3
+  },
+  "material": "MoS2-qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "2H monolayer P-6m2 with ~15 \u00c5 vacuum"
+}

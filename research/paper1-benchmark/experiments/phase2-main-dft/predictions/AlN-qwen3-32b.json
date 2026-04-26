@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/AlN_wurtzite.cif",
+  "llm": {
+    "fully_reproducible_params": true,
+    "is_reasoning": true,
+    "model_family": "Alibaba",
+    "model_id": "qwen/qwen3-32b",
+    "model_size_B": 32.0,
+    "model_tag": "qwen3-32b",
+    "n_trials": 2,
+    "n_valid": 2,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen3-32b/AlN/summary.json",
+    "unique_param_set_count": 1
+  },
+  "material": "AlN-qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "wurtzite P63mc"
+}

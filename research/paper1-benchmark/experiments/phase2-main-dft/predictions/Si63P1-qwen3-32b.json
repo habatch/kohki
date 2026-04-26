@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/Si63P1.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": true,
+    "model_family": "Alibaba",
+    "model_id": "qwen/qwen3-32b",
+    "model_size_B": 32.0,
+    "model_tag": "qwen3-32b",
+    "n_trials": 3,
+    "n_valid": 3,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen3-32b/Si63P1/summary.json",
+    "unique_param_set_count": 3
+  },
+  "material": "Si63P1-qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "Si 2x2x2 supercell with single P substitutional dopant (n-type)"
+}

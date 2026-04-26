@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/CsPbI3.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": true,
+    "model_family": "Alibaba",
+    "model_id": "qwen/qwen3-32b",
+    "model_size_B": 32.0,
+    "model_tag": "qwen3-32b",
+    "n_trials": 2,
+    "n_valid": 2,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen3-32b/CsPbI3/summary.json",
+    "unique_param_set_count": 2
+  },
+  "material": "CsPbI3-qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "cubic perovskite Pm-3m"
+}

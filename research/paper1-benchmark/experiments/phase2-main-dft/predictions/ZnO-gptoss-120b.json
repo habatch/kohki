@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/ZnO_wurtzite.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": false,
+    "model_family": "OpenAI",
+    "model_id": "openai/gpt-oss-120b",
+    "model_size_B": 120.0,
+    "model_tag": "gptoss-120b",
+    "n_trials": 5,
+    "n_valid": 5,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/gptoss-120b/ZnO/summary.json",
+    "unique_param_set_count": 2
+  },
+  "material": "ZnO-gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "structure": "wurtzite P63mc"
+}

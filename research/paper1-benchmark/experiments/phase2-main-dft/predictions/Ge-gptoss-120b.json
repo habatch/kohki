@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/Ge.cif",
+  "llm": {
+    "fully_reproducible_params": true,
+    "is_reasoning": false,
+    "model_family": "OpenAI",
+    "model_id": "openai/gpt-oss-120b",
+    "model_size_B": 120.0,
+    "model_tag": "gptoss-120b",
+    "n_trials": 7,
+    "n_valid": 7,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/gptoss-120b/Ge/summary.json",
+    "unique_param_set_count": 1
+  },
+  "material": "Ge-gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

@@ -1,0 +1,31 @@
+{
+  "cif_fixture": "materials/fixtures/MoS2_monolayer.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_chosen_model": "qwen3-32b",
+      "_ensemble_method": "E_moe",
+      "_n_contributing": 1,
+      "_tier": "B"
+    },
+    "ensemble_method": "E",
+    "model_id": "ensemble-E",
+    "n_contributing_LLMs": 1,
+    "rationale": "Ensemble E computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "MoS2-ensemble-E",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "2H monolayer P-6m2 with ~15 \u00c5 vacuum"
+}

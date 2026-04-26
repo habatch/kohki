@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/ZnO_wurtzite.cif",
+  "llm": {
+    "fully_reproducible_params": true,
+    "is_reasoning": false,
+    "model_family": "Alibaba",
+    "model_id": "qwen2.5:7b",
+    "model_size_B": 7.6,
+    "model_tag": "qwen25-7b",
+    "n_trials": 10,
+    "n_valid": 10,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen25-7b/ZnO/summary.json",
+    "unique_param_set_count": 1
+  },
+  "material": "ZnO-qwen25-7b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      16
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "wurtzite P63mc"
+}

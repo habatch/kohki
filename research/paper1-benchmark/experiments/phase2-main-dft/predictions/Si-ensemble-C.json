@@ -1,0 +1,30 @@
+{
+  "cif_fixture": "materials/fixtures/Si.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "C_guardrail",
+      "_n_contributing": 4,
+      "_n_filtered_out": 1
+    },
+    "ensemble_method": "C",
+    "model_id": "ensemble-C",
+    "n_contributing_LLMs": 4,
+    "rationale": "Ensemble C computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "Si-ensemble-C",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

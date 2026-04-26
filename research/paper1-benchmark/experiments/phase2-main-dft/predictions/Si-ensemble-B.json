@@ -1,0 +1,36 @@
+{
+  "cif_fixture": "materials/fixtures/Si.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "B_weighted",
+      "_n_contributing": 5,
+      "_weights_used": {
+        "gptoss-120b": 0.3,
+        "llama31-8b": 0.1,
+        "llama33-70b": 0.3,
+        "qwen25-7b": 0.05,
+        "qwen3-32b": 0.25
+      }
+    },
+    "ensemble_method": "B",
+    "model_id": "ensemble-B",
+    "n_contributing_LLMs": 5,
+    "rationale": "Ensemble B computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "Si-ensemble-B",
+  "params": {
+    "conv_thr": 6.0301e-09,
+    "degauss": 0.01,
+    "ecutrho": 150.0,
+    "ecutwfc": 37.5,
+    "kpoints": [
+      7,
+      7,
+      7
+    ],
+    "mixing_beta": 0.5499999999999999,
+    "smearing": "gaussian"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

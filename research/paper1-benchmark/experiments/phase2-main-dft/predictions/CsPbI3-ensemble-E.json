@@ -1,0 +1,31 @@
+{
+  "cif_fixture": "materials/fixtures/CsPbI3.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_chosen_model": "qwen3-32b",
+      "_ensemble_method": "E_moe",
+      "_n_contributing": 1,
+      "_tier": "B"
+    },
+    "ensemble_method": "E",
+    "model_id": "ensemble-E",
+    "n_contributing_LLMs": 1,
+    "rationale": "Ensemble E computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "CsPbI3-ensemble-E",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "cubic perovskite Pm-3m"
+}

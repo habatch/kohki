@@ -1,0 +1,30 @@
+{
+  "cif_fixture": "materials/fixtures/GaAs.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "C_guardrail",
+      "_n_contributing": 1,
+      "_n_filtered_out": 4
+    },
+    "ensemble_method": "C",
+    "model_id": "ensemble-C",
+    "n_contributing_LLMs": 1,
+    "rationale": "Ensemble C computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "GaAs-ensemble-C",
+  "params": {
+    "conv_thr": 1e-12,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "zincblende F-43m"
+}

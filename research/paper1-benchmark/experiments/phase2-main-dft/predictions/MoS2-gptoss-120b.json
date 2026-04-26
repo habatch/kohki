@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/MoS2_monolayer.cif",
+  "llm": {
+    "fully_reproducible_params": true,
+    "is_reasoning": false,
+    "model_family": "OpenAI",
+    "model_id": "openai/gpt-oss-120b",
+    "model_size_B": 120.0,
+    "model_tag": "gptoss-120b",
+    "n_trials": 6,
+    "n_valid": 6,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/gptoss-120b/MoS2/summary.json",
+    "unique_param_set_count": 1
+  },
+  "material": "MoS2-gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "structure": "2H monolayer P-6m2 with ~15 \u00c5 vacuum"
+}

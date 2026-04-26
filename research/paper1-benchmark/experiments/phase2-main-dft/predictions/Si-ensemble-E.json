@@ -1,0 +1,31 @@
+{
+  "cif_fixture": "materials/fixtures/Si.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_chosen_model": "gptoss-120b",
+      "_ensemble_method": "E_moe",
+      "_n_contributing": 1,
+      "_tier": "A"
+    },
+    "ensemble_method": "E",
+    "model_id": "ensemble-E",
+    "n_contributing_LLMs": 1,
+    "rationale": "Ensemble E computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "Si-ensemble-E",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 180.0,
+    "ecutwfc": 45.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

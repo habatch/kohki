@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/GaAs.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": false,
+    "model_family": "OpenAI",
+    "model_id": "openai/gpt-oss-120b",
+    "model_size_B": 120.0,
+    "model_tag": "gptoss-120b",
+    "n_trials": 7,
+    "n_valid": 7,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/gptoss-120b/GaAs/summary.json",
+    "unique_param_set_count": 2
+  },
+  "material": "GaAs-gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "structure": "zincblende F-43m"
+}

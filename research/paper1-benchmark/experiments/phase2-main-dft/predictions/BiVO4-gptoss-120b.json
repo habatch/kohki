@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/BiVO4.cif",
+  "llm": {
+    "fully_reproducible_params": true,
+    "is_reasoning": false,
+    "model_family": "OpenAI",
+    "model_id": "openai/gpt-oss-120b",
+    "model_size_B": 120.0,
+    "model_tag": "gptoss-120b",
+    "n_trials": 7,
+    "n_valid": 7,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/gptoss-120b/BiVO4/summary.json",
+    "unique_param_set_count": 1
+  },
+  "material": "BiVO4-gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      4,
+      4,
+      2
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "monoclinic scheelite I2/b"
+}

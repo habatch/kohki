@@ -1,0 +1,32 @@
+{
+  "cif_fixture": "materials/fixtures/Si.cif",
+  "llm": {
+    "fully_reproducible_params": false,
+    "is_reasoning": true,
+    "model_family": "Alibaba",
+    "model_id": "qwen/qwen3-32b",
+    "model_size_B": 32.0,
+    "model_tag": "qwen3-32b",
+    "n_trials": 2,
+    "n_valid": 2,
+    "rationale": "Mode params from N=10 trials in Step 4 main",
+    "source_experiment": "step4-main",
+    "source_summary": "experiments/step4-main/results/qwen3-32b/Si/summary.json",
+    "unique_param_set_count": 2
+  },
+  "material": "Si-qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.1,
+    "smearing": "gaussian"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

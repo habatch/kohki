@@ -1,0 +1,29 @@
+{
+  "cif_fixture": "materials/fixtures/Si63P1.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "A_voting",
+      "_n_contributing": 5
+    },
+    "ensemble_method": "A",
+    "model_id": "ensemble-A",
+    "n_contributing_LLMs": 5,
+    "rationale": "Ensemble A computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "Si63P1-ensemble-A",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "Si 2x2x2 supercell with single P substitutional dopant (n-type)"
+}

@@ -1,0 +1,31 @@
+{
+  "cif_fixture": "materials/fixtures/AlN_wurtzite.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_chosen_model": "gptoss-120b",
+      "_ensemble_method": "E_moe",
+      "_n_contributing": 1,
+      "_tier": "A"
+    },
+    "ensemble_method": "E",
+    "model_id": "ensemble-E",
+    "n_contributing_LLMs": 1,
+    "rationale": "Ensemble E computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "AlN-ensemble-E",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.001,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "structure": "wurtzite P63mc"
+}

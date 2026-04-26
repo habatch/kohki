@@ -18,7 +18,12 @@ on:
         default: ""
 
 concurrency:
-  group: ai-param-${{ github.ref }}-${{ inputs.experiment }}
+  # 2026-04-26: run_id を含めて group を unique 化。
+  # 旧設定では同 experiment の run が serialize され GH Actions の
+  # 20 concurrent jobs 上限を活かせなかった (8 jobs しか走らず 60% 遊休)。
+  # 各 dispatch を独立 group 化することで複数 run が並列実行可能、
+  # account 上限 20 まで使い切る。
+  group: ai-param-${{ github.ref }}-${{ inputs.experiment }}-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:

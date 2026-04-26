@@ -42,7 +42,22 @@ jobs:
           if want:
               wanted = {w.strip() for w in want.split(",") if w.strip()}
               files = [f for f in files if f.stem in wanted]
-          entries = [{"formula": f.stem, "json_path": str(f)} for f in files]
+          entries = []
+          for f in files:
+              try:
+                  pred = json.loads(f.read_text())
+              except Exception:
+                  pred = {}
+              # cif_fixture が prediction にあればそれを使う、無ければ
+              # 旧 convention (formula と同名 CIF) にフォールバック。
+              cif = pred.get("cif_fixture")
+              if not cif:
+                  cif = f"materials/fixtures/{f.stem}.cif"
+              entries.append({
+                  "formula":     f.stem,
+                  "json_path":   str(f),
+                  "cif_fixture": cif,
+              })
           print(json.dumps({"include": entries}))
           PY
           echo "matrix=$(cat matrix.json)" >> "$GITHUB_OUTPUT"
@@ -80,10 +95,16 @@ jobs:
           set -euo pipefail
           mkdir -p work/pseudo
           FORMULA="${{ matrix.formula }}"
+          CIF_FIXTURE="${{ matrix.cif_fixture }}"
           ROOT="${GITHUB_WORKSPACE}/research/paper1-benchmark"
 
-          # CIF
-          cp "$ROOT/materials/fixtures/${FORMULA}.cif" "work/${FORMULA}.cif"
+          # CIF — prediction.json の cif_fixture を優先 (Phase 2 以降)、
+          # 無ければ formula 同名にフォールバック (Phase 1 互換)
+          SRC_CIF="$ROOT/${CIF_FIXTURE}"
+          if [ ! -f "$SRC_CIF" ]; then
+            SRC_CIF="$ROOT/materials/fixtures/${FORMULA}.cif"
+          fi
+          cp "$SRC_CIF" "work/${FORMULA}.cif"
 
           # Pseudos — rename {Element}_ONCV_PBE-1.2.upf → {Element}.upf
           python3 - <<'PY'

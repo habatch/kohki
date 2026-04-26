@@ -81,18 +81,49 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install QE + ASE (conda-forge `qe` package)
+      # 2026-04-26: micromamba env cache 追加。各 cell の QE install (~2 min)
+      # を ~30 sec の cache restore に短縮。残ジョブ 50+ で約 75 分時短見込み。
+      - name: Cache micromamba qe env
+        id: cache-qe
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/micromamba
+            ~/bin/micromamba
+          key: micromamba-qe-py312-conda-forge-v1
+
+      - name: Install micromamba CLI (always)
+        if: steps.cache-qe.outputs.cache-hit != 'true'
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p "$HOME/bin"
           curl -L https://micro.mamba.pm/api/micromamba/linux-64/latest \
             | tar -xvj -C "$HOME" bin/micromamba
+
+      - name: Set up env vars (always)
+        shell: bash
+        run: |
           export PATH="$HOME/bin:$PATH"
           echo "$HOME/bin" >> "$GITHUB_PATH"
           export MAMBA_ROOT_PREFIX="$HOME/micromamba"
           echo "MAMBA_ROOT_PREFIX=$HOME/micromamba" >> "$GITHUB_ENV"
+
+      - name: Create QE env (only on cache miss)
+        if: steps.cache-qe.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/bin:$PATH"
+          export MAMBA_ROOT_PREFIX="$HOME/micromamba"
           micromamba create -y -n qe -c conda-forge python=3.12 qe ase spglib numpy
+
+      - name: Verify QE env
+        shell: bash
+        run: |
+          export PATH="$HOME/bin:$PATH"
+          export MAMBA_ROOT_PREFIX="$HOME/micromamba"
+          micromamba run -n qe pw.x -version 2>&1 | head -3 || true
 
       - name: Stage inputs — CIF, pseudos, AI-chosen params
         shell: bash

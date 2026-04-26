@@ -1,0 +1,50 @@
+{
+  "material_formula": "GaAs",
+  "material_slug": "GaAs",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 140.0,
+    "ecutwfc": 35.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 140.0,
+    "ecutwfc_Ry": 35.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "2d3f7f58a21a0cddf91baafd5374d7c5ced00d4d6279aed80a3bce8750660444",
+  "response_sha256": "fc0d1e2445e57a17c39d7578120be83896480e46ce9cf044ff2b942685a817db",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for GaAs using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure as ground truth. \n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For GaAs, typical ecutwfc values with PBE and norm-conserving pseudos might be around 30-40 Ry. Let's start with ecutwfc at 35 Ry. Then ecutrho would need to be at least 140 Ry. But maybe higher for better convergence. Let's check some references. For GaAs with similar pseudos, I've seen ecutwfc around 30-35 Ry. Let's go with 35 Ry for ecutwfc and 140 Ry for ecutrho. Wait, but sometimes people use ecutrho as 4x ecutwfc. So 35*4=140. That's acceptable.\n\nNext, k-points. The primitive cell of zincblende has 2 atoms. For convergence, a 8x8x8 grid might be sufficient, but considering the range [1,16], maybe 8,8,8. But sometimes people use 4x4x4 for primitive cells. Wait, GaAs is a binary compound with a zincblende structure. The primitive cell has 2 atoms, so the conventional cell is larger. However, since the user is using the primitive cell, the k-point grid should be adjusted accordingly. For a primitive cell, a denser grid might be needed. Let's go with 8x8x8. But maybe 6x6x6 is enough? Let me think. For GaAs, typical k-point grids for SCF calculations are 4x4x4 up to 8x8x8. Since the user wants a converged calculation, 8x8x8 is safer. Let's pick 8,8,8.\n\nSmearing: The options are gaussian, marzari-vanderbilt, or fermi-dirac. For metals, Marzari-Vanderbilt is often used, but GaAs is a semiconductor. However, in DFT calculations, sometimes smearing is still applied for convergence. For semiconductors, Fermi-Dirac or Gaussian smearing with a small degauss might be used. But since the structure is fixed and we want ground state, maybe no smearing? Wait, but the user didn't specify whether it's a metal or semiconductor. GaAs is a semiconductor, so maybe no smearing is needed. However, sometimes in practice, a small smearing is used to help convergence. The problem says \"converged electronic-structure calculation suitable as PBE ground truth.\" For ground state, if it's an insulator, you can set smearing to none. But Quantum ESPRESSO requires smearing to be specified. Wait, if you don't use smearing, you can set it to \"none\", but the options here don't include \"none\". The available options are gaussian, marzari-vanderbilt, fermi-dirac. Hmm. Maybe the user expects a choice here. Since GaAs is a semiconductor, perhaps using Fermi-Dirac smearing with a small degauss. Alternatively, Gaussian. Let me check. In practice, for semiconductors, sometimes Gaussian smearing is used with a small degauss value. Let's go with Gaussian smearing and a degauss of 0.01 Ry. That's a common choice.\n\nDegauss_Ry: If using Gaussian smearing, 0.01 Ry is typical. Let's set that.\n\nConv_thr: The convergence threshold. For a ground truth calculation, it should be tight. The range is 1e-12 to 1e-5. A common value is 1e-8 or 1e-9. Let's pick 1e-8 Ry.\n\nMixing_beta: This controls the charge density mixing. For semiconductors, a higher beta can be used. Typical values are between 0.5 and 0.8. Let's go with 0.7.\n\nPutting it all together:\n\necutwfc_Ry: 35.0\necutrho_Ry: 140.0 (4*35)\nkpoints: [8,8,8]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nWait, but need to check if ecutrho is exactly 4x ecutwfc. 35*4=140, yes. Also, check that all parameters are within constraints. Kpoints are 8, which is within 1-16. Conv_thr is 1e-8, which is between 1e-12 and 1e-5. Mixing beta 0.7 is between 0.1 and 1.0. All good.\n</think>\n\n{\n  \"ecutwfc_Ry\": 35.0,\n  \"ecutrho_Ry\": 140.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 48,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:26:58Z",
+  "trial_index": 6,
+  "usage": {
+    "completion_time": 2.508030708,
+    "completion_tokens": 1208,
+    "prompt_time": 0.011800237,
+    "prompt_tokens": 294,
+    "queue_time": 0.170195406,
+    "total_time": 2.519830945,
+    "total_tokens": 1502
+  },
+  "wall_seconds": 2.8436310291290283
+}

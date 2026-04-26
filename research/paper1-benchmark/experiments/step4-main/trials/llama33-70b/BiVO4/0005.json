@@ -1,0 +1,50 @@
+{
+  "material_formula": "BiVO4",
+  "material_slug": "BiVO4",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_tag": "llama33-70b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      2
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 160.0,
+    "ecutwfc_Ry": 40.0,
+    "kpoints": [
+      4,
+      4,
+      2
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "b93cf6fa2b8f6a9034db2ef1a2d9460589db348f10a33ad283ef014d56fdc86c",
+  "response_sha256": "db77440498abafb16d4915fcc49b68e29783eaa115c2de1d83e39ade87d21677",
+  "response_text": "{\n  \"ecutwfc_Ry\":     40.0,\n  \"ecutrho_Ry\":     160.0,\n  \"kpoints\":        [4, 4, 2],\n  \"smearing\":       \"gaussian\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-8,\n  \"mixing_beta\":     0.7\n}",
+  "seed": 47,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:18:59Z",
+  "trial_index": 5,
+  "usage": {
+    "completion_time": 0.225712015,
+    "completion_tokens": 95,
+    "prompt_time": 0.016787202,
+    "prompt_tokens": 337,
+    "queue_time": 0.022694096,
+    "total_time": 0.242499217,
+    "total_tokens": 432
+  },
+  "wall_seconds": 0.4195127487182617
+}

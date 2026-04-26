@@ -1,0 +1,50 @@
+{
+  "material_formula": "AlN",
+  "material_slug": "AlN",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "780f3355c50c4838b96298a00477e408fb10a126fc023e48c044c0873242ee37",
+  "response_sha256": "4243f18ef2244280c4d4b43ef52006e8efb3062d153d5b87cf7b09114f031230",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for AlN in the wurtzite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For Al and N, SG15 pseudopotentials typically have cutoffs around 50-60 Ry for ecutwfc. Let me check some references. Maybe 60 Ry for ecutwfc is a safe starting point. Then ecutrho would be 4*60=240 Ry. But sometimes people use 8 times, but the constraint here is 4x. So 60 and 240.\n\nNext, k-points. The structure is fixed, so we don't need to optimize the lattice parameters. For a primitive cell with 4 atoms, a 8x8x8 grid might be too dense. Wait, the wurtzite structure has hexagonal symmetry. The k-point grid should account for that. Maybe a 6x6x6 grid? But the user allows up to 16. Let me think. For a hexagonal cell, sometimes a grid like 6x6x6 or 8x8x8 is used. Since the cell parameters are a=3.13 and c=5.02, the c/a ratio is about 1.6, which is typical for wurtzite. A 6x6x6 grid might be sufficient for convergence. Alternatively, 8x8x8 for better convergence. But since the user wants a converged calculation, maybe 8x8x8 is better. Let's go with 8,8,8.\n\nSmearing: For metals, Marzari-Vanderbilt (cold smearing) is often used, but AlN is a semiconductor. However, in SCF calculations for semiconductors, sometimes Gaussian or Fermi-Dirac smearing is used. But since the structure is fixed and we need ground state, Gaussian smearing might be acceptable. Alternatively, Marzari-Vanderbilt is more accurate for band structures. Wait, but the user is using PBE and wants a ground truth. Maybe Gaussian is simpler here. Let me check. For semiconductors, sometimes a small degauss is used. Let's pick Gaussian smearing.\n\nDegauss: For semiconductors, a small value like 0.01 Ry is typical. Let's go with 0.01.\n\nConv_thr: The convergence threshold. For a precise calculation, 1e-8 is common. So 1e-8 Ry.\n\nMixing_beta: This controls the charge density mixing. For semiconductors, a higher beta like 0.7 is often used. Let's set it to 0.7.\n\nPutting it all together:\n\necutwfc_Ry: 60.0\necutrho_Ry: 240.0\nkpoints: [8,8,8]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nCheck constraints: ecutrho is 4x ecutwfc. Kpoints are within 1-16. Conv_thr is 1e-8 which is between 1e-12 and 1e-5. Mixing beta is 0.7, within 0.1-1.0. All parameters meet the requirements.\n</think>\n\n{\n  \"ecutwfc_Ry\": 60.0,\n  \"ecutrho_Ry\": 240.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 49,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:27:34Z",
+  "trial_index": 7,
+  "usage": {
+    "completion_time": 1.875038921,
+    "completion_tokens": 906,
+    "prompt_time": 0.012730929,
+    "prompt_tokens": 301,
+    "queue_time": 0.170405913,
+    "total_time": 1.88776985,
+    "total_tokens": 1207
+  },
+  "wall_seconds": 4.894423961639404
+}

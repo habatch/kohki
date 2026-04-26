@@ -1,0 +1,47 @@
+{
+  "material_formula": "BiVO4",
+  "material_slug": "BiVO4",
+  "model_id": "qwen2.5:7b",
+  "model_tag": "qwen25-7b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.05,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.05,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      4,
+      4,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "b93cf6fa2b8f6a9034db2ef1a2d9460589db348f10a33ad283ef014d56fdc86c",
+  "response_sha256": "34602b59f3bc364d2b6b341d5b068676bd11a881ae8b754381167cf453561f8a",
+  "response_text": "{\n  \"ecutwfc_Ry\":     30.0,\n  \"ecutrho_Ry\":     120.0,\n  \"kpoints\":        [4, 4, 8],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.05,\n  \"conv_thr_Ry\":    1e-10,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 48,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:03:15Z",
+  "trial_index": 6,
+  "usage": {
+    "eval_count": 104,
+    "eval_duration_s": 19.294219087,
+    "load_duration_s": 0.126298097,
+    "prompt_eval_count": 342
+  },
+  "wall_seconds": 19.75965404510498
+}

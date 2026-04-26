@@ -1,0 +1,50 @@
+{
+  "material_formula": "Ge",
+  "material_slug": "Ge",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 160.0,
+    "ecutwfc_Ry": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "bf837e3a55cd64b87a98355d599e295058ab1fe6cd4241c59cbf556630746387",
+  "response_sha256": "b4c34287309fd2a84d3b93cd4252f54185020a801339a2f6068595c86d5a92b5",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for Germanium in the diamond cubic structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure as ground truth.\n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For Ge, typical ecutwfc values with PBE might be around 30-40 Ry. Let's start with ecutwfc at 35 Ry. Then ecutrho would be 4*35=140 Ry. But maybe I should check if 35 is sufficient. However, since the user wants it to be suitable as ground truth, perhaps a higher value is better. Let's go with 40 Ry for ecutwfc, making ecutrho 160 Ry. That should satisfy the 4x requirement and ensure good convergence.\n\nNext, k-points. The crystal structure is fixed, and it's a primitive cell with 2 atoms. For diamond structures, a common k-point grid is 8x8x8 or 12x12x12. But since the user allows up to 16, maybe 8x8x8 is sufficient for convergence. However, considering the primitive cell might have different symmetry, perhaps a denser grid is needed. Let's go with 8x8x8 as a starting point. If the user wants higher accuracy, they can increase it, but for ground truth, maybe 8 is okay. Wait, but sometimes for diamond structures, people use 12x12x12. Hmm. Let me think. The structure is fixed, so we don't need to optimize the lattice, just the electronic structure. For a converged calculation, maybe 8x8x8 is enough. Let's tentatively set kpoints to [8,8,8].\n\nSmearing: The options are Gaussian, Marzari-Vanderbilt (cold smearing), or Fermi-Dirac. For metals, cold smearing is often used, but Ge is a semiconductor. However, in DFT calculations, sometimes smearing is still applied for convergence. Since the user is using PBE, which might require smearing for better convergence. The default in QE for semiconductors is usually Fermi-Dirac or Gaussian. But for norm-conserving pseudopotentials, maybe Gaussian is more common. Alternatively, Marzari-Vanderbilt is a good choice for metals. Wait, but Ge is a semiconductor. However, if the calculation is metallic (due to smearing), maybe Gaussian with a small degauss. Let's pick Gaussian smearing here. The degauss value should be small, maybe 0.01 Ry. That's typical for semiconductors.\n\nConvergence threshold (conv_thr) should be tight. The constraint is between 1e-12 and 1e-5. For ground truth, we need high precision, so maybe 1e-10 or 1e-11. Let's go with 1e-10 Ry.\n\nMixing beta: Between 0.1 and 1.0. Common values are 0.7 or 0.8. Let's choose 0.7 for a balance between convergence speed and stability.\n\nPutting it all together:\n\necutwfc_Ry: 40.0\necutrho_Ry: 160.0\nkpoints: [8,8,8]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-10\nmixing_beta: 0.7\n\nWait, but maybe the ecutwfc is too low. Let me check some references. For Ge with SG15 pseudopotentials, the recommended ecutwfc is around 30-40 Ry. For example, if the SG15 Ge pseudopotential has a cutoff of 35 Ry, then using 40 would be safe. So 40 is acceptable. Alternatively, maybe 35 is enough. But since the user wants ground truth, higher is better. Let's stick with 40.\n\nK-points: Maybe 8x8x8 is sufficient. Let me think about the Brillouin zone of diamond structure. The primitive cell has a face-centered cubic lattice, so the k-point grid should be even numbers. 8x8x8 is a common choice. If the user wants higher accuracy, they can increase it, but for the initial SCF, 8x8x8 is a good starting point.\n\nSmearing: Since Ge is a semiconductor, using Fermi-Dirac might be more appropriate. However, in practice, Gaussian smearing is often used with a small degauss. Let me check. In Quantum ESPRESSO, for semiconductors, Fermi-Dirac is sometimes used with a small degauss. Alternatively, Marzari-Vanderbilt is for metals. So maybe Fermi-Dirac here. Let me adjust that. Let's choose \"fermi-dirac\" with degauss 0.01 Ry.\n\nWait, the user's options include \"fermi-dirac\". So maybe that's better. Let me change smearing to \"fermi-dirac\".\n\nSo revised parameters:\n\nsmearing: \"fermi-dirac\"\ndegauss_Ry: 0.01\n\nYes, that's better for a semiconductor.\n\nConv_thr: 1e-10 is good. Mixing beta 0.7.\n\nSo the final JSON would be:\n\n{\n  \"ecutwfc_Ry\": 40.0,\n  \"ecutrho_Ry\": 160.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"fermi-dirac\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.7\n}\n\nBut wait, the user's options for smearing include \"fermi-dirac\". Yes. So that's correct. Also, ecutrho is 4x ecutwfc. All constraints are satisfied. Kpoints are within 1-16. Conv_thr is between 1e-12 and 1e-5. Mixing beta is 0.7. All good.\n</think>\n\n{\n  \"ecutwfc_Ry\": 40.0,\n  \"ecutrho_Ry\": 160.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"fermi-dirac\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:26:03Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 3.12672441,
+    "completion_tokens": 1491,
+    "prompt_time": 0.013037334,
+    "prompt_tokens": 291,
+    "queue_time": 0.069720773,
+    "total_time": 3.139761744,
+    "total_tokens": 1782
+  },
+  "wall_seconds": 3.362865686416626
+}

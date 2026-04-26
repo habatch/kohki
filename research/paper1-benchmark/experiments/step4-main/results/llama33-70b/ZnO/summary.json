@@ -1,0 +1,63 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      4,
+      4,
+      3
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_size_B": 70.0,
+  "model_tag": "llama33-70b",
+  "n_parse_failures": 0,
+  "n_trials": 9,
+  "n_valid": 9,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 9
+    },
+    "degauss": {
+      "0.01": 9
+    },
+    "ecutrho": {
+      "240.0": 9
+    },
+    "ecutwfc": {
+      "60.0": 9
+    },
+    "kpoints": {
+      "[4,4,3]": 9
+    },
+    "mixing_beta": {
+      "0.7": 9
+    },
+    "smearing": {
+      "fermi-dirac": 3,
+      "gaussian": 6
+    }
+  },
+  "param_set_hash_counts": {
+    "2c15311492a9e0e598c83c361c15fefd5e5e8ecebb4d8d39dbce066008400ed1": 3,
+    "b484e66727150a413651b57572fe811105df4471dfee4eb9a53d3938946c91c0": 6
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 2.95,
+  "wall_seconds_total": 146.6
+}

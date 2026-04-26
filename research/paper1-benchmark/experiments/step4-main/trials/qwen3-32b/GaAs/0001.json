@@ -1,0 +1,50 @@
+{
+  "material_formula": "GaAs",
+  "material_slug": "GaAs",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 140.0,
+    "ecutwfc": 35.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 140.0,
+    "ecutwfc_Ry": 35.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "2d3f7f58a21a0cddf91baafd5374d7c5ced00d4d6279aed80a3bce8750660444",
+  "response_sha256": "419faafc129ffc5864e3399df13a836b06a34aee0d183843ec53dfe2fde186ad",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for GaAs using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure as ground truth. \n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For GaAs, typical ecutwfc values with PBE and norm-conserving pseudos might be around 30-40 Ry. Let's start with ecutwfc at 35 Ry. Then ecutrho would need to be at least 140 Ry. But maybe higher is better for convergence. Let me check some references. For GaAs with similar pseudos, I've seen ecutwfc around 30-40 Ry. Let's go with 35 Ry for ecutwfc and 140 Ry for ecutrho. Wait, but sometimes people use ecutrho as 4*ecutwfc. So 35*4 is 140. That's acceptable.\n\nNext, k-points. The primitive cell of zincblende has 2 atoms. For convergence, a 8x8x8 grid might be sufficient, but since the user allows up to 16, maybe 8x8x8 is okay. But let's check. For GaAs, a common k-point grid for convergence is 8x8x8 or 10x10x10. Since the user wants it suitable as ground truth, maybe a denser grid is better. However, the maximum allowed is 16. Let's pick 8x8x8. Wait, but maybe 10x10x10 is better. Let me think. If the user is using a primitive cell, the k-point grid should be even numbers for zincblende to sample the Brillouin zone properly. For example, 8x8x8. But sometimes 6x6x6 is used. However, since the user wants convergence, perhaps 8x8x8 is safer. Let's go with 8,8,8.\n\nSmearing: For semiconductors like GaAs, Marzari-Vanderbilt (cold smearing) is often recommended. Alternatively, Gaussian or Fermi-Dirac. But since it's a ground state calculation and they want convergence, maybe no smearing? Wait, but the user specified to include smearing. For SCF calculations in semiconductors, using smearing with a degauss value is common. The options are gaussian, marzari-vanderbilt, or fermi-dirac. Marzari-Vanderbilt is often preferred for better convergence. Let's choose marzari-vanderbilt.\n\nDegauss: The degauss value depends on the k-point grid. For a 8x8x8 grid, a typical degauss might be 0.01 Ry. Let me check. For GaAs, with PBE, a degauss of 0.01 Ry is common. So set degauss_Ry to 0.01.\n\nConvergence threshold (conv_thr): The user says between 1e-12 and 1e-5. For a ground truth calculation, we need tight convergence. Typically, 1e-8 or 1e-9 is used. Let's go with 1e-8 Ry. So conv_thr_Ry is 1e-8.\n\nMixing beta: This controls the charge density mixing. For semiconductors, a higher beta can be used. Common values are 0.7 or 0.8. Let's pick 0.7. The range is 0.1 to 1.0, so 0.7 is safe.\n\nPutting it all together:\n\necutwfc_Ry: 35.0\necutrho_Ry: 140.0 (since 4*35=140)\nkpoints: [8,8,8]\nsmearing: marzari-vanderbilt\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nCheck constraints: ecutrho is exactly 4*ecutwfc. Kpoints are within 1-16. Conv_thr is 1e-8 which is within range. Mixing beta is 0.7. All parameters meet the constraints.\n</think>\n\n{\n  \"ecutwfc_Ry\": 35.0,\n  \"ecutrho_Ry\": 140.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 43,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:26:44Z",
+  "trial_index": 1,
+  "usage": {
+    "completion_time": 2.165243148,
+    "completion_tokens": 1075,
+    "prompt_time": 0.013289008,
+    "prompt_tokens": 294,
+    "queue_time": 0.181209324,
+    "total_time": 2.178532156,
+    "total_tokens": 1369
+  },
+  "wall_seconds": 2.5307424068450928
+}

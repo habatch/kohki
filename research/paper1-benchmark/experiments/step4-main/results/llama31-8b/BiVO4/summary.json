@@ -1,0 +1,61 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": true,
+  "fully_reproducible_response": true,
+  "is_reasoning": false,
+  "material_formula": "BiVO4",
+  "material_slug": "BiVO4",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-12,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.1-8b-instant",
+  "model_size_B": 8.0,
+  "model_tag": "llama31-8b",
+  "n_parse_failures": 0,
+  "n_trials": 7,
+  "n_valid": 7,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-12": 7
+    },
+    "degauss": {
+      "0.01": 7
+    },
+    "ecutrho": {
+      "240.0": 7
+    },
+    "ecutwfc": {
+      "60.0": 7
+    },
+    "kpoints": {
+      "[4,4,4]": 7
+    },
+    "mixing_beta": {
+      "0.7": 7
+    },
+    "smearing": {
+      "gaussian": 7
+    }
+  },
+  "param_set_hash_counts": {
+    "61e4fe2cd089d8ef885ab1830c49f851f291b6f47bd90de69534a3cc55289e8b": 7
+  },
+  "prompt_sha256": "b93cf6fa2b8f6a9034db2ef1a2d9460589db348f10a33ad283ef014d56fdc86c",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 1,
+  "unique_response_count": 1,
+  "wall_seconds_per_trial_mean": 3.09,
+  "wall_seconds_total": 30.2
+}

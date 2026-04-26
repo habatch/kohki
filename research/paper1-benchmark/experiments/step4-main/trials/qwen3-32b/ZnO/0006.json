@@ -1,0 +1,50 @@
+{
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "response_sha256": "a523f5ed41e5cced222e021238075a3ff3fe671bfa81bea7e63a4638e97bda6b",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for ZnO in the wurtzite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate parameters. Let's start with ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. Common practice for such pseudos is to start with ecutwfc around 50-70 Ry. For ZnO, considering the atomic numbers (Zn and O), maybe 60 Ry is a good starting point. Then ecutrho would be 4*60=240 Ry. But sometimes people use higher values for better convergence. However, since the user wants a converged calculation, maybe 70 Ry for ecutwfc and 280 for ecutrho would be safer. Let me check typical values for ZnO. Some references suggest 50-60 Ry for ecutwfc with SG15, so maybe 60 Ry is sufficient. Let's go with ecutwfc=60 and ecutrho=240.\n\nNext, k-points. The crystal structure is fixed, so we need to choose a k-point mesh. For a primitive cell with 4 atoms, a 8x8x6 grid might be appropriate for wurtzite structure. The wurtzite has hexagonal symmetry, so kpoints in x, y, z directions should reflect that. The a and c lattice parameters are 3.29 and 5.31 \u00c5. The c/a ratio is about 1.61, which is close to ideal wurtzite. The k-point mesh should be denser in the c-direction. For example, 8x8x6. But the user allows integers up to 16. Maybe 8x8x6 is sufficient for convergence. Alternatively, 6x6x4 might be too coarse. Let's check. If the user wants a converged calculation, perhaps 8x8x6 is a good balance. Let me confirm with typical values. For ZnO wurtzite, a 8x8x6 or 10x10x6 grid is common. Since the user allows up to 16, but wants a primitive cell, maybe 8x8x6 is acceptable here. So kpoints: [8,8,6].\n\nSmearing: For SCF calculations, Marzari-Vanderbilt (cold smearing) is often recommended for metals, but ZnO is a semiconductor. However, if the calculation is metallic (which it's not), but sometimes smearing is used to help convergence. However, for a semiconductor, Fermi-Dirac or Gaussian smearing with small degauss might be better. But since the user wants a ground truth PBE calculation, maybe no smearing is needed. Wait, but the default in QE for SCF is no smearing. However, sometimes people use smearing for convergence. Wait, the user is doing an SCF calculation. For semiconductors, you usually don't need smearing unless you have a small system or metallic character. Since ZnO is a semiconductor, maybe it's better to not use smearing. But the parameters require specifying smearing. Alternatively, maybe Gaussian with a very small degauss. Wait, the user's constraints don't mention that smearing is optional. The JSON requires specifying smearing. Let me check the options. The options are gaussian, marzari-vanderbilt, fermi-dirac. For semiconductors, Fermi-Dirac with small degauss might be acceptable. Alternatively, Gaussian. Let me think. In practice, for semiconductors, sometimes Gaussian smearing is used with a small degauss value. Let's go with Gaussian smearing and a small degauss. \n\nDegauss: For semiconductors, a typical value is 0.01 Ry. Let's set degauss_Ry to 0.01. \n\nConv_thr: The convergence threshold. The user says between 1e-12 and 1e-5. For a converged calculation, we need a tight threshold. Typically, 1e-8 or 1e-9 is common. Let's set conv_thr_Ry to 1e-8. \n\nMixing_beta: This controls the charge density mixing. For semiconductors, a higher beta can be used. Common values are 0.7 to 0.8. Let's set mixing_beta to 0.7. \n\nPutting it all together:\n\necutwfc_Ry: 60.0\necutrho_Ry: 240.0 (4*60)\nkpoints: [8,8,6]\nsmearing: gaussian\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nLet me check the constraints again. ecutrho is 4x ecutwfc. Kpoints are integers between 1-16. Conv_thr is 1e-8 which is within the range. Mixing beta 0.7 is between 0.1 and 1.0. All parameters are set correctly. Smearing is Gaussian, which is allowed. Degauss is 0.01. Looks good.\n</think>\n\n{\n  \"ecutwfc_Ry\": 60.0,\n  \"ecutrho_Ry\": 240.0,\n  \"kpoints\": [8, 8, 6],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 48,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:28:10Z",
+  "trial_index": 6,
+  "usage": {
+    "completion_time": 5.9433919809999995,
+    "completion_tokens": 1286,
+    "prompt_time": 0.014452843,
+    "prompt_tokens": 302,
+    "queue_time": 0.069882553,
+    "total_time": 5.957844824,
+    "total_tokens": 1588
+  },
+  "wall_seconds": 8.817339420318604
+}

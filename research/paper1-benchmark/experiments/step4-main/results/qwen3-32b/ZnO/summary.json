@@ -1,0 +1,66 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": true,
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "model_family": "Alibaba",
+  "model_id": "qwen/qwen3-32b",
+  "model_size_B": 32.0,
+  "model_tag": "qwen3-32b",
+  "n_parse_failures": 0,
+  "n_trials": 3,
+  "n_valid": 3,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 2,
+      "1e-10": 1
+    },
+    "degauss": {
+      "0.01": 3
+    },
+    "ecutrho": {
+      "200.0": 1,
+      "240.0": 2
+    },
+    "ecutwfc": {
+      "50.0": 1,
+      "60.0": 2
+    },
+    "kpoints": {
+      "[8,8,6]": 3
+    },
+    "mixing_beta": {
+      "0.2": 1,
+      "0.7": 2
+    },
+    "smearing": {
+      "gaussian": 3
+    }
+  },
+  "param_set_hash_counts": {
+    "226d096506fc8f0db8a37a1687f54c5f2cae6080c38622a863f74b0df3e93e0f": 1,
+    "2a66319550adc44960982f2e9726647f09cec3b7f1fe3693909d316138f3363d": 2
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 3,
+  "wall_seconds_per_trial_mean": 6.03,
+  "wall_seconds_total": 38.2
+}

@@ -1,0 +1,50 @@
+{
+  "material_formula": "Si63B1",
+  "material_slug": "Si63B1",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_tag": "llama33-70b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 160.0,
+    "ecutwfc_Ry": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "e561269da86d232cdda8bfb3fe80aaf5ee3d54613d28de002b1f4706d6ffdaa6",
+  "response_sha256": "7f76eb53b04a0eb4c9b1d031c1a8daaf5502c247c62149e83b94f71441526929",
+  "response_text": "{\n  \"ecutwfc_Ry\":     40.0,\n  \"ecutrho_Ry\":     160.0,\n  \"kpoints\":        [4, 4, 4],\n  \"smearing\":       \"gaussian\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-8,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 45,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:19:47Z",
+  "trial_index": 3,
+  "usage": {
+    "completion_time": 0.187903915,
+    "completion_tokens": 95,
+    "prompt_time": 0.033038664,
+    "prompt_tokens": 332,
+    "queue_time": 0.023776206,
+    "total_time": 0.220942579,
+    "total_tokens": 427
+  },
+  "wall_seconds": 3.0820841789245605
+}

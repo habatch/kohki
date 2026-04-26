@@ -1,0 +1,53 @@
+{
+  "material_formula": "AlN",
+  "material_slug": "AlN",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.02,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "780f3355c50c4838b96298a00477e408fb10a126fc023e48c044c0873242ee37",
+  "response_sha256": "d461ab61a19f864e7e05bb45691b7561c5865f58c3e78a02c73629119fb2c3f1",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [8, 8, 6],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.02,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 51,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:22:06Z",
+  "trial_index": 9,
+  "usage": {
+    "completion_time": 0.976709089,
+    "completion_tokens": 470,
+    "completion_tokens_details": {
+      "reasoning_tokens": 370
+    },
+    "prompt_time": 0.016190655,
+    "prompt_tokens": 359,
+    "queue_time": 0.022382513,
+    "total_time": 0.992899744,
+    "total_tokens": 829
+  },
+  "wall_seconds": 3.8824925422668457
+}

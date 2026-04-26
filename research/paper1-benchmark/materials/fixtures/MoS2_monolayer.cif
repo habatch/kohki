@@ -1,0 +1,17 @@
+data_mp-1434
+_symmetry_space_group_name_H-M   'P 1'
+_symmetry_Int_Tables_number      1
+_cell_length_a                  6.737769
+_cell_length_b                  6.737769
+_cell_length_c                  6.737769
+_cell_angle_alpha               27.3368
+_cell_angle_beta                27.3368
+_cell_angle_gamma               27.3368
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Mo 0.999775 0.999775 0.999775
+S 0.412930 0.412930 0.412930
+S 0.253296 0.253296 0.253296

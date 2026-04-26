@@ -1,0 +1,64 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-12,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.1-8b-instant",
+  "model_size_B": 8.0,
+  "model_tag": "llama31-8b",
+  "n_parse_failures": 0,
+  "n_trials": 8,
+  "n_valid": 8,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-12": 8
+    },
+    "degauss": {
+      "0.01": 8
+    },
+    "ecutrho": {
+      "120.0": 6,
+      "240.0": 2
+    },
+    "ecutwfc": {
+      "30.0": 6,
+      "60.0": 2
+    },
+    "kpoints": {
+      "[4,4,1]": 8
+    },
+    "mixing_beta": {
+      "0.7": 8
+    },
+    "smearing": {
+      "marzari-vanderbilt": 8
+    }
+  },
+  "param_set_hash_counts": {
+    "1f90ac1bcfa183404c672209bcbe4392b161b3faf4897aac35206e25424949ee": 2,
+    "e544a4940701722dedfef59887ecb8c2529bb7d8726285784dcd8cbb09ff80b7": 6
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 3.27,
+  "wall_seconds_total": 31.9
+}

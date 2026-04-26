@@ -35,6 +35,7 @@ class MPSummary:
     volume: float | None
     density: float | None
     symmetry: str | None
+    nsites: int | None     # primitive / conventional cell の原子数 (MP 提供)
     raw: dict[str, Any]
 
 
@@ -73,7 +74,7 @@ class MPClient:
                 "_fields": (
                     "material_id,formula_pretty,band_gap,"
                     "formation_energy_per_atom,is_gap_direct,is_metal,"
-                    "volume,density,symmetry"
+                    "volume,density,symmetry,nsites"
                 ),
             },
         )
@@ -92,12 +93,18 @@ class MPClient:
             volume=d.get("volume"),
             density=d.get("density"),
             symmetry=sym.get("symbol") if isinstance(sym, dict) else None,
+            nsites=d.get("nsites"),
             raw=d,
         )
 
     def cif(self, material_id: str) -> str:
         """Return the CIF representation of the conventional cell."""
-        data = self._get(f"/materials/summary/{material_id}/", {"_fields": "structure"})
+        # MP v2 では /materials/summary/{id}/ パスが 403 を返す。
+        # クエリ string で material_ids= を渡す形なら 200 になる。
+        data = self._get(
+            "/materials/summary/",
+            {"material_ids": material_id, "_fields": "structure"},
+        )
         struct = (data.get("data") or [{}])[0].get("structure")
         if not struct:
             raise LookupError(f"MP structure missing for {material_id}")

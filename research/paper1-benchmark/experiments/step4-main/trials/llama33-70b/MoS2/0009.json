@@ -1,0 +1,50 @@
+{
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_tag": "llama33-70b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "response_sha256": "533a024638038252f0376412b756a7d28064d4710fce7f0370fead1a3f79a5d8",
+  "response_text": "{\n  \"ecutwfc_Ry\":     60.0,\n  \"ecutrho_Ry\":     240.0,\n  \"kpoints\":        [12, 12, 1],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-8,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 51,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:18:56Z",
+  "trial_index": 9,
+  "usage": {
+    "completion_time": 0.195778421,
+    "completion_tokens": 97,
+    "prompt_time": 0.049067096,
+    "prompt_tokens": 322,
+    "queue_time": 0.064132483,
+    "total_time": 0.244845517,
+    "total_tokens": 419
+  },
+  "wall_seconds": 0.48120641708374023
+}

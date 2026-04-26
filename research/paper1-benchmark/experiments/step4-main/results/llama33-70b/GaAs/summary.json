@@ -1,0 +1,63 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "GaAs",
+  "material_slug": "GaAs",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_size_B": 70.0,
+  "model_tag": "llama33-70b",
+  "n_parse_failures": 0,
+  "n_trials": 10,
+  "n_valid": 10,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 10
+    },
+    "degauss": {
+      "0.01": 10
+    },
+    "ecutrho": {
+      "160.0": 10
+    },
+    "ecutwfc": {
+      "40.0": 10
+    },
+    "kpoints": {
+      "[8,8,8]": 10
+    },
+    "mixing_beta": {
+      "0.7": 10
+    },
+    "smearing": {
+      "fermi-dirac": 7,
+      "gaussian": 3
+    }
+  },
+  "param_set_hash_counts": {
+    "3203007f0e3da7e5385cecc00e906029c4f41ee6527f403ce0460a1c2c11af4a": 7,
+    "52d5be6c93121e9fe475c98710e63ccb3eaa57d1b97de23b76e8f968ced8e2d5": 3
+  },
+  "prompt_sha256": "2d3f7f58a21a0cddf91baafd5374d7c5ced00d4d6279aed80a3bce8750660444",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 1.0,
+  "wall_seconds_total": 10.0
+}

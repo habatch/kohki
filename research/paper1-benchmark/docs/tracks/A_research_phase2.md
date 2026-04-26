@@ -21,13 +21,39 @@
 
 → Phase 2 の課題は **「この知見を 1 材料 5 モデルから N 材料 N モデルにスケールし、定量化する」**
 
-## Phase 2 の 3 主要 hypothesis (検証対象)
+## Phase 2 の 6 主要 hypothesis (検証対象)
+
+### 個別 LLM 評価 (H1-H3、Phase 2 の中核)
 
 | 仮説 | 検証方法 |
 |---|---|
 | **H1**: LLM 提案の物理正確性は **モデルサイズ ~7B-120B 範囲で対数的に向上** する | 同材料・複数モデルで E_total 真値からの偏差を測る |
 | **H2**: LLM 提案の正確性は **材料の複雑さ (重元素・遷移金属の有無) で系統的に低下** する | Tier A (軽元素半導体) → B (perovskite) → C (ドープ Si) 順に劣化 |
 | **H3**: LLM 提案の物理正確性 と 応答再現性 は **独立** な指標である | repro-v1 の unique 数 と repro-v1-dft の E_total 偏差は無相関 |
+
+### Ensemble 評価 (H4-H6、2026-04-26 追加)
+
+研究プランの方針 (= AI/LLM の能力上限を探る) に沿って ensemble 手法を統合。
+個別 LLM が物理的に不適切な提案をする場合、複数 LLM の組み合わせや物理ガード
+レールで救済できるか — を統計的に検証する。
+
+| 仮説 | 検証方法 |
+|---|---|
+| **H4**: Ensemble (= 複数 LLM の集計) は **個別 LLM より物理正確性が高い** | (A) parameter-wise voting / (B) accuracy 加重 / の 2 ensemble を post-hoc 計算し、個別 LLM 平均と比較 |
+| **H5**: 物理ガードレール (例: 絶縁体に metallic smearing 禁止) を追加すると **ensemble の正確性は向上する** | (C) guardrail + voting と (A) を比較 |
+| **H6**: 材料種別ルーティング (MoE 風) は **単一 LLM より有効** | (E) 材料を Tier A/B/C で分け、各 Tier で最も正確だった LLM を割り当てた仮想 ensemble を構築、個別 LLM 平均と比較 |
+
+### Ensemble 手法定義 (Phase 2 で計算する 4 手法)
+
+| 手法 | 内容 | 追加 LLM call | 追加 DFT |
+|---|---|---|---|
+| **(A) parameter-wise voting** | 各 LLM 提案の最頻 mode params を「N LLM 全体の中央値 / 最頻」で集計 | 0 | 0 (post-hoc 解析のみ) |
+| **(B) accuracy 加重平均** | Phase 2 の H1 結果から各 LLM に accuracy weight を付与し加重平均、leave-one-out で循環回避 | 0 | 0 |
+| **(C) guardrail + voting** | 物理制約 (smearing/ecut/degauss range) で不合理提案をフィルタ、残りで (A) | 0 | 0 |
+| **(E) MoE 材料ルーティング** | 各 Tier で最良の LLM を選び、材料種別で割り当てた virtual ensemble | 0 | 0 |
+
+**Phase 2 では追加 DFT を実行しない方針** (2026-04-26 user 判断)。
+ensemble の最終的な物理検証は Phase 3 (将来) に持ち越し。
 
 ## Phase 2 実行計画 (Step 1-7)
 
@@ -96,9 +122,11 @@ deliverable: `analyses/track-a-phase2/` 配下に Jupyter notebook + figures
 ### Step 6: 論文 draft 作成 (2 週)
 
 target journal: npj Computational Materials, Digital Discovery, NPJ Quantum Materials のいずれか
-- 論文タイトル草案: "Quantitative assessment of LLM-proposed first-principles parameters: a 8-model × 20-material benchmark"
-- main figure: H1 のスケーリング、H2 の材料群比較、H3 の独立性
-- supplementary: 全 160 cell の生データ + raw provenance
+- 論文タイトル草案 (2026-04-26 改訂、ensemble 統合版):
+  "Can ensemble methods make LLMs reliable for first-principles parameter
+   selection? A 5-model × 10-material study with 4 ensemble baselines"
+- main figure: H1 のスケーリング、H2 の材料群比較、H3 の独立性、H4 ensemble vs 個別、H5 guardrail 効果、H6 MoE
+- supplementary: 全 50 cell の生データ + raw provenance + ensemble post-hoc 解析
 
 deliverable: `papers/track-a-phase2/draft.md` + figures
 

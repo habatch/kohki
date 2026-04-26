@@ -1,0 +1,32 @@
+{
+  "material_formula": "Si63P1",
+  "material_slug": "Si63P1",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": null,
+  "params_valid": false,
+  "parsed_json": null,
+  "prompt_sha256": "4c02799e4a82752d6c90b07b8bccb41b8f0562a67ce73a8d66d2ae157787dcca",
+  "response_sha256": "e161dfec6321acd5b87de0cf23546f888c0d26571584ff096c1fcb493b726f9a",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [2, 2, 2],\n  \"smearing\": \"marzari-vander",
+  "seed": 46,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:24:35Z",
+  "trial_index": 4,
+  "usage": {
+    "completion_time": 1.067958202,
+    "completion_tokens": 512,
+    "completion_tokens_details": {
+      "reasoning_tokens": 453
+    },
+    "prompt_time": 0.005507461,
+    "prompt_tokens": 371,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "queue_time": 0.060335278,
+    "total_time": 1.073465663,
+    "total_tokens": 883
+  },
+  "wall_seconds": 3.9738738536834717
+}

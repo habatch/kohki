@@ -1,0 +1,50 @@
+{
+  "material_formula": "CsPbI3",
+  "material_slug": "CsPbI3",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "63ea940bd1e70d3abdca17ef30cd373467f36aa3f0c475a427233777136ae8f5",
+  "response_sha256": "2244d2847fc9d2c90fde018ca0639b6156a37e35ac1d832c096012cd991bff9f",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for CsPbI3 in the cubic perovskite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate parameters. Let's start with ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For materials with heavy elements like Cs and I, a higher cutoff is usually needed. I'll check typical values for similar systems. For example, in perovskites, ecutwfc might be around 60-80 Ry. Let's go with 70 Ry for ecutwfc. Then ecutrho would be 4*70=280 Ry. But wait, sometimes people use 8 times for ecutrho. Wait, the constraint here is only that ecutrho >=4*ecutwfc. Maybe 4 times is sufficient here. Let's stick with 70 and 280.\n\nNext, k-points. The crystal structure is cubic, so a symmetric k-point grid is suitable. The lattice parameter is 6.289 \u00c5. For a primitive cell with 5 atoms, a 4x4x4 grid might be a good start. But maybe 6x6x6 for better convergence. However, the user allows up to 16 in each direction. Considering that it's a cubic structure and the primitive cell is small, 8x8x8 could be overkill. Let's check typical values. For perovskites, 4x4x4 is common for a quick calculation, but for convergence, maybe 6x6x6. However, since the user wants a converged calculation, perhaps 8x8x8. Wait, but the user says the crystal structure is fixed, so maybe they don't need structural optimization, but electronic convergence. Let's aim for a balanced approach. Let's go with 6x6x6. But maybe 8x8x8 is safer. Let me think. For a cubic cell with a=6.289 \u00c5, the reciprocal lattice vectors would be 2\u03c0/a. The k-point spacing would be 1/(a*N). For N=6, the spacing is about 1/(6.289*6) \u2248 0.026 \u00c5\u207b\u00b9. For convergence, maybe 0.02 \u00c5\u207b\u00b9 is acceptable. Let's go with 6x6x6 for now.\n\nSmearing: The options are gaussian, marzari-vanderbilt, or fermi-dirac. For metals, Marzari-Vanderbilt (cold smearing) is often recommended. CsPbI3 is a perovskite, which can be a semiconductor or metal depending on composition. Wait, CsPbI3 is a known perovskite with a band gap, so it's a semiconductor. For semiconductors, Fermi-Dirac smearing with a small degauss might be better. Alternatively, Gaussian smearing is also used. However, in practice, for semiconductors, sometimes no smearing is used if the gap is well-defined. But since the user is doing an SCF calculation, maybe some smearing is needed for convergence. Let's check. If the system is a semiconductor, using Fermi-Dirac with a small degauss (like 0.01 Ry) might be appropriate. Alternatively, Gaussian smearing with similar degauss. Let's pick Fermi-Dirac here.\n\nDegauss: For semiconductors, a small value like 0.01 Ry is typical. Let's go with 0.01.\n\nConv_thr: The convergence threshold. For a ground truth calculation, it should be tight. The range is 1e-12 to 1e-5. Typically, 1e-8 is common for SCF. Let's set it to 1e-8 Ry.\n\nMixing_beta: This controls the charge density mixing. For metals, higher values (like 0.7-0.8) are used, but for semiconductors, lower values (like 0.2-0.3) can help convergence. Let's choose 0.3.\n\nPutting it all together:\n\necutwfc_Ry: 70.0\necutrho_Ry: 280.0 (4*70)\nkpoints: [6,6,6]\nsmearing: \"fermi-dirac\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.3\n\nWait, but maybe ecutwfc is too low. Let me check. For heavy elements like Iodine, the cutoff might need to be higher. For example, in some cases, ecutwfc of 80 Ry is used for perovskites with I. Let me adjust ecutwfc to 80 Ry, making ecutrho 320 Ry. That would satisfy the 4x condition. Let's go with that. So:\n\necutwfc_Ry: 80.0\necutrho_Ry: 320.0\nkpoints: [6,6,6]\nsmearing: \"fermi-dirac\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.3\n\nAlternatively, maybe the kpoints can be [8,8,8] for better convergence. Let me think. If the lattice parameter is 6.289 \u00c5, then for a 8x8x8 grid, the k-point spacing is 1/(6.289*8) \u2248 0.0198 \u00c5\u207b\u00b9. For a semiconductor, this might be sufficient. However, considering the user wants a converged calculation, perhaps 8x8x8 is better. But the user allows up to 16. However, since the structure is fixed, maybe 6x6x6 is enough. Let me check typical values. For example, in some studies, 4x4x4 is used for perovskites, but for convergence, 6x6x6 is better. Let's stick with 6x6x6 for now.\n\nAnother point: the smearing. If the system is a semiconductor, using Fermi-Dirac with a small degauss is okay. Alternatively, Gaussian smearing. But Quantum ESPRESSO's default for semiconductors is often Fermi-Dirac. Let's confirm. The choice between Gaussian and Marzari-Vanderbilt can affect the occupation. For SCF convergence, sometimes Gaussian is used. However, the user didn't specify, so I'll go with Fermi-Dirac as a safe choice.\n\nSo the final parameters would be as above. Let me verify all constraints:\n\n- ecutrho >=4*ecutwfc: 320 >= 4*80 \u2192 320=4*80 \u2192 yes.\n- kpoints integers between 1-16: 6 is okay.\n- conv_thr between 1e-12 and 1e-5: 1e-8 is within range.\n- mixing_beta between 0.1-1.0: 0.3 is okay.\n\nYes, all constraints are satisfied. This should give a converged calculation.\n</think>\n\n{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [6, 6, 6],\n  \"smearing\": \"fermi-dirac\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 43,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:28:28Z",
+  "trial_index": 1,
+  "usage": {
+    "completion_time": 3.387810674,
+    "completion_tokens": 1731,
+    "prompt_time": 0.013067592,
+    "prompt_tokens": 300,
+    "queue_time": 0.17113768,
+    "total_time": 3.400878266,
+    "total_tokens": 2031
+  },
+  "wall_seconds": 6.401546955108643
+}

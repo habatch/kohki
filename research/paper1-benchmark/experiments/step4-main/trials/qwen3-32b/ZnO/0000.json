@@ -1,0 +1,50 @@
+{
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 200.0,
+    "ecutwfc": 50.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.2,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 200.0,
+    "ecutwfc_Ry": 50.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.2,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "response_sha256": "9f8ea6cab5f570f478a6b92f42e8f095a31f8a152730b474ec1b2a0c28536f7d",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for ZnO in the wurtzite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For ZnO, typical ecutwfc values with PBE might be around 40-60 Ry. Let me check some references. I recall that for similar materials, 50 Ry for ecutwfc is common. Let's go with 50 Ry for ecutwfc. Then ecutrho would be 4*50=200 Ry. That satisfies the constraint.\n\nNext, the k-points. The crystal structure is fixed, so we need a good k-point mesh. For a primitive cell with 4 atoms, a 8x8x8 grid might be too dense. But considering the hexagonal structure of wurtzite, the k-points should be adjusted. Maybe a 8x8x6 grid? Wait, the user says integers between 1 and 16. Let me think. For hexagonal systems, often the k-point mesh is set as (n, n, n/2) or similar. Let's go with 8x8x6. That's within the 1-16 range and should sample the Brillouin zone adequately for a primitive cell.\n\nSmearing method: The options are gaussian, marzari-vanderbilt, or fermi-dirac. For metals, Marzari-Vanderbilt is often used, but ZnO is a semiconductor. However, in SCF calculations, sometimes smearing is used to help convergence. Since the user wants a ground truth calculation, maybe no smearing? Wait, but the problem requires specifying a smearing. Hmm. For semiconductors, Fermi-Dirac or Gaussian with a small degauss might be okay. Alternatively, if they want precise band structure, maybe no smearing. But the parameters require specifying a smearing. Let me check. In practice, for SCF calculations, Gaussian smearing is sometimes used with a small degauss. Let's pick Gaussian here.\n\nDegauss value: For semiconductors, a small value like 0.01 Ry is typical. Let's set degauss to 0.01.\n\nConvergence threshold (conv_thr) should be tight. The constraint is between 1e-12 and 1e-5. For a ground truth calculation, we need high precision. Let's go with 1e-10 Ry. That's a common choice for converged calculations.\n\nMixing beta: This affects charge density mixing. For semiconductors, values between 0.1 and 0.3 are typical. Let's choose 0.3. Wait, but sometimes higher values like 0.7 are used. Wait, no, higher beta can lead to instability. For better convergence, maybe 0.3 is safer. Let me confirm. Mixing beta for semiconductors is often around 0.1 to 0.3. Let's pick 0.2.\n\nPutting it all together:\n\necutwfc_Ry: 50.0\necutrho_Ry: 200.0\nkpoints: [8, 8, 6]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-10\nmixing_beta: 0.2\n\nWait, but maybe the kpoints could be adjusted. Let me think again. For a hexagonal structure, the k-point grid should be adjusted to the symmetry. Maybe a 6x6x6 grid? Or 12x12x6? But the user says integers up to 16. Let's check. If the unit cell is primitive, the k-point grid might need to be adjusted. For example, in hexagonal systems, the k-point mesh is often set as (n, n, n) or (n, n, n/2). Let me think of standard meshes. For a 4-atom cell, maybe 8x8x6 is reasonable. Alternatively, 6x6x4. But 8x8x6 is within the 16 limit and provides better sampling. Let's stick with 8,8,6.\n\nAnother check: ecutwfc. For Zn and O with SG15 pseudos, what's the cutoff? Let me recall. The SG15 pseudopotentials for Zn and O have cutoffs. For example, Zn might have a cutoff around 45 Ry, O around 55 Ry. So taking the maximum, 55 Ry. But maybe the user is using ONCV pseudos. Wait, the user says \"SG15 ONCV PBE-1.2 (norm-conserving)\". ONCV pseudopotentials might have different cutoffs. Let me check. For example, ONCV for O might have a cutoff of 50 Ry, Zn maybe 45 Ry. So taking 50 Ry for ecutwfc would be safe. So 50 Ry is acceptable.\n\nSo the final parameters should be as above. Let me verify all constraints:\n\n- ecutrho is 4*ecutwfc: 200 = 4*50 \u2714\ufe0f\n- kpoints are integers between 1-16: 8,8,6 \u2714\ufe0f\n- conv_thr is 1e-10 between 1e-12 and 1e-5 \u2714\ufe0f\n- mixing_beta 0.2 between 0.1 and 1.0 \u2714\ufe0f\n- smearing is gaussian \u2714\ufe0f\n- degauss 0.01 \u2714\ufe0f\n\nYes, this should work.\n</think>\n\n{\n  \"ecutwfc_Ry\": 50.0,\n  \"ecutrho_Ry\": 200.0,\n  \"kpoints\": [8, 8, 6],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.2\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:27:44Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 2.987465065,
+    "completion_tokens": 1388,
+    "prompt_time": 0.013123814,
+    "prompt_tokens": 302,
+    "queue_time": 0.066615823,
+    "total_time": 3.000588879,
+    "total_tokens": 1690
+  },
+  "wall_seconds": 3.297498941421509
+}

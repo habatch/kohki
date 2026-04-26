@@ -1,0 +1,64 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "Si",
+  "material_slug": "Si",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 180.0,
+    "ecutwfc": 45.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "model_family": "OpenAI",
+  "model_id": "openai/gpt-oss-120b",
+  "model_size_B": 120.0,
+  "model_tag": "gptoss-120b",
+  "n_parse_failures": 0,
+  "n_trials": 9,
+  "n_valid": 9,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 9
+    },
+    "degauss": {
+      "0.01": 9
+    },
+    "ecutrho": {
+      "160.0": 1,
+      "180.0": 8
+    },
+    "ecutwfc": {
+      "40.0": 1,
+      "45.0": 8
+    },
+    "kpoints": {
+      "[8,8,8]": 9
+    },
+    "mixing_beta": {
+      "0.7": 9
+    },
+    "smearing": {
+      "gaussian": 9
+    }
+  },
+  "param_set_hash_counts": {
+    "4f4759013892d131d066ba19fcf7cf273702d53fe810a5544bde95504ccb8978": 8,
+    "52d5be6c93121e9fe475c98710e63ccb3eaa57d1b97de23b76e8f968ced8e2d5": 1
+  },
+  "prompt_sha256": "2336ceb3517d4952d144d41df13f6cc6cc978d8fad350b574200be1a0abc1652",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 1.58,
+  "wall_seconds_total": 17.1
+}

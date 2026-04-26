@@ -1,0 +1,50 @@
+{
+  "material_formula": "Si",
+  "material_slug": "Si",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "2336ceb3517d4952d144d41df13f6cc6cc978d8fad350b574200be1a0abc1652",
+  "response_sha256": "6d8411ad522e06075314a6b5d6f40a4d72cc1993329d1eaba50dfff988470cb7",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a converged SCF calculation for silicon using Quantum ESPRESSO with PBE and SG15 ONCV pseudopotentials. The structure is fixed, so we don't need to optimize the lattice parameters. The goal is to get accurate electronic structure results as ground truth.\n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the ecutrho must be at least 4 times ecutwfc. For silicon, typical ecutwfc values with PBE and norm-conserving pseudos are around 30-40 Ry. Let me check some references. I recall that for Si with SG15, ecutwfc is often set to 30 Ry. So ecutrho would be 4*30=120 Ry. That seems safe to ensure convergence.\n\nNext, the k-points. The crystal structure is diamond cubic, which is a face-centered cubic lattice. For a primitive cell with 2 atoms, a 8x8x8 k-point grid is commonly used for convergence. But maybe 6x6x6 is sufficient? Wait, the user allows up to 16. Let me think. For a converged calculation, especially for ground truth, a denser grid is better. However, since the structure is fixed, maybe 8x8x8 is a good balance. Let me check standard practices. Silicon calculations often use 8x8x8 or 12x12x12. But since the user wants a suitable PBE ground truth, perhaps 8x8x8 is sufficient. Let's go with 8,8,8.\n\nSmearing method: For metals, Marzari-Vanderbilt (cold smearing) is preferred, but silicon is a semiconductor. However, in DFT calculations, sometimes Gaussian or Fermi-Dirac smearing is used. Since the structure is fixed and we need accurate ground state, Gaussian smearing might be better for convergence. Alternatively, Fermi-Dirac with a small degauss could work. Wait, but for semiconductors, sometimes no smearing is used. But if there's a small gap, smearing can help convergence. Let me check. For SCF calculations, if the gap is well-defined, you can use no smearing. However, sometimes a small smearing is applied. Since the user wants convergence, maybe Gaussian with a small degauss. Let's set smearing to \"gaussian\" and degauss to 0.01 Ry. That's a typical value.\n\nConvergence threshold (conv_thr) should be tight. The default in QE is 1d-8, but for ground truth, maybe 1e-10 or 1e-12. The constraint says between 1e-12 and 1e-5. Let's go with 1e-10 Ry. Mixing beta: typical values are 0.7 for metals, but for semiconductors, maybe 0.3. Wait, silicon is a semiconductor. The default is 0.7, but sometimes lower values help convergence. Let me check. For semiconductors, a lower mixing beta might be better. Maybe 0.3 or 0.5. Let's pick 0.3 to be safe.\n\nPutting it all together:\n\necutwfc_Ry: 30.0\necutrho_Ry: 120.0\nkpoints: [8,8,8]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-10\nmixing_beta: 0.3\n\nCheck constraints: ecutrho is 4x ecutwfc. Kpoints are within 1-16. Conv_thr is 1e-10 which is between 1e-12 and 1e-5. Mixing beta is 0.3 between 0.1 and 1.0. All parameters meet the requirements.\n</think>\n\n{\n  \"ecutwfc_Ry\": 30.0,\n  \"ecutrho_Ry\": 120.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 45,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:25:42Z",
+  "trial_index": 3,
+  "usage": {
+    "completion_time": 2.935071496,
+    "completion_tokens": 963,
+    "prompt_time": 0.013051945,
+    "prompt_tokens": 291,
+    "queue_time": 0.068171102,
+    "total_time": 2.948123441,
+    "total_tokens": 1254
+  },
+  "wall_seconds": 5.855001449584961
+}

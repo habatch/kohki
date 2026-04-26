@@ -1,0 +1,69 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": true,
+  "material_formula": "Ge",
+  "material_slug": "Ge",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "model_family": "Alibaba",
+  "model_id": "qwen/qwen3-32b",
+  "model_size_B": 32.0,
+  "model_tag": "qwen3-32b",
+  "n_parse_failures": 0,
+  "n_trials": 3,
+  "n_valid": 3,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 2,
+      "1e-10": 1
+    },
+    "degauss": {
+      "0.01": 3
+    },
+    "ecutrho": {
+      "160.0": 1,
+      "200.0": 2
+    },
+    "ecutwfc": {
+      "40.0": 1,
+      "50.0": 2
+    },
+    "kpoints": {
+      "[8,8,8]": 3
+    },
+    "mixing_beta": {
+      "0.3": 1,
+      "0.7": 2
+    },
+    "smearing": {
+      "fermi-dirac": 1,
+      "gaussian": 1,
+      "marzari-vanderbilt": 1
+    }
+  },
+  "param_set_hash_counts": {
+    "0d52a9a4b2420f052c4e9eae3175a62bf365858fde4ffdfcea5827f183f6aa50": 1,
+    "e188866645d2cbb24c52be76d74663a79f52ad6bb779d9c7696879e50bbc57f9": 1,
+    "f5fb645d008355d1e943580de63cb74073783ca110e3533ef99143ea6cee2fd9": 1
+  },
+  "prompt_sha256": "bf837e3a55cd64b87a98355d599e295058ab1fe6cd4241c59cbf556630746387",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 3,
+  "unique_response_count": 3,
+  "wall_seconds_per_trial_mean": 6.19,
+  "wall_seconds_total": 38.8
+}

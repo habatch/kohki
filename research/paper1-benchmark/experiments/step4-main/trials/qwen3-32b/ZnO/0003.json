@@ -1,0 +1,50 @@
+{
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      8,
+      8,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "response_sha256": "0fc7b1c21829e84ca2edc566e3cc68f80d01b206a5e49a50f3f4c63698d99999",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for ZnO in the wurtzite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate parameters. Let's start with ecutwfc and ecutrho. Since the pseudopotentials are norm-conserving (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. Common practice for ecutwfc with ONCV pseudos is around 50-70 Ry, depending on the elements. Zn and O are involved here. Checking typical values, maybe 55 Ry for ecutwfc. Then ecutrho would be 4*55=220 Ry. But sometimes people use higher values for better convergence. Let's go with 60 Ry for ecutwfc, making ecutrho 240 Ry. That should satisfy the constraint.\n\nNext, k-points. The crystal structure is fixed, so we need a good k-point mesh. For a primitive cell with 4 atoms, a 8x8x8 grid might be too dense. But considering the hexagonal structure (P63mc space group), the k-point grid should respect the symmetry. Maybe a 8x8x6 grid? Wait, the constraints say integers between 1 and 16. Let me think. For wurtzite, the a and c lattice parameters are different. The a is 3.29 \u00c5, c is 5.31 \u00c5. The unit cell is primitive, so the reciprocal space might need different sampling along different directions. A common approach is to use Monkhorst-Pack grids. Maybe 8x8x6? Let me check typical values. For similar structures, 8x8x6 is often used. So I'll go with [8,8,6].\n\nSmearing: The options are Gaussian, Marzari-Vanderbilt (cold smearing), or Fermi-Dirac. For metals, smearing is necessary, but ZnO is a semiconductor. However, in SCF calculations, sometimes smearing is used to help convergence. But since the user wants ground truth PBE, maybe no smearing? Wait, but the parameters require specifying smearing. If it's a semiconductor, maybe use Fermi-Dirac with a small degauss. Alternatively, Gaussian or Marzari. For norm-conserving pseudopotentials, Gaussian is common. Let's pick Gaussian. The degauss value should be small, maybe 0.01 Ry. That's typical for semiconductors.\n\nConvergence threshold (conv_thr) should be tight. The constraint is between 1e-12 and 1e-5. For ground truth, we need high precision, so maybe 1e-8 Ry. \n\nMixing beta: This controls the charge density mixing. For SCF convergence, values between 0.1 and 1.0. Common values are 0.7 or 0.8. Let's go with 0.7.\n\nPutting it all together:\n\necutwfc_Ry: 60.0\necutrho_Ry: 240.0\nkpoints: [8,8,6]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nCheck constraints: ecutrho is 4*ecutwfc (60*4=240). Kpoints are integers within 1-16. Conv_thr is 1e-8 which is within range. Mixing beta is 0.7. Smearing is Gaussian. All parameters meet the constraints.\n</think>\n\n{\n  \"ecutwfc_Ry\": 60.0,\n  \"ecutrho_Ry\": 240.0,\n  \"kpoints\": [8, 8, 6],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 45,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:27:56Z",
+  "trial_index": 3,
+  "usage": {
+    "completion_time": 2.970001379,
+    "completion_tokens": 922,
+    "prompt_time": 0.012549623,
+    "prompt_tokens": 302,
+    "queue_time": 0.1693347,
+    "total_time": 2.982551002,
+    "total_tokens": 1224
+  },
+  "wall_seconds": 5.988039255142212
+}

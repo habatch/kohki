@@ -1,0 +1,50 @@
+{
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 280.0,
+    "ecutwfc": 70.0,
+    "kpoints": [
+      8,
+      8,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 280.0,
+    "ecutwfc_Ry": 70.0,
+    "kpoints": [
+      8,
+      8,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "response_sha256": "2133845255e398deee6198997b734d15d5f55e3f132f5d3d7727eee7f18dc888",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a converged SCF calculation for MoS2 using Quantum ESPRESSO with PBE and SG15 pseudopotentials. Let me recall the parameters needed.\n\nFirst, ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is ecutrho must be at least 4 times ecutwfc. For MoS2, typical ecutwfc values with PBE might be around 50-60 Ry. Let me check some references. Mo and S have different cutoffs, but SG15 ONCV pseudos might have higher cutoffs. Maybe 60 Ry for ecutwfc? Then ecutrho would be 240 Ry. Wait, but sometimes people use 80 Ry for ecutwfc with Mo. Let me think. The SG15 pseudopotentials for Mo and S might require higher energy cutoffs. For example, Mo's cutoff could be around 70 Ry, S around 50 Ry. Since the maximum of these would be the ecutwfc. So maybe 70 Ry for ecutwfc, then ecutrho 280 Ry. But I need to make sure ecutrho is at least 4x. Let's go with 70 and 280.\n\nNext, k-points. The structure is a 2D monolayer with a hexagonal lattice. For a primitive cell with 3 atoms, a 6x6x1 grid might be sufficient. But need to check. If the lattice constant is 3.18 \u00c5, the reciprocal space would have a certain spacing. A 6x6x1 grid gives about 2\u03c0/(a*sqrt(3)/3.18) * 6. Let me approximate. The first Brillouin zone for hexagonal is tricky, but 6x6x1 is a common choice for such systems. Maybe 8x8x1 for better convergence? But the user wants a converged calculation. Let's see. If I use 8x8x1, that's 64 k-points. But maybe 6x6x1 is enough for a ground state calculation. However, since the vacuum is 15 \u00c5 in z-direction, the kpoints in z are 1. So the kpoints array is [6,6,1]. Wait, but the user allows up to 16. Maybe 8x8x1 is better. Let me think. For a monolayer, the in-plane kpoints depend on the system size. If the unit cell is small (primitive cell with 3 atoms), a denser grid is needed. Let's go with 8x8x1. But I need to check typical values. Maybe 6x6x1 is standard. Let me pick 6x6x1 for now, but perhaps 8x8x1 is safer. Hmm. Let's go with 8x8x1 to ensure convergence.\n\nSmearing: For metals, Marzari-Vanderbilt or Gaussian. But MoS2 is a semiconductor. Wait, 2H-MoS2 is a semiconductor with a bandgap. So for semiconductors, you can use a small smearing or no smearing. However, sometimes people use Fermi-Dirac or Gaussian with small degauss for convergence. But since the user wants a ground state calculation, maybe no smearing? Wait, but in practice, without smearing, SCF might not converge. So perhaps using a small smearing. The options are gaussian, marzari-vanderbilt, or fermi-dirac. For semiconductors, Gaussian with small degauss. Let's choose marzari-vanderbilt as it's often recommended for better convergence. Or maybe gaussian. Let me check. In practice, marzari-vanderbilt is a good choice. So smearing: \"marzari-vanderbilt\".\n\nDegauss: For semiconductors, a small value. Maybe 0.01 Ry. Let me think. If the bandgap is around 1-2 eV (which is ~0.1-0.2 Ry), then a degauss of 0.01 Ry would be sufficient. So 0.01 Ry.\n\nConv_thr: The convergence threshold. For a ground state calculation, it's usually 1e-8 to 1e-10. The user allows between 1e-12 and 1e-5. Let's go with 1e-8. So 1e-8 Ry.\n\nMixing_beta: This controls the charge mixing. For systems that converge easily, 0.7 is common. For harder systems, lower. Since MoS2 is a semiconductor, maybe 0.7 is okay. Let's set 0.7.\n\nPutting it all together:\n\necutwfc_Ry: 70.0\n\necutrho_Ry: 280.0 (4*70)\n\nkpoints: [8,8,1] (since 8 is within 1-16)\n\nsmearing: \"marzari-vanderbilt\"\n\ndegauss_Ry: 0.01\n\nconv_thr_Ry: 1e-8\n\nmixing_beta: 0.7\n\nWait, but maybe ecutwfc can be lower. Let me check SG15 pseudopotentials. For Mo, the SG15 PBE pseudopotential cutoff is 65 Ry, and S is 50 Ry. So the maximum of these is 65 Ry. So ecutwfc could be 65, ecutrho 260. But maybe to be safe, round up to 70. Alternatively, 65 and 260. But the user wants a converged calculation. Maybe 70 is better. Let's go with 70 and 280.\n\nYes, that should satisfy the constraints. Let me check all constraints:\n\n- ecutrho >=4*ecutwfc: 280 =4*70 \u2192 yes.\n\n- kpoints integers between 1-16: 8,8,1 \u2192 yes.\n\n- conv_thr between 1e-12 and 1e-5: 1e-8 \u2192 yes.\n\n- mixing_beta between 0.1-1.0: 0.7 \u2192 yes.\n\nSo the JSON should be:\n\n{\n  \"ecutwfc_Ry\": 70.0,\n  \"ecutrho_Ry\": 280.0,\n  \"kpoints\": [8, 8, 1],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}\n\nI think that's a reasonable setup for a converged SCF calculation.\n</think>\n\n{\"ecutwfc_Ry\": 70.0, \"ecutrho_Ry\": 280.0, \"kpoints\": [8, 8, 1], \"smearing\": \"marzari-vanderbilt\", \"degauss_Ry\": 0.01, \"conv_thr_Ry\": 1e-8, \"mixing_beta\": 0.7}",
+  "seed": 51,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:29:32Z",
+  "trial_index": 9,
+  "usage": {
+    "completion_time": 4.242414085,
+    "completion_tokens": 1580,
+    "prompt_time": 0.012972314,
+    "prompt_tokens": 302,
+    "queue_time": 0.169125198,
+    "total_time": 4.255386399,
+    "total_tokens": 1882
+  },
+  "wall_seconds": 7.277732610702515
+}

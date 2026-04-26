@@ -1,0 +1,50 @@
+{
+  "material_formula": "CsPbI3",
+  "material_slug": "CsPbI3",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "63ea940bd1e70d3abdca17ef30cd373467f36aa3f0c475a427233777136ae8f5",
+  "response_sha256": "5bd523799b3e4c3234728b0050a03dc782238f1d5b93b7a91bca3f7745d7fed6",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for CsPbI3 in the cubic perovskite structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation as PBE ground truth. \n\nFirst, I need to determine the appropriate ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For materials with heavy elements like Cs and I, higher cutoffs might be needed. I'll start with a common ecutwfc value for such systems. Maybe 60 Ry? Then ecutrho would be 240 Ry. But wait, sometimes people use 50 Ry for ecutwfc with SG15. Let me check typical values. For example, in some perovskite calculations, ecutwfc around 50-70 Ry is common. Let's go with 60 Ry for ecutwfc and 240 Ry for ecutrho to satisfy the 4x requirement.\n\nNext, k-points. The crystal structure is cubic, so a symmetric k-point grid is suitable. The lattice parameter is 6.289 \u00c5. For a primitive cell with 5 atoms, a 4x4x4 grid might be sufficient, but maybe 6x6x6 for better convergence. However, the user allows up to 16 in each direction. Considering that it's a cubic structure and the primitive cell, a 6x6x6 grid would sample the Brillouin zone well. Let's pick [6,6,6].\n\nSmearing method: For metals or systems with partially filled bands, smearing is needed. CsPbI3 is a semiconductor, but during SCF calculations, sometimes smearing helps convergence. The options are Gaussian, Marzari-Vanderbilt (cold smearing), or Fermi-Dirac. PBE calculations often use Gaussian or Marzari-Vanderbilt. Since the user wants ground truth, maybe Gaussian is more standard. But Fermi-Dirac is also used. However, for convergence, Marzari-Vanderbilt is sometimes preferred. Let me check. In practice, Gaussian is common for PBE. Let's go with \"gaussian\".\n\nThe degauss value depends on the system. For semiconductors, a small value like 0.01 Ry is typical. Let's set degauss_Ry to 0.01.\n\nConvergence threshold (conv_thr) should be tight for ground truth. The constraint is between 1e-12 and 1e-5. A typical value is 1e-8 Ry. So 1e-8 is acceptable here.\n\nMixing beta controls the charge density mixing. Values between 0.1 and 1.0. For systems that might have convergence issues, a lower beta helps. CsPbI3 might be tricky due to heavy elements. Starting with 0.3 is common. Let's set mixing_beta to 0.3.\n\nPutting it all together:\n\necutwfc_Ry: 60.0\necutrho_Ry: 240.0\nkpoints: [6,6,6]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.3\n\nI need to check all constraints again. ecutrho is 4x ecutwfc. Kpoints are integers within 1-16. Conv_thr is 1e-8 which is within range. Mixing beta is 0.3 between 0.1-1.0. All parameters meet the requirements.\n</think>\n\n{\n  \"ecutwfc_Ry\": 60.0,\n  \"ecutrho_Ry\": 240.0,\n  \"kpoints\": [6, 6, 6],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 49,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:28:45Z",
+  "trial_index": 7,
+  "usage": {
+    "completion_time": 1.813467067,
+    "completion_tokens": 915,
+    "prompt_time": 0.012644711,
+    "prompt_tokens": 300,
+    "queue_time": 0.170021082,
+    "total_time": 1.826111778,
+    "total_tokens": 1215
+  },
+  "wall_seconds": 2.187889814376831
+}

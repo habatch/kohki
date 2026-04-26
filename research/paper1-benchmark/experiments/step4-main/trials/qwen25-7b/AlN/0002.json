@@ -1,0 +1,47 @@
+{
+  "material_formula": "AlN",
+  "material_slug": "AlN",
+  "model_id": "qwen2.5:7b",
+  "model_tag": "qwen25-7b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.05,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.05,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      4,
+      4,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "780f3355c50c4838b96298a00477e408fb10a126fc023e48c044c0873242ee37",
+  "response_sha256": "34602b59f3bc364d2b6b341d5b068676bd11a881ae8b754381167cf453561f8a",
+  "response_text": "{\n  \"ecutwfc_Ry\":     30.0,\n  \"ecutrho_Ry\":     120.0,\n  \"kpoints\":        [4, 4, 8],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.05,\n  \"conv_thr_Ry\":    1e-10,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 44,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T04:49:18Z",
+  "trial_index": 2,
+  "usage": {
+    "eval_count": 104,
+    "eval_duration_s": 15.045403176,
+    "load_duration_s": 0.119809866,
+    "prompt_eval_count": 322
+  },
+  "wall_seconds": 15.473693370819092
+}

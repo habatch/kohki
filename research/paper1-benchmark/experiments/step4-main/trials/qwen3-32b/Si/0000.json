@@ -1,0 +1,50 @@
+{
+  "material_formula": "Si",
+  "material_slug": "Si",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.1,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.1,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "2336ceb3517d4952d144d41df13f6cc6cc978d8fad350b574200be1a0abc1652",
+  "response_sha256": "85a62d8075f8589c99e5840355c824d5ad891d0eeafd170f215ed1f4a0e0b1e0",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a converged SCF calculation for silicon using Quantum ESPRESSO with PBE and SG15 ONCV pseudopotentials. The structure is fixed, so we don't need to optimize the lattice parameters. The goal is to get accurate electronic structure results as ground truth.\n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the ecutrho must be at least 4 times ecutwfc. For silicon, typical ecutwfc values with PBE and norm-conserving pseudos are around 30-40 Ry. Let me check some references. I recall that for Si with SG15, ecutwfc is often set to 30 Ry. So ecutrho would be 4*30=120 Ry. That seems safe to ensure convergence.\n\nNext, the k-points. The crystal structure is diamond cubic, which is a face-centered cubic lattice. For a primitive cell with 2 atoms, a 8x8x8 k-point grid is commonly used for convergence. But maybe 6x6x6 is sufficient? Wait, the user allows up to 16. Let me think. For a converged calculation, especially for ground truth, it's better to be on the safe side. Silicon calculations often use 8x8x8 or 10x10x10. But since the user's constraint is integers up to 16, 8x8x8 is a good balance between accuracy and computational cost. Let's go with 8,8,8.\n\nSmearing method: For metals, Marzari-Vanderbilt (cold smearing) is preferred, but silicon is a semiconductor. However, in DFT calculations, sometimes smearing is used to help convergence. Since the user wants a ground truth calculation, maybe they want the most accurate band structure. But for SCF convergence, using Fermi-Dirac or Gaussian smearing with a small degauss might help. Wait, the default for semiconductors is no smearing, but sometimes people use a small smearing. However, if the system is insulating, smearing isn't necessary. But Quantum ESPRESSO might require smearing if the system is metallic. Wait, silicon is a semiconductor, so at 0 K, it's insulating. However, in practice, when using smearing, Marzari-Vanderbilt is often used. Alternatively, Gaussian smearing. Let me check. For a converged calculation, maybe using Fermi-Dirac with a small degauss. But I think the standard for semiconductors is to use no smearing, but sometimes people use a small value. However, the user hasn't specified whether they want metallic or insulating treatment. Since the structure is fixed and they want ground truth, perhaps using no smearing. Wait, but the JSON requires specifying a smearing type. The options are gaussian, marzari-vanderbilt, or fermi-dirac. For semiconductors, maybe marzari-vanderbilt with a small degauss. Let me check standard practices. For example, in many silicon calculations, Gaussian smearing with a degauss of 0.01 Ry is used. Alternatively, Fermi-Dirac. But I think Gaussian is more common. Let's go with Gaussian smearing and a degauss of 0.01 Ry. That's a typical value for convergence.\n\nConvergence threshold (conv_thr) should be tight. The default in QE is 1d-8, but for ground truth, maybe 1e-10 or 1e-12. The constraint is between 1e-12 and 1e-5. Let's pick 1e-10 as a balance. Mixing beta: typically between 0.1 and 0.3 for semiconductors. A value of 0.1 or 0.2. Let's go with 0.1 to ensure stability. \n\nPutting it all together:\n\necutwfc_Ry: 30.0\necutrho_Ry: 120.0\nkpoints: [8,8,8]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-10\nmixing_beta: 0.1\n\nI need to check all constraints. ecutrho is 4x ecutwfc. Kpoints are integers within 1-16. Conv_thr is 1e-10 which is within range. Mixing beta is 0.1. Smearing is gaussian. All parameters fit the required JSON structure.\n</think>\n\n{\n  \"ecutwfc_Ry\": 30.0,\n  \"ecutrho_Ry\": 120.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.1\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:25:31Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 3.229263382,
+    "completion_tokens": 1096,
+    "prompt_time": 0.012973856,
+    "prompt_tokens": 291,
+    "queue_time": 0.06681787,
+    "total_time": 3.242237238,
+    "total_tokens": 1387
+  },
+  "wall_seconds": 3.4514734745025635
+}

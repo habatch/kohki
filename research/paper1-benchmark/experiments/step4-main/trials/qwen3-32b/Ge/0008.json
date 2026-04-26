@@ -1,0 +1,50 @@
+{
+  "material_formula": "Ge",
+  "material_slug": "Ge",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 200.0,
+    "ecutwfc": 50.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 200.0,
+    "ecutwfc_Ry": 50.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "bf837e3a55cd64b87a98355d599e295058ab1fe6cd4241c59cbf556630746387",
+  "response_sha256": "7b8f62da9af5d85a7cc98fdef4d4be3eb185a3bcf254e88630d0e7fb4c6577c9",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for Germanium in the diamond cubic structure using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure calculation suitable as PBE ground truth. \n\nFirst, I need to determine the appropriate parameters. Let's start with ecutwfc and ecutrho. Since the pseudopotentials are norm-conserving (SG15), the constraint is that ecutrho must be at least 4 times ecutwfc. For Ge, typical values might be around 40-60 Ry for ecutwfc. Let me check some references. I recall that for similar elements like Si, ecutwfc is around 30-40 Ry. But Ge has a larger atomic number, so maybe higher. Let's go with 50 Ry for ecutwfc. Then ecutrho would be 4*50=200 Ry. That satisfies the constraint.\n\nNext, the k-points. The crystal structure is fixed, and it's a primitive cell with 2 atoms. For diamond cubic structures, a common k-point grid is 8x8x8 or 12x12x12. But the user allows integers up to 16. Considering convergence, maybe 8x8x8 is sufficient for a ground truth calculation. However, to be more accurate, perhaps 12x12x12 would be better. Let me think. Since the structure is fixed, and we need a good convergence, 8x8x8 might be on the lower side. Let's choose 8x8x8 as a starting point. Wait, but maybe 12x12x8? Wait, the user wants integers in [1,16], and the kpoints array is three integers. For cubic structures, they are usually the same in all directions. So 8x8x8 is symmetric. Let's go with 8,8,8. Alternatively, maybe 12x12x12 for better convergence. But higher kpoints mean longer computation. Since the user wants a converged calculation, perhaps 8 is too low. Let me check typical values. For Ge, maybe 8x8x8 is standard. Let's stick with 8x8x8 for now.\n\nSmearing: The options are gaussian, marzari-vanderbilt, or fermi-dirac. For metals, smearing is important, but Ge is a semiconductor. However, in DFT calculations, sometimes smearing is used to help convergence. For semiconductors, Marzari-Vanderbilt (cold smearing) is often recommended. Alternatively, Gaussian smearing is also used. Let's go with marzari-vanderbilt as it's commonly used in such cases.\n\nDegauss: The degauss parameter is the broadening in Ry. For semiconductors, a typical value is around 0.01 to 0.02 Ry. Let's choose 0.01 Ry here.\n\nConv_thr: The convergence threshold for the electronic SCF cycles. The user says between 1e-12 and 1e-5. For a ground truth calculation, we need tight convergence. Typically, 1e-8 is common. Let's set it to 1e-8.\n\nMixing_beta: This controls the charge density mixing. Values between 0.1 and 1.0. For better convergence, sometimes 0.7 is used. Let's go with 0.7 here.\n\nPutting it all together:\n\necutwfc_Ry: 50.0\necutrho_Ry: 200.0\nkpoints: [8,8,8]\nsmearing: marzari-vanderbilt\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.7\n\nWait, but need to check if ecutwfc=50 is sufficient. Let me think. For Ge with norm-conserving pseudopotentials, maybe 50 Ry is okay. If I look up some examples, for example, in Quantum ESPRESSO's documentation or tutorials, for Ge, ecutwfc is often around 40-50 Ry. Since the user is using SG15 ONCV pseudopotentials, which are supposed to be efficient, maybe 50 is acceptable. Alternatively, maybe 45? But the user wants to ensure convergence. Let's stick with 50. Also, ecutrho is 4*50=200, which meets the requirement.\n\nAnother check: kpoints. If the lattice constant is 5.65 \u00c5, then the reciprocal space will have certain spacing. For a diamond structure, the Brillouin zone is similar to Si. An 8x8x8 grid would sample the zone adequately. However, sometimes a shifted grid is better, but the user hasn't specified that. So just [8,8,8].\n\nSmearing for semiconductors: Since Ge is a semiconductor, using smearing might not be necessary, but in practice, it's often used to help with convergence. The choice between Gaussian and Marzari-Vanderbilt is somewhat arbitrary here. Let's go with marzari-vanderbilt as it's a common choice for DFT calculations.\n\nDegauss value of 0.01 Ry is standard for semiconductors. Conv_thr of 1e-8 is tight enough for ground truth. Mixing beta of 0.7 is a typical value to speed up convergence without causing instabilities.\n\nSo the final JSON should have these values.\n</think>\n\n{\n  \"ecutwfc_Ry\": 50.0,\n  \"ecutrho_Ry\": 200.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 50,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:26:36Z",
+  "trial_index": 8,
+  "usage": {
+    "completion_time": 3.7890628509999997,
+    "completion_tokens": 1311,
+    "prompt_time": 0.011872816,
+    "prompt_tokens": 291,
+    "queue_time": 0.170143756,
+    "total_time": 3.800935667,
+    "total_tokens": 1602
+  },
+  "wall_seconds": 6.819021940231323
+}

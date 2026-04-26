@@ -1,0 +1,56 @@
+{
+  "material_formula": "GaAs",
+  "material_slug": "GaAs",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "2d3f7f58a21a0cddf91baafd5374d7c5ced00d4d6279aed80a3bce8750660444",
+  "response_sha256": "2f3edfa7e925699644f3bff23abb225bbf3082ae558abe4921f813d5cec341c3",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [8, 8, 8],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 51,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:21:32Z",
+  "trial_index": 9,
+  "usage": {
+    "completion_time": 0.687378993,
+    "completion_tokens": 298,
+    "completion_tokens_details": {
+      "reasoning_tokens": 198
+    },
+    "prompt_time": 0.126352919,
+    "prompt_tokens": 353,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "queue_time": 0.026872649,
+    "total_time": 0.813731912,
+    "total_tokens": 651
+  },
+  "wall_seconds": 3.6652793884277344
+}

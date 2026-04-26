@@ -1,0 +1,53 @@
+{
+  "material_formula": "CsPbI3",
+  "material_slug": "CsPbI3",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.02,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      6,
+      6,
+      6
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "63ea940bd1e70d3abdca17ef30cd373467f36aa3f0c475a427233777136ae8f5",
+  "response_sha256": "c46264df4d061ae7ff501f7d3a722b47bbadbc73835781dbc79b0c9c329878e6",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [6, 6, 6],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.02,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:22:43Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 0.74976625,
+    "completion_tokens": 364,
+    "completion_tokens_details": {
+      "reasoning_tokens": 264
+    },
+    "prompt_time": 0.014955598,
+    "prompt_tokens": 358,
+    "queue_time": 0.024123572,
+    "total_time": 0.764721848,
+    "total_tokens": 722
+  },
+  "wall_seconds": 3.627362012863159
+}

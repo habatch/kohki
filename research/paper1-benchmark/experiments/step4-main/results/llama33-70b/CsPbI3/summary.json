@@ -1,0 +1,61 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": true,
+  "fully_reproducible_response": true,
+  "is_reasoning": false,
+  "material_formula": "CsPbI3",
+  "material_slug": "CsPbI3",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_size_B": 70.0,
+  "model_tag": "llama33-70b",
+  "n_parse_failures": 0,
+  "n_trials": 10,
+  "n_valid": 10,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 10
+    },
+    "degauss": {
+      "0.01": 10
+    },
+    "ecutrho": {
+      "160.0": 10
+    },
+    "ecutwfc": {
+      "40.0": 10
+    },
+    "kpoints": {
+      "[4,4,4]": 10
+    },
+    "mixing_beta": {
+      "0.7": 10
+    },
+    "smearing": {
+      "fermi-dirac": 10
+    }
+  },
+  "param_set_hash_counts": {
+    "4debe7dd906de26e3032f0ec35888fe7504aee88bbb23736599ddb04a0dfeba6": 10
+  },
+  "prompt_sha256": "63ea940bd1e70d3abdca17ef30cd373467f36aa3f0c475a427233777136ae8f5",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 1,
+  "unique_response_count": 1,
+  "wall_seconds_per_trial_mean": 0.53,
+  "wall_seconds_total": 5.3
+}

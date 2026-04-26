@@ -1,0 +1,53 @@
+{
+  "material_formula": "BiVO4",
+  "material_slug": "BiVO4",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      4,
+      4,
+      2
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      4,
+      4,
+      2
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "b93cf6fa2b8f6a9034db2ef1a2d9460589db348f10a33ad283ef014d56fdc86c",
+  "response_sha256": "94c66a738d1def495e179532bf51a316ae3c863117c12a91f27df11a9de49f55",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [4, 4, 2],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 48,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:24:08Z",
+  "trial_index": 6,
+  "usage": {
+    "completion_time": 0.706638876,
+    "completion_tokens": 337,
+    "completion_tokens_details": {
+      "reasoning_tokens": 241
+    },
+    "prompt_time": 0.015156947,
+    "prompt_tokens": 376,
+    "queue_time": 0.022254302,
+    "total_time": 0.721795823,
+    "total_tokens": 713
+  },
+  "wall_seconds": 3.8229477405548096
+}

@@ -1,0 +1,24 @@
+You are selecting input parameters for a Quantum ESPRESSO SCF calculation
+of CsPbI3 (cubic perovskite, Pm-3m, 5 atoms primitive, a=6.289 Å) using
+PBE DFT. Pseudopotentials are SG15 ONCV PBE-1.2 (norm-conserving). The
+crystal structure is fixed. Goal: a converged electronic-structure
+calculation suitable as PBE ground truth.
+
+Respond ONLY with a JSON object of EXACTLY this shape:
+
+{
+  "ecutwfc_Ry":     <float>,
+  "ecutrho_Ry":     <float>,
+  "kpoints":        [<int>, <int>, <int>],
+  "smearing":       "gaussian" | "marzari-vanderbilt" | "fermi-dirac",
+  "degauss_Ry":     <float>,
+  "conv_thr_Ry":    <float>,
+  "mixing_beta":    <float>
+}
+
+Constraints:
+- ecutrho >= 4 * ecutwfc (norm-conserving requirement)
+- k-points: integers in [1, 16]
+- conv_thr: between 1e-12 and 1e-5
+- mixing_beta: between 0.1 and 1.0
+- No commentary, no markdown fences. JSON only.

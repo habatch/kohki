@@ -1,0 +1,50 @@
+{
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "response_sha256": "198cfaee93b6ab1ed6f49ecbff5df08877c24b1dd6390ba84cb613aacccaa173",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a Quantum ESPRESSO SCF calculation for MoS2 monolayer using PBE DFT with SG15 ONCV pseudopotentials. The goal is to get a converged electronic structure as ground truth. \n\nFirst, I need to determine the energy cutoffs. Since they're using norm-conserving pseudopotentials (SG15), the ecutrho must be at least 4 times ecutwfc. For Mo and S, typical ecutwfc values with PBE might be around 50-70 Ry. Let's start with ecutwfc at 60 Ry. Then ecutrho would be 4*60=240 Ry. But maybe higher is better for convergence. Wait, sometimes people use 80 Ry for Mo. Let me check. Mo has a higher cutoff than S. SG15 pseudos for Mo (PBE) might suggest around 70 Ry. Let's go with 70 Ry for ecutwfc. Then ecutrho would be 4*70=280 Ry. But maybe 80 Ry for ecutwfc and 320 for ecutrho to be safe. Hmm. Let me think. The user wants it to be suitable as PBE ground truth, so it's important to have sufficient convergence. Let's set ecutwfc to 80 Ry and ecutrho to 320 Ry. That should satisfy the 4x requirement and be safe.\n\nNext, k-points. The structure is a 2D monolayer with a hexagonal lattice. For a primitive cell with 3 atoms, a 12x12x1 k-point grid might be too dense. Wait, but the user allows up to 16 in each direction. However, since it's a monolayer, the out-of-plane direction (z) is 1. For in-plane, maybe 12x12 is sufficient. Alternatively, considering the hexagonal symmetry, sometimes people use a grid that's compatible with the symmetry. But since the crystal structure is fixed, maybe a 12x12x1 grid is a good balance between accuracy and computational cost. Let me check typical values for MoS2. Some references suggest 12x12x1 for monolayer MoS2. So I'll go with [12, 12, 1].\n\nSmearing: The options are Gaussian, Marzari-Vanderbilt, or Fermi-Dirac. For metals, Marzari-Vanderbilt is often used, but MoS2 is a semiconductor. Wait, MoS2 monolayer is a semiconductor with a bandgap. So for semiconductors, you can use Fermi-Dirac or Gaussian smearing with a small degauss. However, in practice, Gaussian smearing is common. But since it's a semiconductor, maybe set smearing to 'gaussian' with a small degauss. Alternatively, some use 'marzari-vanderbilt' for better convergence. Let me think. For semiconductors, sometimes people use a small smearing. Let's go with Gaussian here. \n\nDegauss: For semiconductors, a small value like 0.01 Ry is typical. Let's set degauss to 0.01 Ry. \n\nConvergence threshold (conv_thr): The default in QE is 1e-8, but the user allows between 1e-12 and 1e-5. For a ground truth calculation, we want it tight. Let's use 1e-10 Ry. \n\nMixing beta: This controls the charge density mixing. For semiconductors, a higher beta can be used. Typical values are 0.7 to 0.8. Let's set it to 0.7. \n\nPutting it all together:\n\necutwfc_Ry: 80.0\necutrho_Ry: 320.0\nkpoints: [12, 12, 1]\nsmearing: \"gaussian\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-10\nmixing_beta: 0.7\n\nCheck constraints: ecutrho is 4x ecutwfc (80*4=320). Kpoints are within 1-16. Conv_thr is 1e-10 which is between 1e-12 and 1e-5. Mixing beta is 0.7 between 0.1 and 1.0. All good.\n</think>\n\n{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [12, 12, 1],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-10,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:28:59Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 3.885374005,
+    "completion_tokens": 1088,
+    "prompt_time": 0.012477983,
+    "prompt_tokens": 302,
+    "queue_time": 0.16943978,
+    "total_time": 3.897851988,
+    "total_tokens": 1390
+  },
+  "wall_seconds": 6.938151597976685
+}

@@ -1,0 +1,50 @@
+{
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "model_id": "llama-3.1-8b-instant",
+  "model_tag": "llama31-8b",
+  "params": {
+    "conv_thr": 1e-12,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-12,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "response_sha256": "46f5a477822f0bc31e9f0c00da7472b1bd3e7296b15ccb9ea96d49771d3a3885",
+  "response_text": "{\n  \"ecutwfc_Ry\": 30.0,\n  \"ecutrho_Ry\": 120.0,\n  \"kpoints\": [4, 4, 4],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-12,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 42,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:12:44Z",
+  "trial_index": 0,
+  "usage": {
+    "completion_time": 0.104630712,
+    "completion_tokens": 88,
+    "prompt_time": 0.03236381,
+    "prompt_tokens": 320,
+    "queue_time": 0.062338259,
+    "total_time": 0.136994522,
+    "total_tokens": 408
+  },
+  "wall_seconds": 0.36122965812683105
+}

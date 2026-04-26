@@ -1,0 +1,47 @@
+{
+  "material_formula": "Si",
+  "material_slug": "Si",
+  "model_id": "qwen2.5:7b",
+  "model_tag": "qwen25-7b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.01,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "2336ceb3517d4952d144d41df13f6cc6cc978d8fad350b574200be1a0abc1652",
+  "response_sha256": "73d12bb11806a26d926a18d6618025f9aa9597883e5433cd3ae72c8ea53af613",
+  "response_text": "{\n  \"ecutwfc_Ry\":     30.0,\n  \"ecutrho_Ry\":     120.0,\n  \"kpoints\":        [4, 4, 4],\n  \"smearing\":       \"gaussian\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-10,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 49,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T04:39:19Z",
+  "trial_index": 7,
+  "usage": {
+    "eval_count": 102,
+    "eval_duration_s": 14.656537904,
+    "load_duration_s": 0.124441564,
+    "prompt_eval_count": 312
+  },
+  "wall_seconds": 15.07107138633728
+}

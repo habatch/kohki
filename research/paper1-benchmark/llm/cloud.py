@@ -44,7 +44,13 @@ class CloudResponse:
 
 def _post_json(url: str, body: dict[str, Any], headers: dict[str, str], timeout: float = 120.0) -> dict[str, Any]:
     data = json.dumps(body).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"content-type": "application/json", **headers})
+    # Groq は Python-urllib のデフォルト UA を Cloudflare 1010 で弾く。
+    # 一般的なブラウザ UA を付けないと通らない。
+    req = urllib.request.Request(url, data=data, headers={
+        "content-type": "application/json",
+        "user-agent": "paper1-benchmark/0.1 (python-urllib)",
+        **headers,
+    })
     for attempt in range(2):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:

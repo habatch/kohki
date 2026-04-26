@@ -1,0 +1,53 @@
+{
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "response_sha256": "686dee92d336d29adb998215a63b7d233a6eeb962f2658f732e00f6faeaa8134",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [12, 12, 1],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 49,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:23:37Z",
+  "trial_index": 7,
+  "usage": {
+    "completion_time": 0.771253519,
+    "completion_tokens": 369,
+    "completion_tokens_details": {
+      "reasoning_tokens": 269
+    },
+    "prompt_time": 0.014786341,
+    "prompt_tokens": 361,
+    "queue_time": 0.061020586,
+    "total_time": 0.78603986,
+    "total_tokens": 730
+  },
+  "wall_seconds": 3.702026844024658
+}

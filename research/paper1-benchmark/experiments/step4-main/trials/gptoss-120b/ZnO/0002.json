@@ -1,0 +1,53 @@
+{
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "model_id": "openai/gpt-oss-120b",
+  "model_tag": "gptoss-120b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 320.0,
+    "ecutwfc_Ry": 80.0,
+    "kpoints": [
+      6,
+      6,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "response_sha256": "9cc5912b248d436c731aa366f7059d7645953df05a5b82c17790812633ed1118",
+  "response_text": "{\n  \"ecutwfc_Ry\": 80.0,\n  \"ecutrho_Ry\": 320.0,\n  \"kpoints\": [6, 6, 4],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.7\n}",
+  "seed": 44,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:22:16Z",
+  "trial_index": 2,
+  "usage": {
+    "completion_time": 0.825946377,
+    "completion_tokens": 400,
+    "completion_tokens_details": {
+      "reasoning_tokens": 300
+    },
+    "prompt_time": 0.015479821,
+    "prompt_tokens": 359,
+    "queue_time": 0.020306308,
+    "total_time": 0.841426198,
+    "total_tokens": 759
+  },
+  "wall_seconds": 3.6804749965667725
+}

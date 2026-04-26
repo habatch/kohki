@@ -1,0 +1,63 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "ZnO",
+  "material_slug": "ZnO",
+  "material_tier": "A",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      6,
+      6,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "marzari-vanderbilt"
+  },
+  "model_family": "OpenAI",
+  "model_id": "openai/gpt-oss-120b",
+  "model_size_B": 120.0,
+  "model_tag": "gptoss-120b",
+  "n_parse_failures": 0,
+  "n_trials": 5,
+  "n_valid": 5,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 5
+    },
+    "degauss": {
+      "0.01": 1,
+      "0.02": 4
+    },
+    "ecutrho": {
+      "320.0": 5
+    },
+    "ecutwfc": {
+      "80.0": 5
+    },
+    "kpoints": {
+      "[6,6,4]": 5
+    },
+    "mixing_beta": {
+      "0.7": 5
+    },
+    "smearing": {
+      "marzari-vanderbilt": 5
+    }
+  },
+  "param_set_hash_counts": {
+    "25cda1d1778d5641f40aba9741346176310c5db50f8b75f8753f516f39d05d7c": 4,
+    "68121c3140f19ef336f7379aad6a4b7684fe6ce27a48309608abc27fa75bfa19": 1
+  },
+  "prompt_sha256": "f2943f55b802894c69178c54c56f6a1b0018a42f65e72aa642c266886714a935",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 3.83,
+  "wall_seconds_total": 33.4
+}

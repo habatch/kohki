@@ -1,0 +1,98 @@
+# Step 4 main experiment — N=10 計画材料リスト.
+#
+# 各エントリは prompt 生成 (prompts/template.txt の {{...}} 置換) に使う。
+# n_atoms と lattice は CIF 由来 (materials/fixtures/{cif_path})。
+#
+# Tier A 軽元素半導体 5 件
+# Tier B 重元素 / 2D / perovskite / oxide 3 件
+# Tier C ドープ Si supercell 2 件
+
+[[material]]
+slug             = "Si"
+formula          = "Si"
+tier             = "A"
+structure_description = "diamond cubic Fd-3m"
+lattice_description   = "a=5.43 Å"
+n_atoms          = 2
+cif              = "Si.cif"
+
+[[material]]
+slug             = "Ge"
+formula          = "Ge"
+tier             = "A"
+structure_description = "diamond cubic Fd-3m"
+lattice_description   = "a=5.65 Å"
+n_atoms          = 2
+cif              = "Ge.cif"
+
+[[material]]
+slug             = "GaAs"
+formula          = "GaAs"
+tier             = "A"
+structure_description = "zincblende F-43m"
+lattice_description   = "a=5.65 Å"
+n_atoms          = 2
+cif              = "GaAs.cif"
+
+[[material]]
+slug             = "AlN"
+formula          = "AlN"
+tier             = "A"
+structure_description = "wurtzite P63mc"
+lattice_description   = "a=3.13 Å, c=5.02 Å"
+n_atoms          = 4
+cif              = "AlN_wurtzite.cif"
+
+[[material]]
+slug             = "ZnO"
+formula          = "ZnO"
+tier             = "A"
+structure_description = "wurtzite P63mc"
+lattice_description   = "a=3.29 Å, c=5.31 Å"
+n_atoms          = 4
+cif              = "ZnO_wurtzite.cif"
+
+[[material]]
+slug             = "CsPbI3"
+formula          = "CsPbI3"
+tier             = "B"
+structure_description = "cubic perovskite Pm-3m"
+lattice_description   = "a=6.289 Å"
+n_atoms          = 5
+cif              = "CsPbI3.cif"
+
+[[material]]
+slug             = "MoS2"
+formula          = "MoS2"
+tier             = "B"
+structure_description = "2H monolayer P-6m2 with ~15 Å vacuum"
+lattice_description   = "a=3.18 Å"
+n_atoms          = 3
+cif              = "MoS2_monolayer.cif"
+
+[[material]]
+slug             = "BiVO4"
+formula          = "BiVO4"
+tier             = "B"
+structure_description = "monoclinic scheelite I2/b"
+lattice_description   = "a=5.20 Å, b=5.10 Å, c=11.74 Å, β=90.4°"
+n_atoms          = 24
+cif              = "BiVO4.cif"
+
+[[material]]
+slug             = "Si63P1"
+formula          = "Si63P1"
+tier             = "C"
+structure_description = "Si 2x2x2 supercell with single P substitutional dopant (n-type)"
+lattice_description   = "a=10.86 Å (cubic supercell)"
+n_atoms          = 64
+cif              = "Si63P1.cif"
+
+[[material]]
+slug             = "Si63B1"
+formula          = "Si63B1"
+tier             = "C"
+structure_description = "Si 2x2x2 supercell with single B substitutional dopant (p-type)"
+lattice_description   = "a=10.86 Å (cubic supercell)"
+n_atoms          = 64
+cif              = "Si63B1.cif"

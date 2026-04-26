@@ -1,0 +1,50 @@
+{
+  "material_formula": "MoS2",
+  "material_slug": "MoS2",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      12,
+      12,
+      1
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "663a0feaa6692656bbb39b72f20e8ab0276cfb080355bb0a034f8ad839b21cb6",
+  "response_sha256": "2da4832e70a77a9ef7ecfc0f5c201cb7f1b56aca1b34d42c5d76e5fd08cadaba",
+  "response_text": "<think>\nOkay, let's tackle this problem step by step. The user wants to set up a converged SCF calculation for MoS2 using Quantum ESPRESSO with PBE and SG15 pseudopotentials. Let me recall the parameters needed.\n\nFirst, ecutwfc and ecutrho. Since they're using norm-conserving pseudopotentials (SG15), the constraint is ecutrho must be at least 4 times ecutwfc. For Mo and S, typical ecutwfc values with PBE might be around 50-60 Ry. Let me check some references. Mo has a higher cutoff than S. Maybe 60 Ry for ecutwfc? Then ecutrho would be 240 Ry. That's a common setup for similar materials.\n\nNext, k-points. The structure is a 2D monolayer, so the vacuum is 15 \u00c5, so the out-of-plane k-point can be 1. For in-plane, since it's a hexagonal structure, maybe a 12x12x1 grid? Wait, the user says kpoints are integers between 1 and 16. 12x12x1 is reasonable for convergence. But maybe 16x16x1? Wait, but the structure is a primitive cell with 3 atoms. Let me think. For MoS2 monolayer, a 6x6x1 grid is sometimes used. But to ensure convergence, maybe 12x12x1. Let me check. If the lattice constant is 3.18 \u00c5, the reciprocal space would have a certain size. A 12x12 grid would sample well. Let's go with 12x12x1.\n\nSmearing: For metals, Marzari-Vanderbilt (cold smearing) is often used, but MoS2 is a semiconductor. Wait, but in 2D, sometimes there's a small band gap. However, for a ground state calculation with PBE, maybe no smearing is needed. But the user might want to use smearing for better convergence. Alternatively, Fermi-Dirac or Gaussian. Since it's a semiconductor, maybe Gaussian smearing with a small degauss. Or maybe no smearing? But the parameters require specifying smearing. Let me check. If the gap is small, using a smearing like Marzari-Vanderbilt with a small degauss could help. Let's pick marzari-vanderbilt. The degauss value: for semiconductors, typically 0.01 Ry is sufficient. Let's set degauss to 0.01.\n\nConvergence threshold (conv_thr): The default in QE is 1e-8, but the user allows between 1e-12 and 1e-5. For a ground truth calculation, we want tight convergence. Let's go with 1e-8 or 1e-9. Let's pick 1e-8 Ry.\n\nMixing beta: This controls the charge density mixing. For better convergence, values between 0.1 and 0.3 are common. Let's choose 0.3. Wait, but sometimes higher values like 0.7 are used with Broyden mixing. However, the user didn't specify the mixing mode. Assuming default Broyden, maybe 0.3 is safe. Alternatively, 0.5? Hmm. Let me think. For systems with a band gap, higher beta can be used. Since MoS2 is a semiconductor, maybe 0.5 or 0.7. But to be safe, 0.3 is a standard starting point. Let's go with 0.3.\n\nPutting it all together:\n\necutwfc_Ry: 60.0\necutrho_Ry: 240.0 (4*60)\nkpoints: [12, 12, 1]\nsmearing: \"marzari-vanderbilt\"\ndegauss_Ry: 0.01\nconv_thr_Ry: 1e-8\nmixing_beta: 0.3\n\nWait, but the user mentioned the crystal structure is fixed, so no need for relaxation. The parameters should be sufficient for a converged electronic structure. Let me double-check the ecutwfc. If Mo's cutoff is higher, maybe 60 is okay. Alternatively, maybe 55? But 60 is a round number. Let's stick with 60. The ecutrho is 4*60=240. All constraints are satisfied. Kpoints are within 1-16. Conv_thr is 1e-8, which is within the allowed range. Mixing beta is 0.3. All parameters fit the required JSON structure.\n</think>\n\n{\n  \"ecutwfc_Ry\": 60.0,\n  \"ecutrho_Ry\": 240.0,\n  \"kpoints\": [12, 12, 1],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.01,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 46,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:29:13Z",
+  "trial_index": 4,
+  "usage": {
+    "completion_time": 2.379241566,
+    "completion_tokens": 1116,
+    "prompt_time": 0.012982303,
+    "prompt_tokens": 302,
+    "queue_time": 0.16971191,
+    "total_time": 2.392223869,
+    "total_tokens": 1418
+  },
+  "wall_seconds": 5.406126499176025
+}

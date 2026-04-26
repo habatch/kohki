@@ -1,0 +1,47 @@
+{
+  "material_formula": "Si63P1",
+  "material_slug": "Si63P1",
+  "model_id": "qwen2.5:7b",
+  "model_tag": "qwen25-7b",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.05,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-10,
+    "degauss_Ry": 0.05,
+    "ecutrho_Ry": 120.0,
+    "ecutwfc_Ry": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "4c02799e4a82752d6c90b07b8bccb41b8f0562a67ce73a8d66d2ae157787dcca",
+  "response_sha256": "9a5770e769c077a6814c67064feb45785bd919e3ee68435c4326f3530076989b",
+  "response_text": "{\n  \"ecutwfc_Ry\":     30.0,\n  \"ecutrho_Ry\":     120.0,\n  \"kpoints\":        [4, 4, 4],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.05,\n  \"conv_thr_Ry\":    1e-10,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 49,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:06:57Z",
+  "trial_index": 7,
+  "usage": {
+    "eval_count": 104,
+    "eval_duration_s": 18.09050959,
+    "load_duration_s": 0.159092938,
+    "prompt_eval_count": 335
+  },
+  "wall_seconds": 18.588929176330566
+}

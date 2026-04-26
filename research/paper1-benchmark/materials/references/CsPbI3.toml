@@ -1,0 +1,17 @@
+# CsPbI3 (cubic perovskite Pm-3m, 5 atoms) Phase 2 評価用 reference.
+#
+# 出典 / 算出方法:
+# - e_total_converged_Ry_per_atom: Phase 1 の repro-v1-dft 結果 (qwen3-32b
+#   の ecut=70 Ry, k=8×8×8) を最収束値の暫定とする。Step 2 で別途
+#   ecut sweep を実施した時点で「無限 cutoff 極限」値に置換する。
+#   生値: -749.70516 Ry / 5 原子 = -149.94103 Ry/原子
+# - band_gap_PBE_eV: Materials Project mp-1069538 の PBE-GGA gap
+#   (no SOC)。実験値 ~1.73 eV は relativistic SOC を入れると ~0.3 eV
+#   まで下がるが、本実験は SOC なしのため SOC なし PBE 値で比較する。
+
+formula = "CsPbI3"
+n_atoms = 5
+is_insulator = true
+e_total_converged_Ry_per_atom = -149.94103
+band_gap_PBE_eV = 1.48
+band_gap_source = "Materials Project mp-1069538 (PBE-GGA, no SOC)"

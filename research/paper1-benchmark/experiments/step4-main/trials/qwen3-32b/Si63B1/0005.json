@@ -1,0 +1,50 @@
+{
+  "material_formula": "Si63B1",
+  "material_slug": "Si63B1",
+  "model_id": "qwen/qwen3-32b",
+  "model_tag": "qwen3-32b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "marzari-vanderbilt"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.02,
+    "ecutrho_Ry": 160.0,
+    "ecutwfc_Ry": 40.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "marzari-vanderbilt"
+  },
+  "prompt_sha256": "e561269da86d232cdda8bfb3fe80aaf5ee3d54613d28de002b1f4706d6ffdaa6",
+  "response_sha256": "5100c47b76c416102e1be2e87088a82da5b50ef79150abe56026141727b092e4",
+  "response_text": "<think>\nOkay, let's tackle this Quantum ESPRESSO input parameter setup for the Si63B1 supercell. First, I need to recall the standard parameters for a converged SCF calculation using PBE and norm-conserving pseudopotentials like SG15 ONCV.\n\nStarting with ecutwfc_Ry. For silicon, typical cutoffs are around 30-40 Ry. Since we're using norm-conserving pseudopotentials, which generally require higher cutoffs than ultrasoft, I'll go with a value that's safe. Let's say 40 Ry. Then ecutrho must be at least 4 times that, so 160 Ry. That satisfies the constraint ecutrho >= 4*ecutwfc.\n\nNext, k-points. The supercell is 2x2x2, so the k-point mesh should be adjusted accordingly. For a primitive cell with a 2x2x2 supercell, a 4x4x4 k-point grid in the primitive cell would become a 2x2x2 in the supercell. But since the supercell is already 2x2x2, maybe a 2x2x2 k-point grid is sufficient? Wait, but the user says the crystal structure is fixed, so maybe they want a coarser grid. However, for convergence, a 4x4x4 grid might be better. Wait, the constraint says kpoints integers between 1 and 16. Let me think. For a supercell, the k-point grid is inversely proportional to the supercell size. If the primitive cell uses, say, 8x8x8, then a 2x2x2 supercell would use 4x4x4. But since the user is using a 2x2x2 supercell (which is 8 atoms in the primitive cell, but here it's 64 atoms), maybe a 2x2x2 k-point grid is sufficient. However, for convergence, maybe a 4x4x4 grid would be better. But given the constraints, the maximum allowed is 16, so 4x4x4 is 4 in each direction. Let me check. If the original primitive cell uses 8x8x8, then the supercell would use 4x4x4. But since the supercell is 2x2x2, maybe 4x4x4 is acceptable. However, the user might want a coarser grid for faster calculation. Let's go with 4x4x4 as a balance between accuracy and computational cost.\n\nSmearing: For a doped system (p-type), smearing is necessary. The options are gaussian, marzari-vanderbilt, or fermi-dirac. Marzari-vanderbilt is the default in QE for metals, which this is (doped semiconductor). So I'll choose \"marzari-vanderbilt\".\n\nDegauss: The degauss value depends on the system. For semiconductors with smearing, a typical value is around 0.01 to 0.05 Ry. Let's pick 0.02 Ry as a reasonable value for convergence.\n\nConv_thr: The convergence threshold. For a ground truth calculation, we need tight convergence. The range is 1e-12 to 1e-5. A common choice is 1e-8 or 1e-9. Let's go with 1e-8 Ry.\n\nMixing_beta: This controls the charge density mixing. For semiconductors, a value between 0.1 and 0.3 is typical. Let me check. If there's a dopant, maybe a lower beta to avoid oscillations. Let's choose 0.3 as a starting point. Wait, but some sources suggest 0.7 for metals and 0.3 for semiconductors. Hmm. Maybe 0.3 is safe here. Alternatively, 0.5. Let me think. Since it's a doped system, maybe 0.3 is better. Let's go with 0.3.\n\nPutting it all together:\n\necutwfc_Ry: 40.0\necutrho_Ry: 160.0\nkpoints: [4,4,4]\nsmearing: \"marzari-vanderbilt\"\ndegauss_Ry: 0.02\nconv_thr_Ry: 1e-8\nmixing_beta: 0.3\n\nCheck constraints:\n\n- ecutrho is 4*ecutwfc: yes.\n- kpoints are integers between 1-16: 4 is okay.\n- conv_thr is 1e-8 within 1e-12 to 1e-5: yes.\n- mixing_beta 0.3 between 0.1-1.0: yes.\n\nThis should be a reasonable setup for a converged SCF calculation.\n</think>\n\n{\n  \"ecutwfc_Ry\": 40.0,\n  \"ecutrho_Ry\": 160.0,\n  \"kpoints\": [4, 4, 4],\n  \"smearing\": \"marzari-vanderbilt\",\n  \"degauss_Ry\": 0.02,\n  \"conv_thr_Ry\": 1e-8,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 47,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T05:31:00Z",
+  "trial_index": 5,
+  "usage": {
+    "completion_time": 3.316226712,
+    "completion_tokens": 1141,
+    "prompt_time": 0.02547132,
+    "prompt_tokens": 314,
+    "queue_time": 0.069485216,
+    "total_time": 3.341698032,
+    "total_tokens": 1455
+  },
+  "wall_seconds": 6.322476148605347
+}

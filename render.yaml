@@ -24,9 +24,19 @@ services:
       url: ghcr.io/open-webui/open-webui:main
     plan: free               # 無料 tier (512 MB RAM、sleep あり)
     region: singapore        # 日本から最も近いリージョン (oregon でも可)
-    healthCheckPath: /health
+    # Render が PORT env を auto-inject するが、Open WebUI image が
+    # 古い tag だと 8080 固定起動 → port scan 失敗 になるケースあり。
+    # 明示的に 8080 を expose することで Render に 8080 を見させる。
+    # healthCheckPath は OOM で起動が遅いと timeout するので一旦 / に変更
+    healthCheckPath: /
     envVars:
       # 認証必須 (false にするとパブリックに開放されるので絶対 true)
+      # PORT 明示。Open WebUI start.sh は ${PORT:-8080} を尊重するので、
+      # Render が auto-inject する PORT (通常 10000) でも 8080 でも動く。
+      # ただし古い image では 8080 固定 → ここで Render に 8080 を expose。
+      - key: PORT
+        value: "8080"
+
       - key: WEBUI_AUTH
         value: "True"
 

@@ -1,0 +1,222 @@
+{
+  "AlN": {
+    "delta_at_top_mRy_per_atom": 3.2113850000001776,
+    "e_total_converged_Ry_per_atom_max_ecut": -79.2603174125,
+    "e_total_per_atom_Ry": [
+      -78.881482605,
+      -79.1893844375,
+      -79.2441038925,
+      -79.2571060275,
+      -79.2603174125
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": false,
+    "n_atoms": 4
+  },
+  "BiVO4": {
+    "delta_at_top_mRy_per_atom": 12.915138333326581,
+    "e_total_converged_Ry_per_atom_max_ecut": -67.70044292166666,
+    "e_total_per_atom_Ry": [
+      -67.10567936166667,
+      -67.51099152083333,
+      -67.6456109625,
+      -67.68752778333334,
+      -67.70044292166666
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": false,
+    "n_atoms": 12
+  },
+  "CsPbI3": {
+    "delta_at_top_mRy_per_atom": 0.07934999999292813,
+    "e_total_converged_Ry_per_atom_max_ecut": -149.940383938,
+    "e_total_per_atom_Ry": [
+      -149.86063308,
+      -149.936274544,
+      -149.939438904,
+      -149.940304588,
+      -149.940383938
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 5
+  },
+  "GaAs": {
+    "delta_at_top_mRy_per_atom": 2.595569999996883,
+    "e_total_converged_Ry_per_atom_max_ecut": -72.00697774,
+    "e_total_per_atom_Ry": [
+      -68.681212755,
+      -71.352250905,
+      -71.94838639,
+      -72.00438217,
+      -72.00697774
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": false,
+    "n_atoms": 2
+  },
+  "Ge": {
+    "delta_at_top_mRy_per_atom": 0.21123999999872467,
+    "e_total_converged_Ry_per_atom_max_ecut": -141.565636555,
+    "e_total_per_atom_Ry": [
+      -141.353174515,
+      -141.56479561,
+      -141.565327445,
+      -141.565425315,
+      -141.565636555
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 2
+  },
+  "MoS2": {
+    "delta_at_top_mRy_per_atom": 0.1839966666636883,
+    "e_total_converged_Ry_per_atom_max_ecut": -59.414390563333335,
+    "e_total_per_atom_Ry": [
+      -59.411132683333335,
+      -59.41350430333333,
+      -59.41389516,
+      -59.41420656666667,
+      -59.414390563333335
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 3
+  },
+  "NiO": {
+    "delta_at_top_mRy_per_atom": 9.829260000003615,
+    "e_total_converged_Ry_per_atom_max_ecut": -170.082409895,
+    "e_total_per_atom_Ry": [
+      -168.41292162,
+      -169.765685295,
+      -170.0309994,
+      -170.072580635,
+      -170.082409895
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": false,
+    "n_atoms": 2
+  },
+  "Si": {
+    "delta_at_top_mRy_per_atom": 0.010320000000341167,
+    "e_total_converged_Ry_per_atom_max_ecut": -7.87608453,
+    "e_total_per_atom_Ry": [
+      -7.875462305,
+      -7.87589956,
+      -7.8760326,
+      -7.87607421,
+      -7.87608453
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 2
+  },
+  "Si63B1": {
+    "delta_at_top_mRy_per_atom": 0.009592812499903403,
+    "e_total_converged_Ry_per_atom_max_ecut": -7.84603218109375,
+    "e_total_per_atom_Ry": [
+      -7.84536114359375,
+      -7.84584758875,
+      -7.84598126828125,
+      -7.84602258828125,
+      -7.84603218109375
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 64
+  },
+  "Si63P1": {
+    "delta_at_top_mRy_per_atom": 0.01124765624993529,
+    "e_total_converged_Ry_per_atom_max_ecut": -7.96574388203125,
+    "e_total_per_atom_Ry": [
+      -7.96509283578125,
+      -7.9655421221875,
+      -7.965685551875,
+      -7.965732634375,
+      -7.96574388203125
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": true,
+    "n_atoms": 64
+  },
+  "ZnO": {
+    "delta_at_top_mRy_per_atom": 11.039570000008325,
+    "e_total_converged_Ry_per_atom_max_ecut": -216.1725892675,
+    "e_total_per_atom_Ry": [
+      -212.4721359175,
+      -215.4564675825,
+      -216.07474903,
+      -216.1615496975,
+      -216.1725892675
+    ],
+    "ecut_points": [
+      30,
+      40,
+      50,
+      60,
+      80
+    ],
+    "is_converged_estimate": false,
+    "n_atoms": 4
+  }
+}

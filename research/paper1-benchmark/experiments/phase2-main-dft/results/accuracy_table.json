@@ -1,0 +1,4752 @@
+[
+  {
+    "converged": true,
+    "fermi_eV": 10.5606,
+    "is_ensemble": true,
+    "material_slug": "ZnO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 150.1973607490655,
+          "e_per_atom_Ry": -216.1615496975,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 11.04 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 11.039302499995074
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 480 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 479.6
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -864.64619879,
+    "wall_seconds": 479.6
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.5606,
+    "is_ensemble": true,
+    "material_slug": "ZnO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 150.1973607490655,
+          "e_per_atom_Ry": -216.1615496975,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 11.04 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 11.039302499995074
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 587 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 587.22
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -864.64619879,
+    "wall_seconds": 587.22
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.4788,
+    "is_ensemble": false,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 35.84569483474637,
+          "e_per_atom_Ry": -79.25768239,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 2.63 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 2.634610000001203
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1101 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1100.75
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 AlN \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -317.03072956,
+    "wall_seconds": 1100.75
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.2439,
+    "is_ensemble": false,
+    "material_slug": "MoS2",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 11.962215990227083,
+          "e_per_atom_Ry": -59.413511793333335,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.88 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.8792066666671872
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2555 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2555.1
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -178.24053538,
+    "wall_seconds": 2555.1
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5747,
+    "is_ensemble": true,
+    "material_slug": "Si",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 74.31286656823266,
+          "e_per_atom_Ry": -7.881546895,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 5.46 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 5.461894999999828
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 291 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 291.03
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -15.76309379,
+    "wall_seconds": 291.03
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.2426,
+    "is_ensemble": false,
+    "material_slug": "MoS2",
+    "n_scf_iter": 13,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.11982080297656858,
+          "e_per_atom_Ry": -59.414399806666665,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.01 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.008806666663474516
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2665 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2664.88
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -178.24319942,
+    "wall_seconds": 2664.88
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.9823,
+    "is_ensemble": false,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 35.86933472633219,
+          "e_per_atom_Ry": -79.2576806525,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 2.64 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 2.6363475000010794
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1540 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1539.64
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -317.03072261,
+    "wall_seconds": 1539.64
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.6394,
+    "is_ensemble": true,
+    "material_slug": "GaAs",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 21624.070139794592,
+          "e_per_atom_Ry": -70.417638145,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 1589.34 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 1589.3398550000056
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1351 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1350.72
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -140.83527629,
+    "wall_seconds": 1350.72
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.9824,
+    "is_ensemble": true,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 36.35284704127836,
+          "e_per_atom_Ry": -79.257645115,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 2.67 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 2.671884999998042
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 643 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 642.66
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -317.03058046,
+    "wall_seconds": 642.66
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.223,
+    "is_ensemble": true,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1749 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1749.04
+      },
+      "n_fail": 0,
+      "n_pass": 3,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -340.17903644,
+    "wall_seconds": 1749.04
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1878,
+    "is_ensemble": false,
+    "material_slug": "ZnO",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 50307.25041541447,
+          "e_per_atom_Ry": -212.47507426,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 3697.51 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 3697.514739999974
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1957 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1957.35
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 ZnO \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -849.90029704,
+    "wall_seconds": 1957.35
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.0952,
+    "is_ensemble": false,
+    "material_slug": "MoS2",
+    "n_scf_iter": 15,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 25.848276970611302,
+          "e_per_atom_Ry": -59.41249118666667,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 1.90 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 1.899813333331224
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 458 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 457.59000000000003
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 MoS2 \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -178.23747356,
+    "wall_seconds": 457.59000000000003
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.5673,
+    "is_ensemble": true,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 7.327209908328435,
+          "e_per_atom_Ry": -149.94092254,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.54 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.5385400000079699
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1619 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1619.3
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.015000000000000001,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -749.7046127,
+    "wall_seconds": 1619.3
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.4329,
+    "is_ensemble": false,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 2571.9875964092926,
+          "e_per_atom_Ry": -67.51140539666666,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 189.04 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 189.03760333334674
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3014 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3013.91
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -810.13686476,
+    "wall_seconds": 3013.91
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.2426,
+    "is_ensemble": true,
+    "material_slug": "MoS2",
+    "n_scf_iter": 13,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.11982080297656858,
+          "e_per_atom_Ry": -59.414399806666665,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.01 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.008806666663474516
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2923 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2922.97
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -178.24319942,
+    "wall_seconds": 2922.97
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.608,
+    "is_ensemble": false,
+    "material_slug": "Si",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 8.471516717984692,
+          "e_per_atom_Ry": -7.875462355,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.62 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.6226449999999772
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 146 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 146.48
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -15.75092471,
+    "wall_seconds": 146.48
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2076,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1677 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1677.38
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -340.16378833,
+    "wall_seconds": 1677.38
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.185,
+    "is_ensemble": false,
+    "material_slug": "Ge",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 2889.2629919173,
+          "e_per_atom_Ry": -141.353280085,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 212.36 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 212.35691500001508
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 437 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 437.46
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -282.70656017,
+    "wall_seconds": 437.46
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5179,
+    "is_ensemble": false,
+    "material_slug": "Si",
+    "n_scf_iter": 5,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 91.49998613662498,
+          "e_per_atom_Ry": -7.882810125,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.73 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.7251249999999985
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 594 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 594.37
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -15.76562025,
+    "wall_seconds": 594.37
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.9824,
+    "is_ensemble": true,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 36.16791165922128,
+          "e_per_atom_Ry": -79.2576587075,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 2.66 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 2.65829250000138
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 858 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 858.14
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -317.03063483,
+    "wall_seconds": 858.14
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5256,
+    "is_ensemble": false,
+    "material_slug": "Si",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 84.50768036160113,
+          "e_per_atom_Ry": -7.8822962,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.21 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.211200000000083
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1024 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1023.72
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -15.7645924,
+    "wall_seconds": 1023.72
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2061,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1637 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1637.08
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.02,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -340.15884842,
+    "wall_seconds": 1637.08
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.4765,
+    "is_ensemble": false,
+    "material_slug": "AlN",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 5154.304476210713,
+          "e_per_atom_Ry": -78.881482605,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 378.83 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 378.8343949999984
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 393 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 393.03
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -315.52593042,
+    "wall_seconds": 393.03
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2283,
+    "is_ensemble": true,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1420 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1419.69
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.015,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -340.1703178,
+    "wall_seconds": 1419.69
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.5618,
+    "is_ensemble": false,
+    "material_slug": "ZnO",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 151.22901242054468,
+          "e_per_atom_Ry": -216.1614738725,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 11.12 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 11.115127499977007
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 347 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 347.06
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -864.64589549,
+    "wall_seconds": 347.06
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.2799,
+    "is_ensemble": false,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 18,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 175.2378563883726,
+          "e_per_atom_Ry": -67.687563255,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 12.88 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 12.879745000006437
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 7260 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 7260.0
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -812.25075906,
+    "wall_seconds": 7260.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.1928,
+    "is_ensemble": true,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 175.48224864882877,
+          "e_per_atom_Ry": -67.6875452925,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 12.90 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 12.897707500002298
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3321 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3320.54
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -812.25054351,
+    "wall_seconds": 3320.54
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.9931,
+    "is_ensemble": false,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 964.2086869060782,
+          "e_per_atom_Ry": -149.869515968,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 70.87 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 70.86803199999281
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 771 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 771.38
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.05,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -749.34757984,
+    "wall_seconds": 771.38
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1407,
+    "is_ensemble": false,
+    "material_slug": "Ge",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 124.46460745006523,
+          "e_per_atom_Ry": -141.57478498,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 9.15 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 9.147979999994504
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1945 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1944.66
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -283.14956996,
+    "wall_seconds": 1944.66
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.5533,
+    "is_ensemble": false,
+    "material_slug": "ZnO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 145.40370094865747,
+          "e_per_atom_Ry": -216.161902025,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 10.69 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 10.68697499999871
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1970 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1969.51
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -864.6476081,
+    "wall_seconds": 1969.51
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.0661,
+    "is_ensemble": false,
+    "material_slug": "ZnO",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 50347.22737688598,
+          "e_per_atom_Ry": -212.4721360075,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 3700.45 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 3700.452992499976
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 652 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 652.05
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -849.88854403,
+    "wall_seconds": 652.05
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.2733,
+    "is_ensemble": true,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 175.46891506974563,
+          "e_per_atom_Ry": -67.6875462725,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 12.90 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 12.896727500006477
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 12600 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 12600.0
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 BiVO4 \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -812.25055527,
+    "wall_seconds": 12600.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.176,
+    "is_ensemble": true,
+    "material_slug": "MoS2",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 2.245801038900477,
+          "e_per_atom_Ry": -59.41422593666667,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.17 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.1650633333341034
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2276 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2276.29
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.012",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.012
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -178.24267781,
+    "wall_seconds": 2276.29
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.1891,
+    "is_ensemble": false,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.13003641094842336,
+          "e_per_atom_Ry": -67.7004334425,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.01 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.00955750000741773
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3519 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3518.63
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -812.40520131,
+    "wall_seconds": 3518.63
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5002,
+    "is_ensemble": true,
+    "material_slug": "Si",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 86.44662767102942,
+          "e_per_atom_Ry": -7.88243871,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.35 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.353709999999957
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 451 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 451.26
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -15.76487742,
+    "wall_seconds": 451.26
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.1902,
+    "is_ensemble": false,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 16,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 8038.812981385249,
+          "e_per_atom_Ry": -67.10960113833333,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 590.84 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 590.8418616666751
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 12000 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 12000.0
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.05,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 BiVO4 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -805.31521366,
+    "wall_seconds": 12000.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1197,
+    "is_ensemble": false,
+    "material_slug": "Ge",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 114.64163724632623,
+          "e_per_atom_Ry": -141.574063005,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 8.43 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 8.4260049999898
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2092 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2091.88
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -283.14812601,
+    "wall_seconds": 2091.88
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.5773,
+    "is_ensemble": true,
+    "material_slug": "GaAs",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 45248.52083039426,
+          "e_per_atom_Ry": -68.68127303,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 3325.70 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 3325.704970000004
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 319 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 319.42
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -137.36254606,
+    "wall_seconds": 319.42
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1021,
+    "is_ensemble": true,
+    "material_slug": "Ge",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 118.25891481561759,
+          "e_per_atom_Ry": -141.57432887,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 8.69 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 8.691869999978508
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1060 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1059.76
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -283.14865774,
+    "wall_seconds": 1059.76
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.2426,
+    "is_ensemble": false,
+    "material_slug": "MoS2",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.11982080297656858,
+          "e_per_atom_Ry": -59.414399806666665,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.01 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.008806666663474516
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3151 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3150.85
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 MoS2 \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -178.24319942,
+    "wall_seconds": 3150.85
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5256,
+    "is_ensemble": true,
+    "material_slug": "Si",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 84.50768036160113,
+          "e_per_atom_Ry": -7.8822962,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.21 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.211200000000083
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 585 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 585.48
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -15.7645924,
+    "wall_seconds": 585.48
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.4523,
+    "is_ensemble": false,
+    "material_slug": "GaAs",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 21624.881719382007,
+          "e_per_atom_Ry": -70.417578495,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 1589.40 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 1589.399505000003
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1347 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1346.57
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -140.83515699,
+    "wall_seconds": 1346.57
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.6112,
+    "is_ensemble": true,
+    "material_slug": "GaAs",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 894.0040321278661,
+          "e_per_atom_Ry": -71.941269915,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 65.71 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 65.70808499999714
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1000 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 999.75
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.012,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -143.88253983,
+    "wall_seconds": 999.75
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2237,
+    "is_ensemble": true,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1685 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1684.64
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.0145,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -340.18405303,
+    "wall_seconds": 1684.64
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.2439,
+    "is_ensemble": true,
+    "material_slug": "MoS2",
+    "n_scf_iter": 13,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 11.962170638010004,
+          "e_per_atom_Ry": -59.41351179666666,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.88 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.8792033333406835
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3139 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3139.21
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -178.24053539,
+    "wall_seconds": 3139.21
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.7161,
+    "is_ensemble": false,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 1085.0665339872994,
+          "e_per_atom_Ry": -149.86063308,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 79.75 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 79.75091999998085
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 781 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 780.54
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -749.3031654,
+    "wall_seconds": 780.54
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.5662,
+    "is_ensemble": true,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 7.915275171010671,
+          "e_per_atom_Ry": -149.940965762,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.58 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.5817619999959334
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2116 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2116.49
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -749.70482881,
+    "wall_seconds": 2116.49
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.5662,
+    "is_ensemble": false,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 7.915275171010671,
+          "e_per_atom_Ry": -149.940965762,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.58 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.5817619999959334
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2123 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2123.19
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -749.70482881,
+    "wall_seconds": 2123.19
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.771,
+    "is_ensemble": true,
+    "material_slug": "ZnO",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.4510287230486925,
+          "e_per_atom_Ry": -216.17262215,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.03 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.033150000007253766
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1164 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1164.04
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.02,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 ZnO \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -864.6904886,
+    "wall_seconds": 1164.04
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1407,
+    "is_ensemble": true,
+    "material_slug": "Ge",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 124.46460745006523,
+          "e_per_atom_Ry": -141.57478498,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 9.15 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 9.147979999994504
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1952 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1951.66
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -283.14956996,
+    "wall_seconds": 1951.66
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2421,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1945 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1945.1
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -340.15856691,
+    "wall_seconds": 1945.1
+  },
+  {
+    "converged": true,
+    "fermi_eV": 12.1982,
+    "is_ensemble": false,
+    "material_slug": "AlN",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 5117.842919682361,
+          "e_per_atom_Ry": -78.88416248,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 376.15 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 376.15452000000005
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 620 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 619.6
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.05,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 AlN \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -315.53664992,
+    "wall_seconds": 619.6
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.2061,
+    "is_ensemble": true,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1655 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1654.54
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.02,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -340.15884842,
+    "wall_seconds": 1654.54
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.3285,
+    "is_ensemble": true,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 222.4758020573906,
+          "e_per_atom_Ry": -67.68409133,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 16.35 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 16.351670000005925
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 4260 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 4260.0
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.012",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.012
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -812.20909596,
+    "wall_seconds": 4260.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.6654,
+    "is_ensemble": true,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 3.28953003071021,
+          "e_per_atom_Ry": -149.940625776,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.24 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.2417759999957525
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1602 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1602.28
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.015",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.015
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -749.70312888,
+    "wall_seconds": 1602.28
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.9428,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 296 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 295.67
+      },
+      "n_fail": 1,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.05,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 NiO \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -336.92689414,
+    "wall_seconds": 295.67
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.5834,
+    "is_ensemble": true,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 55.874526654505125,
+          "e_per_atom_Ry": -149.936277298,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 4.11 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 4.106702000001405
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 704 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 703.69
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -749.68138649,
+    "wall_seconds": 703.69
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.9043,
+    "is_ensemble": true,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 25.506898795267773,
+          "e_per_atom_Ry": -79.2584422775,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 1.87 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 1.8747225000055323
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 991 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 990.78
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.009300000000000001",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.009300000000000001
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -317.03376911,
+    "wall_seconds": 990.78
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1284,
+    "is_ensemble": true,
+    "material_slug": "Ge",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 113.16705223898144,
+          "e_per_atom_Ry": -141.573954625,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 8.32 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 8.317624999989448
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2093 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2093.22
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -283.14790925,
+    "wall_seconds": 2093.22
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.5773,
+    "is_ensemble": false,
+    "material_slug": "GaAs",
+    "n_scf_iter": 11,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 45248.52083039426,
+          "e_per_atom_Ry": -68.68127303,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 3325.70 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 3325.704970000004
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 315 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 314.85
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "llama31-8b",
+    "total_energy_Ry": -137.36254606,
+    "wall_seconds": 314.85
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.2801,
+    "is_ensemble": true,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 175.2378563883726,
+          "e_per_atom_Ry": -67.687563255,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 12.88 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 12.879745000006437
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 6000 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 6000.0
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-A",
+    "total_energy_Ry": -812.25075906,
+    "wall_seconds": 6000.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1284,
+    "is_ensemble": true,
+    "material_slug": "Ge",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 113.16705223898144,
+          "e_per_atom_Ry": -141.573954625,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 8.32 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 8.317624999989448
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 2079 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 2079.13
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-C",
+    "total_energy_Ry": -283.14790925,
+    "wall_seconds": 2079.13
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.771,
+    "is_ensemble": false,
+    "material_slug": "ZnO",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 0.4510287230486925,
+          "e_per_atom_Ry": -216.17262215,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": true,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.03 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.033150000007253766
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1161 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1160.7
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.02,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 ZnO \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -864.6904886,
+    "wall_seconds": 1160.7
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.6431,
+    "is_ensemble": false,
+    "material_slug": "GaAs",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 45055.75414745792,
+          "e_per_atom_Ry": -68.69544112,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 3311.54 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 3311.5368800000056
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 270 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 270.03
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.05,
+          "smearing": "fermi-dirac",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -137.39088224,
+    "wall_seconds": 270.03
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.5583,
+    "is_ensemble": true,
+    "material_slug": "ZnO",
+    "n_scf_iter": 10,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 106.09610555858134,
+          "e_per_atom_Ry": -216.16479108,
+          "e_ref_per_atom_Ry": -216.172589,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 7.80 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 7.797920000001568
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1100 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1099.61
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.013000000000000001",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.013000000000000001
+      }
+    },
+    "tag": "ensemble-B",
+    "total_energy_Ry": -864.65916432,
+    "wall_seconds": 1099.61
+  },
+  {
+    "converged": true,
+    "fermi_eV": 10.1219,
+    "is_ensemble": false,
+    "material_slug": "MoS2",
+    "n_scf_iter": 13,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 25.240147845871764,
+          "e_per_atom_Ry": -59.412535883333334,
+          "e_ref_per_atom_Ry": -59.414391,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 1.86 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 1.8551166666682661
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 405 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 405.22
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 MoS2 \u3067 degauss=0.05 Ry > 0.02 Ry (gap \u304c smearing \u3067\u6f70\u308c\u308b)",
+        "status": "fail",
+        "threshold": 0.02,
+        "value": 0.05
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -178.23760765,
+    "wall_seconds": 405.22
+  },
+  {
+    "converged": true,
+    "fermi_eV": 9.9845,
+    "is_ensemble": true,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 7.379455769324261,
+          "e_per_atom_Ry": -79.26085938,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.54 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.5423799999988432
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 675 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 675.42
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.001",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.001
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -317.04343752,
+    "wall_seconds": 675.42
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.5179,
+    "is_ensemble": true,
+    "material_slug": "Si",
+    "n_scf_iter": 5,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 91.49998613662498,
+          "e_per_atom_Ry": -7.882810125,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.73 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.7251249999999985
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 612 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 611.68
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -15.76562025,
+    "wall_seconds": 611.68
+  },
+  {
+    "converged": true,
+    "fermi_eV": 9.9845,
+    "is_ensemble": false,
+    "material_slug": "AlN",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 7.379455769324261,
+          "e_per_atom_Ry": -79.26085938,
+          "e_ref_per_atom_Ry": -79.260317,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.54 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.5423799999988432
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 525 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 524.85
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.001",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.001
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -317.04343752,
+    "wall_seconds": 524.85
+  },
+  {
+    "converged": true,
+    "fermi_eV": 15.223,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": 9,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {},
+        "name": "convergence",
+        "reason": "NiO: reference convergence E \u304c\u672a\u767b\u9332",
+        "status": "unknown",
+        "threshold": 1.0,
+        "value": null
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1452 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1451.63
+      },
+      "n_fail": 0,
+      "n_pass": 3,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -340.17903644,
+    "wall_seconds": 1451.63
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.6384,
+    "is_ensemble": false,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 8.749195306726806,
+          "e_per_atom_Ry": -149.94102705400002,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.64 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.6430540000224028
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 3160 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 3160.02
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.02",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.02
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -749.70513527,
+    "wall_seconds": 3160.02
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.2733,
+    "is_ensemble": false,
+    "material_slug": "BiVO4",
+    "n_scf_iter": 14,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 175.46891506974563,
+          "e_per_atom_Ry": -67.6875462725,
+          "e_ref_per_atom_Ry": -67.700443,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 12.90 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 12.896727500006477
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 12660 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 12660.0
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 BiVO4 \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen3-32b",
+    "total_energy_Ry": -812.25055527,
+    "wall_seconds": 12660.0
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.608,
+    "is_ensemble": false,
+    "material_slug": "Si",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 8.471516717984692,
+          "e_per_atom_Ry": -7.875462355,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": true,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 0.62 mRy/atom \u2264 strict 1.0 mRy/atom",
+        "status": "pass",
+        "threshold": 1.0,
+        "value": 0.6226449999999772
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 132 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 131.9
+      },
+      "n_fail": 0,
+      "n_pass": 4,
+      "overall": "pass",
+      "smearing_validity": {
+        "extra": {
+          "smearing": "gaussian",
+          "soft_warn": false
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53\u306b\u5bfe\u3057\u8a31\u5bb9\u7bc4\u56f2: smearing=gaussian, degauss=0.01",
+        "status": "pass",
+        "threshold": 0.02,
+        "value": 0.01
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -15.75092471,
+    "wall_seconds": 131.9
+  },
+  {
+    "converged": true,
+    "fermi_eV": 5.5834,
+    "is_ensemble": false,
+    "material_slug": "CsPbI3",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 55.874526654505125,
+          "e_per_atom_Ry": -149.936277298,
+          "e_ref_per_atom_Ry": -149.940384,
+          "loose_pass": true,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 4.11 mRy/atom (strict 1.0 \u8d85\u904e\u3001loose 5.0 \u5185 \u2014 \u5b9f\u7528\u57fa\u6e96\u3067\u306f\u8a31\u5bb9\u7bc4\u56f2)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 4.106702000001405
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 707 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 707.17
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 CsPbI3 \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -749.68138649,
+    "wall_seconds": 707.17
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.6354,
+    "is_ensemble": false,
+    "material_slug": "GaAs",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 8905.518732487184,
+          "e_per_atom_Ry": -71.35243444,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 654.54 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 654.5435600000076
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1269 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1269.21
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -142.70486888,
+    "wall_seconds": 1269.21
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.5951,
+    "is_ensemble": true,
+    "material_slug": "GaAs",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 86.73234722406936,
+          "e_per_atom_Ry": -72.01335271,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.37 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.374710000002892
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1607 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1607.45
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "ensemble-E",
+    "total_energy_Ry": -144.02670542,
+    "wall_seconds": 1607.45
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.1196,
+    "is_ensemble": false,
+    "material_slug": "Ge",
+    "n_scf_iter": 6,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 114.64156921780726,
+          "e_per_atom_Ry": -141.574063,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 8.43 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 8.425999999985834
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1708 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1707.65
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -283.148126,
+    "wall_seconds": 1707.65
+  },
+  {
+    "converged": true,
+    "fermi_eV": 6.4815,
+    "is_ensemble": false,
+    "material_slug": "Si",
+    "n_scf_iter": 5,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 90.86357984655679,
+          "e_per_atom_Ry": -7.88276335,
+          "e_ref_per_atom_Ry": -7.876085,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.68 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.678350000000499
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 613 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 612.92
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "fermi-dirac",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 Si \u306b metallic smearing `fermi-dirac` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "llama33-70b",
+    "total_energy_Ry": -15.7655267,
+    "wall_seconds": 612.92
+  },
+  {
+    "converged": true,
+    "fermi_eV": 11.0517,
+    "is_ensemble": false,
+    "material_slug": "Ge",
+    "n_scf_iter": 8,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 2867.215374581509,
+          "e_per_atom_Ry": -141.354900555,
+          "e_ref_per_atom_Ry": -141.565637,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 210.74 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 210.7364450000091
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 395 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 395.17
+      },
+      "n_fail": 1,
+      "n_pass": 3,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {},
+        "name": "smearing_validity",
+        "reason": "Ge \u306f\u91d1\u5c5e\u6271\u3044 (smearing \u4efb\u610f)",
+        "status": "pass",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "qwen25-7b",
+    "total_energy_Ry": -282.70980111,
+    "wall_seconds": 395.17
+  },
+  {
+    "converged": true,
+    "fermi_eV": 7.5951,
+    "is_ensemble": false,
+    "material_slug": "GaAs",
+    "n_scf_iter": 7,
+    "scores": {
+      "band_gap_validity": {
+        "extra": {},
+        "name": "band_gap_validity",
+        "reason": "DFT \u51fa\u529b\u306b gap \u60c5\u5831\u306a\u3057 (SCF \u306e\u307f\u3060\u3068 NSCF \u5fc5\u8981)",
+        "status": "unknown",
+        "threshold": 0.3,
+        "value": null
+      },
+      "convergence": {
+        "extra": {
+          "deviation_meV_per_atom": 86.73234722406936,
+          "e_per_atom_Ry": -72.01335271,
+          "e_ref_per_atom_Ry": -72.006978,
+          "loose_pass": false,
+          "loose_threshold_mRy_per_atom": 5.0,
+          "strict_pass": false,
+          "strict_threshold_mRy_per_atom": 1.0,
+          "ultra_strict_pass": false,
+          "ultra_strict_threshold_mRy_per_atom": 0.0735
+        },
+        "name": "convergence",
+        "reason": "|E_total/atom - ref| = 6.37 mRy/atom > loose 5.0 mRy/atom (\u5b9f\u7528\u57fa\u6e96\u3067\u3082\u672a\u53ce\u675f)",
+        "status": "fail",
+        "threshold": 1.0,
+        "value": 6.374710000002892
+      },
+      "cost_efficiency": {
+        "extra": {},
+        "name": "cost_efficiency",
+        "reason": "wall = 1608 s (\u95be\u5024\u306a\u3057)",
+        "status": "pass",
+        "threshold": null,
+        "value": 1608.5
+      },
+      "n_fail": 2,
+      "n_pass": 2,
+      "overall": "fail",
+      "smearing_validity": {
+        "extra": {
+          "degauss_Ry": 0.01,
+          "smearing": "marzari-vanderbilt",
+          "soft_warn": true
+        },
+        "name": "smearing_validity",
+        "reason": "\u7d76\u7e01\u4f53 GaAs \u306b metallic smearing `marzari-vanderbilt` \u304c\u63a1\u7528\u3055\u308c\u305f (\u305f\u3060\u3057 degauss=0.01 Ry \u2264 0.01 Ry \u3067 gap \u6f70\u3057\u52b9\u679c\u306f\u5b9f\u7528\u4e0a\u5c0f\u3055\u3044 \u2014 soft_warn)",
+        "status": "fail",
+        "threshold": null,
+        "value": null
+      }
+    },
+    "tag": "gptoss-120b",
+    "total_energy_Ry": -144.02670542,
+    "wall_seconds": 1608.5
+  },
+  {
+    "converged": false,
+    "fermi_eV": null,
+    "is_ensemble": false,
+    "material_slug": "NiO",
+    "n_scf_iter": null,
+    "scores": {
+      "band_gap_validity": {
+        "status": "unknown"
+      },
+      "convergence": {
+        "extra": {
+          "no_artifact": true
+        },
+        "name": "convergence",
+        "reason": "no artifact uploaded \u2014 DFT likely failed before bundle (probable pre-SCF rejection)",
+        "status": "unphysical",
+        "threshold": null,
+        "value": null
+      },
+      "cost_efficiency": {
+        "status": "unknown"
+      },
+      "n_fail": 0,
+      "n_pass": 0,
+      "n_unphysical": 1,
+      "no_artifact": true,
+      "overall": "unphysical",
+      "smearing_validity": {
+        "status": "unknown"
+      }
+    },
+    "tag": "deepseekr1-7b",
+    "total_energy_Ry": null,
+    "wall_seconds": null
+  }
+]

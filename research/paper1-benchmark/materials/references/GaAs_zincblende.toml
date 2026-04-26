@@ -6,4 +6,4 @@ n_atoms = 2
 is_insulator = true
 band_gap_PBE_eV = 0.1861
 band_gap_source = "Materials Project mp-2534 (PBE-GGA)"
-# e_total_converged_Ry_per_atom = ...    # 自前 ecut sweep で後から追記
+e_total_converged_Ry_per_atom = -72.006978    # 自前 ecut sweep で後から追記

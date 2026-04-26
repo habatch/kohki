@@ -57,43 +57,57 @@ MATERIALS_TOML = REPO_ROOT / "experiments" / "step4-main" / "materials" / "n10.t
 # GH Actions artifact ダウンロード
 # ---------------------------------------------------------------------------
 
-def download_artifacts(experiment: str, dest: Path) -> int:
-    """gh CLI で最新 successful run の artifacts を取得."""
+def download_artifacts(run_ids: list[int], dest: Path) -> int:
+    """指定 run id 全てから artifacts を取得し、内部 zip も展開.
+
+    複数 run を指定可能 (original + retry を merge するため)。
+    artifact 名重複時は後勝ちで上書き。
+    """
     dest.mkdir(parents=True, exist_ok=True)
-    print(f"== Downloading artifacts for experiment={experiment} → {dest} ==")
-    # 最新 run id を取得 (workflow=ai-param-experiment.yml で experiment 一致)
-    cmd = [
-        "gh", "run", "list",
-        "--workflow", "ai-param-experiment.yml",
-        "--limit", "20",
-        "--json", "databaseId,displayTitle,status,conclusion,createdAt",
-    ]
-    r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(REPO_ROOT))
-    if r.returncode != 0:
-        print(r.stderr, file=sys.stderr); return 0
-    runs = json.loads(r.stdout)
-    # 最新 completed/success run を選ぶ (experiment 文字列で粗く識別、
-    # gh では input 値はそのまま title に出ないので最新成功を取る)
-    successful = [
-        x for x in runs
-        if x["status"] == "completed" and x["conclusion"] == "success"
-    ]
-    if not successful:
-        print(f"  no completed/successful runs found", file=sys.stderr)
-        return 0
-    run_id = successful[0]["databaseId"]
-    print(f"  using run {run_id} ({successful[0]['createdAt']})")
+    print(f"== Downloading artifacts from {len(run_ids)} runs → {dest} ==")
+    for rid in run_ids:
+        print(f"  run {rid} ...")
+        cmd = ["gh", "run", "download", str(rid), "--dir", str(dest)]
+        r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(REPO_ROOT))
+        if r.returncode != 0:
+            print(f"    [warn] {r.stderr.strip()[:120]}", file=sys.stderr)
+            continue
 
-    cmd = ["gh", "run", "download", str(run_id), "--dir", str(dest)]
-    r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(REPO_ROOT))
-    if r.returncode != 0:
-        print(r.stderr, file=sys.stderr); return 0
+    # 各 artifact dir 内の *.zip を展開
+    import zipfile
+    n_extracted = 0
+    n_already = 0
+    for zip_path in sorted(dest.rglob("*.zip")):
+        # 同階層に展開 (output.out, input.in, prediction.json, metadata.json 等)
+        target_dir = zip_path.parent
+        if (target_dir / "output.out").exists():
+            n_already += 1
+            continue
+        try:
+            with zipfile.ZipFile(zip_path) as zf:
+                zf.extractall(target_dir)
+            n_extracted += 1
+        except Exception as e:
+            print(f"    [fail] {zip_path.name}: {e}", file=sys.stderr)
 
-    # artifacts は dest/ 配下にディレクトリで展開される
-    n_zips = len(list(dest.rglob("*.zip")))
     n_outputs = len(list(dest.rglob("output.out")))
-    print(f"  downloaded: {n_zips} zips, {n_outputs} output.out files")
+    print(f"  → extracted {n_extracted} zips ({n_already} already extracted)")
+    print(f"  → total {n_outputs} output.out files in {dest}")
     return n_outputs
+
+
+# 既知の run ID マッピング (Phase 2 Main DFT)
+# experiment ごとに「使うべき run ID 一覧」を明示する。failure conclusion でも
+# 個別 cell が success なら artifact は upload されるため、それを取得する。
+PHASE2_MAIN_DFT_RUNS = [
+    24949708784,   # 元 phase2-main (81 success / 9 BiVO4 fail)
+    24955342635,   # BiVO4+NiO retry (19 success / 1 NiO-deepseekr1-7b fail)
+]
+REF_CONVERGENCE_RUNS = [
+    24949708289,   # 元 ref-conv (46 success / 5 BiVO4 fail)
+    24951856525,   # BiVO4 retry (6 success)
+    24955048953,   # NiO ref-conv (6 success)
+]
 
 
 # ---------------------------------------------------------------------------
@@ -409,19 +423,38 @@ def aggregate_ref_convergence() -> int:
 
 
 def patch_reference_toml(path: Path, e_per_atom: float | None) -> None:
-    """既存 toml に e_total_converged_Ry_per_atom 行を追記 (なければ作成)."""
+    """既存 toml に e_total_converged_Ry_per_atom 行を書き込む.
+
+    既存行が `# e_total_converged_Ry_per_atom = ...` のように
+    コメント化されていた場合、`# ` を除いた上で値を書き込む。
+    値だけ既存の場合は値部分のみ更新。
+    どちらもなければ末尾に追記する。
+    """
     if e_per_atom is None:
         return
     text = path.read_text()
-    new_line = f"e_total_converged_Ry_per_atom = {e_per_atom:.6f}\n"
-    if "e_total_converged_Ry_per_atom" in text:
-        text = re.sub(
-            r"e_total_converged_Ry_per_atom\s*=\s*[\-\d\.e+]+",
-            new_line.strip(),
-            text,
-        )
+    new_line = f"e_total_converged_Ry_per_atom = {e_per_atom:.6f}"
+
+    # 1. アクティブ行 (コメントでない、値あり) を更新
+    pattern_active = re.compile(
+        r"^e_total_converged_Ry_per_atom\s*=\s*[\-\d\.eE+]+",
+        re.MULTILINE,
+    )
+    if pattern_active.search(text):
+        text = pattern_active.sub(new_line, text)
     else:
-        text += "\n# auto-added by aggregate_phase2_dft.py from ecut sweep\n" + new_line
+        # 2. コメント化された行 (値が ... or 数値 with # prefix) を見つけて
+        #    "# " を除いて値を書き換える
+        pattern_commented = re.compile(
+            r"^#\s*e_total_converged_Ry_per_atom\s*=\s*[^\n]*",
+            re.MULTILINE,
+        )
+        if pattern_commented.search(text):
+            text = pattern_commented.sub(new_line, text)
+        else:
+            # 3. 全く無い場合は末尾追記
+            text += "\n# auto-added by aggregate_phase2_dft.py from ecut sweep\n" + new_line + "\n"
+
     path.write_text(text)
     print(f"  patched {path.name}: e_total_converged_Ry_per_atom = {e_per_atom:.6f}")
 
@@ -456,9 +489,9 @@ def main() -> int:
 
     if args.download:
         if do_phase2:
-            download_artifacts("phase2-main-dft", PHASE2_RESULTS)
+            download_artifacts(PHASE2_MAIN_DFT_RUNS, PHASE2_RESULTS)
         if do_ref:
-            download_artifacts("ref-convergence", REF_RESULTS)
+            download_artifacts(REF_CONVERGENCE_RUNS, REF_RESULTS)
 
     if args.aggregate:
         if do_ref:

@@ -1,0 +1,24 @@
+{
+  "cif_fixture": "materials/fixtures/CsPbI3.cif",
+  "llm": {
+    "is_reference": true,
+    "model_id": "reference-convergence-test-ecut30",
+    "rationale": "Reference convergence sweep point: ecutwfc=30 Ry",
+    "source_experiment": "ref-convergence"
+  },
+  "material": "CsPbI3-ref-ecut030",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.005,
+    "ecutrho": 120.0,
+    "ecutwfc": 30.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.4,
+    "smearing": "gaussian"
+  },
+  "structure": "cubic perovskite Pm-3m"
+}

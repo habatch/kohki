@@ -1,0 +1,24 @@
+{
+  "cif_fixture": "materials/fixtures/Ge.cif",
+  "llm": {
+    "is_reference": true,
+    "model_id": "reference-convergence-test-ecut80",
+    "rationale": "Reference convergence sweep point: ecutwfc=80 Ry",
+    "source_experiment": "ref-convergence"
+  },
+  "material": "Ge-ref-ecut080",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.005,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      4,
+      4,
+      4
+    ],
+    "mixing_beta": 0.4,
+    "smearing": "gaussian"
+  },
+  "structure": "diamond cubic Fd-3m"
+}

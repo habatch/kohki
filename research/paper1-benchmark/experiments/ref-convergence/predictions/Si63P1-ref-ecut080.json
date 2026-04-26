@@ -1,0 +1,24 @@
+{
+  "cif_fixture": "materials/fixtures/Si63P1.cif",
+  "llm": {
+    "is_reference": true,
+    "model_id": "reference-convergence-test-ecut80",
+    "rationale": "Reference convergence sweep point: ecutwfc=80 Ry",
+    "source_experiment": "ref-convergence"
+  },
+  "material": "Si63P1-ref-ecut080",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.005,
+    "ecutrho": 320.0,
+    "ecutwfc": 80.0,
+    "kpoints": [
+      2,
+      2,
+      2
+    ],
+    "mixing_beta": 0.4,
+    "smearing": "gaussian"
+  },
+  "structure": "Si 2x2x2 supercell with single P substitutional dopant (n-type)"
+}

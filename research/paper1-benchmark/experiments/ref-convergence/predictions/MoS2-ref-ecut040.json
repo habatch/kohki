@@ -1,0 +1,24 @@
+{
+  "cif_fixture": "materials/fixtures/MoS2_monolayer.cif",
+  "llm": {
+    "is_reference": true,
+    "model_id": "reference-convergence-test-ecut40",
+    "rationale": "Reference convergence sweep point: ecutwfc=40 Ry",
+    "source_experiment": "ref-convergence"
+  },
+  "material": "MoS2-ref-ecut040",
+  "params": {
+    "conv_thr": 1e-10,
+    "degauss": 0.005,
+    "ecutrho": 160.0,
+    "ecutwfc": 40.0,
+    "kpoints": [
+      6,
+      6,
+      1
+    ],
+    "mixing_beta": 0.4,
+    "smearing": "gaussian"
+  },
+  "structure": "2H monolayer P-6m2 with ~15 \u00c5 vacuum"
+}

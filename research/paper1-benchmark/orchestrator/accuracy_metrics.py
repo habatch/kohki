@@ -100,15 +100,26 @@ class MaterialReference:
 # Phase 1 経験則: CsPbI3 で「未収束」と「収束」cluster 間の差は
 # 約 0.4 Ry / 5 原子 = 80 mRy/atom (cf. SUMMARY.md)。
 #
-# 二段閾値 — 論文では両方併記する:
-#   strict (1 mRy/atom): QE/DFT ベンチマーク慣習の「真の収束」値。
+# 三段閾値 — 論文では複数併記する:
+#   ultra-strict (1 meV/atom = 0.0735 mRy/atom):
+#                         TritonDFT (Wang et al. 2026) の strict 基準と互換。
+#                         非常に厳しい、ほぼ wave function 収束限界。
+#   strict       (1 mRy/atom):
+#                         QE/DFT ベンチマーク慣習の「真の収束」値。
 #                         無限 cutoff 極限と区別できない精度。
-#   loose  (5 mRy/atom): 形成エネルギー比較 / スクリーニング目的なら
+#   loose        (5 mRy/atom):
+#                         形成エネルギー比較 / スクリーニング目的なら
 #                         実用上十分とされる値。
 # strict / loose の両方で評価して PASS/WARN/FAIL の 3 段判定にする。
+# ultra_strict は extra に pass フラグを立て、TritonDFT 互換 metric として
+# 集計時に使用。
+ULTRA_STRICT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM = 0.0735  # = 1 meV/atom
 STRICT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM = 1.0
 LOOSE_CONVERGENCE_THRESHOLD_MRY_PER_ATOM = 5.0
 DEFAULT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM = STRICT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM
+
+# 1 meV ↔ mRy 変換係数 (Rydberg 定数 13.605693 eV/Ry より)
+MEV_PER_MRY = 13.605693
 
 
 def evaluate_convergence(
@@ -181,6 +192,7 @@ def evaluate_convergence(
             f"> loose {loose_threshold_mRy_per_atom} mRy/atom (実用基準でも未収束)"
         )
 
+    ultra_strict_pass = deviation_mRy <= ULTRA_STRICT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM
     return MetricResult(
         name="convergence",
         status=status,
@@ -190,10 +202,13 @@ def evaluate_convergence(
         extra={
             "e_per_atom_Ry": e_per_atom,
             "e_ref_per_atom_Ry": ref.e_total_converged_Ry_per_atom,
+            "ultra_strict_threshold_mRy_per_atom": ULTRA_STRICT_CONVERGENCE_THRESHOLD_MRY_PER_ATOM,
             "strict_threshold_mRy_per_atom": threshold_mRy_per_atom,
             "loose_threshold_mRy_per_atom": loose_threshold_mRy_per_atom,
+            "ultra_strict_pass": ultra_strict_pass,    # TritonDFT 互換 metric (1 meV/atom)
             "strict_pass": strict_pass,
             "loose_pass": loose_pass,
+            "deviation_meV_per_atom": deviation_mRy * MEV_PER_MRY,
         },
     )
 

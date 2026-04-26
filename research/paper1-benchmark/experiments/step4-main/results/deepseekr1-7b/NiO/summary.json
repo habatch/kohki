@@ -1,0 +1,61 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": true,
+  "fully_reproducible_response": true,
+  "is_reasoning": true,
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-09,
+    "degauss": 0.2,
+    "ecutrho": 24.0,
+    "ecutwfc": 6.0,
+    "kpoints": [
+      5,
+      5,
+      5
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "model_family": "DeepSeek",
+  "model_id": "deepseek-r1:7b",
+  "model_size_B": 7.0,
+  "model_tag": "deepseekr1-7b",
+  "n_parse_failures": 0,
+  "n_trials": 10,
+  "n_valid": 10,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-09": 10
+    },
+    "degauss": {
+      "0.2": 10
+    },
+    "ecutrho": {
+      "24.0": 10
+    },
+    "ecutwfc": {
+      "6.0": 10
+    },
+    "kpoints": {
+      "[5,5,5]": 10
+    },
+    "mixing_beta": {
+      "0.3": 10
+    },
+    "smearing": {
+      "gaussian": 10
+    }
+  },
+  "param_set_hash_counts": {
+    "8d02fc21a2cfc3e066337a7bdaf6eba194b83f1801bf4fcdcf2675c1487926dc": 10
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 1,
+  "unique_response_count": 1,
+  "wall_seconds_per_trial_mean": 180.48,
+  "wall_seconds_total": 1804.8
+}

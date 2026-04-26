@@ -1,0 +1,29 @@
+{
+  "cif_fixture": "materials/fixtures/NiO_rocksalt.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "A_voting",
+      "_n_contributing": 6
+    },
+    "ensemble_method": "A",
+    "model_id": "ensemble-A",
+    "n_contributing_LLMs": 6,
+    "rationale": "Ensemble A computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "NiO-ensemble-A",
+  "params": {
+    "conv_thr": 5.5000000000000004e-09,
+    "degauss": 0.015,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "rocksalt Fm-3m (\u78c1\u6027: \u771f\u306e\u57fa\u5e95\u72b6\u614b\u306f AFM-II\u3001\u672c\u5b9f\u9a13\u3067\u306f nspin=1 \u3067\u8a55\u4fa1)"
+}

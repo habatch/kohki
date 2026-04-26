@@ -1,0 +1,63 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "model_family": "Meta",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_size_B": 70.0,
+  "model_tag": "llama33-70b",
+  "n_parse_failures": 0,
+  "n_trials": 10,
+  "n_valid": 10,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 10
+    },
+    "degauss": {
+      "0.01": 10
+    },
+    "ecutrho": {
+      "240.0": 10
+    },
+    "ecutwfc": {
+      "60.0": 10
+    },
+    "kpoints": {
+      "[8,8,8]": 10
+    },
+    "mixing_beta": {
+      "0.7": 10
+    },
+    "smearing": {
+      "fermi-dirac": 7,
+      "gaussian": 3
+    }
+  },
+  "param_set_hash_counts": {
+    "5315276d03b46c270900f52739dd4ed795633486ea92d09ef5b2f191c1cadeee": 7,
+    "80801338ef6865fd2450d250535d83b6f0b487407b429e372d513b2000758d8e": 3
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 0.42,
+  "wall_seconds_total": 4.2
+}

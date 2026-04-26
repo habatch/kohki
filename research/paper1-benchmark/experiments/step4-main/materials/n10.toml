@@ -1,10 +1,11 @@
-# Step 4 main experiment — N=10 計画材料リスト.
+# Step 4 main experiment — N=11 計画材料リスト
+# (2026-04-26: TritonDFT 互換のため NiO 磁性系を追加、N=10 → N=11).
 #
 # 各エントリは prompt 生成 (prompts/template.txt の {{...}} 置換) に使う。
 # n_atoms と lattice は CIF 由来 (materials/fixtures/{cif_path})。
 #
 # Tier A 軽元素半導体 5 件
-# Tier B 重元素 / 2D / perovskite / oxide 3 件
+# Tier B 重元素 / 2D / perovskite / oxide / 磁性 4 件 (NiO 追加)
 # Tier C ドープ Si supercell 2 件
 
 [[material]]
@@ -78,6 +79,16 @@ structure_description = "monoclinic scheelite I2/b"
 lattice_description   = "a=5.20 Å, b=5.10 Å, c=11.74 Å, β=90.4°"
 n_atoms          = 24
 cif              = "BiVO4.cif"
+
+[[material]]
+slug             = "NiO"
+formula          = "NiO"
+tier             = "B"
+structure_description = "rocksalt Fm-3m (磁性: 真の基底状態は AFM-II、本実験では nspin=1 で評価)"
+lattice_description   = "a=4.17 Å (primitive 2 atoms)"
+n_atoms          = 2
+cif              = "NiO_rocksalt.cif"
+notes            = "TritonDFT 互換: 磁性系で OSS LLM が nspin/starting_magnetization を自発的に提案するか観察"
 
 [[material]]
 slug             = "Si63P1"

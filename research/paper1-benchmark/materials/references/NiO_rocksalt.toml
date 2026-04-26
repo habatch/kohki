@@ -1,0 +1,13 @@
+# NiO rocksalt (mp-19009、Fm-3m、Ni+O 2 atoms primitive)
+# 注意: NiO の真の基底状態は antiferromagnetic (AFM-II)。
+# 本研究では LLM 提案 params をそのまま使うため nspin=1 (paramagnetic) で
+# 計算する。これは TritonDFT (Wang et al. 2026) が「全 LLM <6% pass on
+# magnetic systems」と報告した現象を OSS LLM で再現確認するため。
+# LLM が nspin/starting_magnetization を自発的に提案するかも観察。
+
+formula = "NiO"
+n_atoms = 2
+is_insulator = true
+band_gap_PBE_eV = 2.3009
+band_gap_source = "Materials Project mp-19009 (PBE-GGA, FM/AFM 平均)"
+# e_total_converged_Ry_per_atom はあとで ref convergence sweep で追記

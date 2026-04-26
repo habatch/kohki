@@ -1,0 +1,66 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": true,
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.02,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "marzari-vanderbilt"
+  },
+  "model_family": "Alibaba",
+  "model_id": "qwen/qwen3-32b",
+  "model_size_B": 32.0,
+  "model_tag": "qwen3-32b",
+  "n_parse_failures": 0,
+  "n_trials": 2,
+  "n_valid": 2,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 2
+    },
+    "degauss": {
+      "0.01": 1,
+      "0.02": 1
+    },
+    "ecutrho": {
+      "240.0": 1,
+      "320.0": 1
+    },
+    "ecutwfc": {
+      "60.0": 1,
+      "80.0": 1
+    },
+    "kpoints": {
+      "[8,8,8]": 2
+    },
+    "mixing_beta": {
+      "0.3": 1,
+      "0.7": 1
+    },
+    "smearing": {
+      "marzari-vanderbilt": 2
+    }
+  },
+  "param_set_hash_counts": {
+    "382514d1773f95862960982d7ed690c69aad234dc4a6ffe1762410f75ca3292a": 1,
+    "d541b41a569c6c873c3818b1c5db8426850a3d8de1eaa45d1ac0b5bb92569cf0": 1
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 2,
+  "unique_response_count": 2,
+  "wall_seconds_per_trial_mean": 5.89,
+  "wall_seconds_total": 34.9
+}

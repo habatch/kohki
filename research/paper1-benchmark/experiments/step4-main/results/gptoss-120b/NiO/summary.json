@@ -1,0 +1,67 @@
+{
+  "experiment": "step4-main",
+  "fully_reproducible_params": false,
+  "fully_reproducible_response": false,
+  "is_reasoning": false,
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "material_tier": "B",
+  "mode_params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 400.0,
+    "ecutwfc": 90.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "gaussian"
+  },
+  "model_family": "OpenAI",
+  "model_id": "openai/gpt-oss-120b",
+  "model_size_B": 120.0,
+  "model_tag": "gptoss-120b",
+  "n_parse_failures": 0,
+  "n_trials": 10,
+  "n_valid": 10,
+  "param_distributions": {
+    "conv_thr": {
+      "1e-08": 10
+    },
+    "degauss": {
+      "0.01": 8,
+      "0.02": 2
+    },
+    "ecutrho": {
+      "320.0": 4,
+      "400.0": 6
+    },
+    "ecutwfc": {
+      "80.0": 4,
+      "90.0": 6
+    },
+    "kpoints": {
+      "[8,8,8]": 10
+    },
+    "mixing_beta": {
+      "0.7": 10
+    },
+    "smearing": {
+      "gaussian": 8,
+      "marzari-vanderbilt": 2
+    }
+  },
+  "param_set_hash_counts": {
+    "13c7eedf4045a45ec24428201d12ac0207e9080eb48dcb771e86728b8d388632": 2,
+    "37d5978780d19db217f731e1e1cf3d602b4f3e31b180c0db6b7db9e99fe08889": 6,
+    "60b70cf185f5636b325073b765c874ae63ad24555b3aab4645ac7c801f37daef": 2
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "schema": "paper3.step4-main.v1",
+  "unique_param_set_count": 3,
+  "unique_response_count": 3,
+  "wall_seconds_per_trial_mean": 0.9,
+  "wall_seconds_total": 9.0
+}

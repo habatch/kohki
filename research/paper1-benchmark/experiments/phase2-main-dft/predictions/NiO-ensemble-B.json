@@ -1,0 +1,36 @@
+{
+  "cif_fixture": "materials/fixtures/NiO_rocksalt.cif",
+  "llm": {
+    "ensemble_metadata": {
+      "_ensemble_method": "B_weighted",
+      "_n_contributing": 5,
+      "_weights_used": {
+        "gptoss-120b": 0.3,
+        "llama31-8b": 0.1,
+        "llama33-70b": 0.3,
+        "qwen25-7b": 0.05,
+        "qwen3-32b": 0.25
+      }
+    },
+    "ensemble_method": "B",
+    "model_id": "ensemble-B",
+    "n_contributing_LLMs": 5,
+    "rationale": "Ensemble B computed post-hoc from 5-LLM mode params",
+    "source_experiment": "step4-main"
+  },
+  "material": "NiO-ensemble-B",
+  "params": {
+    "conv_thr": 8.5051e-09,
+    "degauss": 0.0145,
+    "ecutrho": 282.0,
+    "ecutwfc": 67.5,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.6,
+    "smearing": "fermi-dirac"
+  },
+  "structure": "rocksalt Fm-3m (\u78c1\u6027: \u771f\u306e\u57fa\u5e95\u72b6\u614b\u306f AFM-II\u3001\u672c\u5b9f\u9a13\u3067\u306f nspin=1 \u3067\u8a55\u4fa1)"
+}

@@ -1,0 +1,50 @@
+{
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "model_id": "llama-3.3-70b-versatile",
+  "model_tag": "llama33-70b",
+  "params": {
+    "conv_thr": 1e-08,
+    "degauss": 0.01,
+    "ecutrho": 240.0,
+    "ecutwfc": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-08,
+    "degauss_Ry": 0.01,
+    "ecutrho_Ry": 240.0,
+    "ecutwfc_Ry": 60.0,
+    "kpoints": [
+      8,
+      8,
+      8
+    ],
+    "mixing_beta": 0.7,
+    "smearing": "fermi-dirac"
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "response_sha256": "fd5289109daee945a7b9737cd6bf5b16436b4e4adcdcc4217eef4db7ad32d76d",
+  "response_text": "{\n  \"ecutwfc_Ry\":     60.0,\n  \"ecutrho_Ry\":     240.0,\n  \"kpoints\":        [8, 8, 8],\n  \"smearing\":       \"fermi-dirac\",\n  \"degauss_Ry\":     0.01,\n  \"conv_thr_Ry\":    1e-8,\n  \"mixing_beta\":    0.7\n}",
+  "seed": 51,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T06:49:29Z",
+  "trial_index": 9,
+  "usage": {
+    "completion_time": 0.187960661,
+    "completion_tokens": 97,
+    "prompt_time": 0.030366837,
+    "prompt_tokens": 343,
+    "queue_time": 0.024763512,
+    "total_time": 0.218327498,
+    "total_tokens": 440
+  },
+  "wall_seconds": 0.4184272289276123
+}

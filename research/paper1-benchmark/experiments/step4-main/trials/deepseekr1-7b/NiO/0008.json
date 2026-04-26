@@ -1,0 +1,47 @@
+{
+  "material_formula": "NiO",
+  "material_slug": "NiO",
+  "model_id": "deepseek-r1:7b",
+  "model_tag": "deepseekr1-7b",
+  "params": {
+    "conv_thr": 1e-09,
+    "degauss": 0.2,
+    "ecutrho": 24.0,
+    "ecutwfc": 6.0,
+    "kpoints": [
+      5,
+      5,
+      5
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "params_valid": true,
+  "parsed_json": {
+    "conv_thr_Ry": 1e-09,
+    "degauss_Ry": 0.2,
+    "ecutrho_Ry": 24,
+    "ecutwfc_Ry": 6,
+    "kpoints": [
+      5,
+      5,
+      5
+    ],
+    "mixing_beta": 0.3,
+    "smearing": "gaussian"
+  },
+  "prompt_sha256": "0770e40551ca5092386d3ec74fc01a69f1dc53b1ad447bfd8f5ed90a1413fb34",
+  "response_sha256": "4a6e7b14c912ed411fa8465cac0ebba74aa7e5f2584a1279d766b62b1fc5ec26",
+  "response_text": "{\n  \"ecutwfc_Ry\": 6,\n  \"ecutrho_Ry\": 24,\n  \"kpoints\": [5, 5, 5],\n  \"smearing\": \"gaussian\",\n  \"degauss_Ry\": 0.2,\n  \"conv_thr_Ry\": 1e-9,\n  \"mixing_beta\": 0.3\n}",
+  "seed": 50,
+  "temperature": 0.0,
+  "timestamp_utc": "2026-04-26T07:20:27Z",
+  "trial_index": 8,
+  "usage": {
+    "eval_count": 1092,
+    "eval_duration_s": 169.703505944,
+    "load_duration_s": 0.127614284,
+    "prompt_eval_count": 323
+  },
+  "wall_seconds": 171.58407950401306
+}

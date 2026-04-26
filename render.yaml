@@ -1,0 +1,62 @@
+# Render.com Blueprint for Open WebUI (LLM 研究バディ)
+#
+# 目的: Customer Cloud / Anthropic 依存なしの独立 AI バディを cloud で常時稼働
+# 接続先: Groq cloud (既存 API key) を OpenAI 互換 endpoint として使用
+#
+# Deploy 手順:
+#   1. https://dashboard.render.com/blueprints へアクセス
+#   2. "New Blueprint Instance" → リポジトリ habatch/kohki を選択
+#   3. Render が本ファイル (render.yaml) を自動検出
+#   4. 環境変数の secret 部分 (sync: false の項目) を Dashboard 上で入力
+#   5. Apply → 5-10 分で URL 発行
+#
+# 制限事項:
+#   - 無料 tier: 512 MB RAM、0.1 CPU、15 分 sleep、ephemeral disk
+#   - 会話 history は disk reset で消える (永続化したいなら $1/月 disk 追加)
+#
+# 公式 image: ghcr.io/open-webui/open-webui (Open WebUI 公式)
+
+services:
+  - type: web
+    name: openwebui-buddy
+    runtime: image
+    image:
+      url: ghcr.io/open-webui/open-webui:main
+    plan: free               # 無料 tier (512 MB RAM、sleep あり)
+    region: singapore        # 日本から最も近いリージョン (oregon でも可)
+    healthCheckPath: /health
+    envVars:
+      # 認証必須 (false にするとパブリックに開放されるので絶対 true)
+      - key: WEBUI_AUTH
+        value: "True"
+
+      # OpenAI 互換 endpoint = Groq cloud
+      - key: OPENAI_API_BASE_URL
+        value: https://api.groq.com/openai/v1
+
+      # GROQ API key (秘密。Render Dashboard 上で設定する。
+      # render.yaml には絶対書かない、git に残らない)
+      - key: OPENAI_API_KEY
+        sync: false
+
+      # 起動高速化のため不要機能を無効化
+      - key: ENABLE_OLLAMA_API
+        value: "False"          # Ollama backend は使わない (Groq のみ)
+      - key: ENABLE_RAG_HYBRID_SEARCH
+        value: "False"          # メモリ節約 (512 MB tier 用)
+      - key: VECTOR_DB
+        value: chroma           # 軽量、内蔵
+      - key: ENABLE_IMAGE_GENERATION
+        value: "False"
+      - key: AUDIO_TTS_ENGINE
+        value: ""               # TTS 無効
+      - key: AUDIO_STT_ENGINE
+        value: ""               # STT 無効
+
+      # WEBUI 内部 secret (Render が自動生成)
+      - key: WEBUI_SECRET_KEY
+        generateValue: true
+
+      # 推奨デフォルトモデル (UI で後から変更可)
+      - key: DEFAULT_MODELS
+        value: "llama-3.3-70b-versatile,openai/gpt-oss-120b,qwen/qwen3-32b"

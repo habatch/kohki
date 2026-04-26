@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 20    # 2026-04-26: 8 → 20 (GH Actions free 上限まで活用)
       matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
     timeout-minutes: 350
     steps:

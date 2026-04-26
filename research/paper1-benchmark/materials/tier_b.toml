@@ -84,8 +84,8 @@ notes     = "ferroelectric + ferroelastic # mp_verify"
 formula   = "BiVO4"
 structure = "scheelite-monoclinic"
 tier      = "B"
-mp_id     = "mp-19006"
-notes     = "visible-light photocatalyst, 2.4 eV expt gap"
+mp_id     = "mp-1102997"
+notes     = "visible-light photocatalyst, 2.4 eV expt gap, MP では C2/c (sg 15) 12 atoms primitive。2026-04-26 修正: 旧 mp_id mp-19006 は実は MnO で誤りだった"
 
 [[material]]
 formula   = "LaAlO3"

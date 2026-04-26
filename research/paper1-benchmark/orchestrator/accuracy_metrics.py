@@ -52,9 +52,17 @@ from .qe_parser import Observables
 # ---------------------------------------------------------------------------
 
 class MetricStatus(str, Enum):
-    """3 値判定。``unknown`` は入力欠損や reference 未登録のとき。"""
+    """4 値判定。
+
+    PASS:       評価基準を満たす
+    FAIL:       評価基準を満たさない (SCF が走った上で物理的に不適切)
+    UNPHYSICAL: LLM 提案 params が物理的に成立せず、pw.x が SCF 開始前に reject
+                (ecutwfc 過小 / pseudo 不在 / 等。FAIL とは別カテゴリで集計推奨)
+    UNKNOWN:    入力欠損や reference 未登録で判定不能
+    """
     PASS = "pass"
     FAIL = "fail"
+    UNPHYSICAL = "unphysical"
     UNKNOWN = "unknown"
 
 
@@ -130,14 +138,24 @@ def evaluate_convergence(
 ) -> MetricResult:
     """E_total が無限 cutoff 極限から ``threshold`` 以内か判定.
 
-    二段判定:
-      - deviation ≤ strict (default 1 mRy/atom)  → PASS
-      - strict < deviation ≤ loose (default 5)    → PASS だが extra に warn=True
-      - deviation > loose                          → FAIL
+    三段判定:
+      - pre_scf_error あり                            → UNPHYSICAL
+      - deviation ≤ strict (default 1 mRy/atom)       → PASS
+      - strict < deviation ≤ loose (default 5)         → PASS だが extra に warn=True
+      - deviation > loose                              → FAIL
 
-    既存呼び出し側は status のみ見れば従来通りの strict 判定が出る。
-    新しい呼び出し側は ``extra["loose_pass"]`` で実用基準も判定可能。
+    UNPHYSICAL は「物理的に成立しない LLM 提案」で、論文では
+    convergence/non-convergence とは独立カテゴリで集計推奨。
     """
+    if obs.pre_scf_error:
+        return MetricResult(
+            name="convergence",
+            status=MetricStatus.UNPHYSICAL,
+            value=None,
+            threshold=threshold_mRy_per_atom,
+            reason=f"pw.x が SCF 開始前に reject ({obs.pre_scf_error}) - LLM 提案 params が物理的に不適切",
+            extra={"pre_scf_error": obs.pre_scf_error},
+        )
     if not obs.converged:
         return MetricResult(
             name="convergence",
@@ -441,6 +459,48 @@ def evaluate_reproducibility(
 
 
 # ---------------------------------------------------------------------------
+# 5'. 物理的成立性 (LLM 提案 params で pw.x が起動できたか) — 独立指標
+# ---------------------------------------------------------------------------
+
+def evaluate_physical_feasibility(obs: Observables) -> MetricResult:
+    """LLM 提案 params が pw.x で物理的に成立するかを単独評価.
+
+    convergence とは独立に「そもそも計算が始められたか」を判定。
+    SCF 不収束 (converged=False で SCF 反復が走った) と
+    SCF 起動不可 (pre_scf_error あり) を区別する。
+
+    返り値:
+      PASS:        pw.x が SCF iteration を実行できた (収束/未収束問わず)
+      UNPHYSICAL:  pre_scf_error あり (LLM 提案 params が物理破綻)
+      UNKNOWN:     output.out が無い・パース不能
+    """
+    if obs.pre_scf_error:
+        return MetricResult(
+            name="physical_feasibility",
+            status=MetricStatus.UNPHYSICAL,
+            value=None,
+            threshold=None,
+            reason=f"pw.x が SCF 開始前に reject ({obs.pre_scf_error})",
+            extra={"pre_scf_error": obs.pre_scf_error},
+        )
+    if obs.n_scf_iter is None and obs.total_energy_Ry is None:
+        return MetricResult(
+            name="physical_feasibility",
+            status=MetricStatus.UNKNOWN,
+            value=None,
+            threshold=None,
+            reason="output に SCF iteration 痕跡なし、原因未特定",
+        )
+    return MetricResult(
+        name="physical_feasibility",
+        status=MetricStatus.PASS,
+        value=None,
+        threshold=None,
+        reason=f"pw.x SCF iteration 実行確認 (iter={obs.n_scf_iter})",
+    )
+
+
+# ---------------------------------------------------------------------------
 # 5. コスト効率 (wall-time)
 # ---------------------------------------------------------------------------
 
@@ -490,6 +550,7 @@ class CellScore:
     """1 (LLM, material) cell に対する全指標."""
     model: str
     formula: str
+    physical_feasibility: MetricResult
     convergence: MetricResult
     smearing_validity: MetricResult
     band_gap_validity: MetricResult
@@ -508,6 +569,12 @@ class CellScore:
             if m is not None and m.status == MetricStatus.FAIL
         )
 
+    def n_unphysical(self) -> int:
+        return sum(
+            1 for m in self._metrics()
+            if m is not None and m.status == MetricStatus.UNPHYSICAL
+        )
+
     def n_unknown(self) -> int:
         return sum(
             1 for m in self._metrics()
@@ -515,8 +582,14 @@ class CellScore:
         )
 
     def overall_status(self) -> MetricStatus:
-        """全 known 指標が PASS なら PASS。1 つでも FAIL なら FAIL。
-        全て UNKNOWN なら UNKNOWN。"""
+        """4 段階判定:
+            UNPHYSICAL があれば全体 UNPHYSICAL (= LLM 提案が物理破綻)
+            FAIL があれば全体 FAIL
+            PASS が 1 つでもあれば PASS
+            それ以外は UNKNOWN
+        """
+        if self.n_unphysical() > 0:
+            return MetricStatus.UNPHYSICAL
         if self.n_fail() > 0:
             return MetricStatus.FAIL
         if self.n_pass() > 0:
@@ -525,6 +598,7 @@ class CellScore:
 
     def _metrics(self) -> list[MetricResult | None]:
         return [
+            self.physical_feasibility,
             self.convergence,
             self.smearing_validity,
             self.band_gap_validity,
@@ -560,6 +634,7 @@ def score_cell(
     return CellScore(
         model=model,
         formula=ref.formula,
+        physical_feasibility=evaluate_physical_feasibility(obs),
         convergence=evaluate_convergence(obs, ref),
         smearing_validity=evaluate_smearing_for_insulator(
             proposed_smearing, proposed_degauss_Ry, ref

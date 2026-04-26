@@ -52,6 +52,18 @@ RE_VOLUME = re.compile(r"unit-cell volume\s*=\s*(\d+\.\d+)\s*\(a\.u\.\)")
 RE_NATOMS = re.compile(r"number of atoms/cell\s*=\s*(\d+)")
 RE_NKP    = re.compile(r"number of k points=\s*(\d+)")
 RE_VERSION = re.compile(r"Program PWSCF v\.(\S+)\s+starts")
+
+# pw.x が SCF iteration 開始前に reject するエラーパターン (LLM 提案
+# params が物理的に成立しない場合に発生)。これらは「未収束」とは別の
+# "unphysical_proposal" カテゴリで集計する。
+PRE_SCF_ERROR_PATTERNS = [
+    (re.compile(r"Error in routine memory_report.*more bands than PWs",
+                re.DOTALL | re.IGNORECASE), "more_bands_than_pws"),
+    (re.compile(r"Error in routine readpp.*file\s+\S+\s+not\s+found",
+                re.DOTALL | re.IGNORECASE), "missing_pseudo"),
+    (re.compile(r"Error in routine\s+set_kpoint", re.IGNORECASE), "kpoint_error"),
+    (re.compile(r"Error in routine\s+(\w+)\s+\(\d+\)", re.IGNORECASE), "generic_pre_scf_error"),
+]
 # QE prints PWSCF timing in several forms:
 #   "PWSCF  :  9m19.66s CPU   4m41.49s WALL"    (short runs)
 #   "PWSCF  :  2h45m CPU      1h21m WALL"        (long runs, no seconds)
@@ -86,6 +98,8 @@ class Observables:
     qe_version: str | None
     n_atoms: int | None
     n_kpoints: int | None
+    pre_scf_error: str | None = None    # LLM 提案 params が物理的に不適切で
+                                         # pw.x が SCF 開始前に reject した場合
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -161,6 +175,14 @@ def parse_pw_output(text: str) -> Observables:
 
     ver_m = RE_VERSION.search(text)
 
+    # pre-SCF error 検出 (SCF 反復が一度も走っていない場合のエラー識別)
+    pre_scf_error: str | None = None
+    if not conv_m and total_E is None:
+        for pattern, label in PRE_SCF_ERROR_PATTERNS:
+            if pattern.search(text):
+                pre_scf_error = label
+                break
+
     return Observables(
         converged=conv_m is not None,
         n_scf_iter=n_iter,
@@ -178,6 +200,7 @@ def parse_pw_output(text: str) -> Observables:
         qe_version=ver_m.group(1) if ver_m else None,
         n_atoms=_last_int(RE_NATOMS, text),
         n_kpoints=_last_int(RE_NKP, text),
+        pre_scf_error=pre_scf_error,
     )
 
 

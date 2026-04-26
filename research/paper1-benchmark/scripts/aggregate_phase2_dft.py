@@ -155,6 +155,14 @@ def aggregate_phase2_main() -> int:
     bundles = find_bundle_dirs(PHASE2_RESULTS)
     print(f"Found {len(bundles)} bundles in {PHASE2_RESULTS}")
 
+    # 期待される全 cell 一覧 (predictions/ から) を取得し、artifact が欠落した
+    # cell を「DFT failed before artifact upload」として記録する。
+    expected_cells: set[str] = set()
+    pred_dir = PHASE2_DFT_DIR / "predictions"
+    if pred_dir.exists():
+        expected_cells = {p.stem for p in pred_dir.glob("*.json")}
+    found_cells: set[str] = set()
+
     rows: list[dict[str, Any]] = []
     for bundle in bundles:
         try:
@@ -163,6 +171,7 @@ def aggregate_phase2_main() -> int:
             print(f"  [skip] {bundle.name}: no prediction.json")
             continue
         material_field = pred.get("material", bundle.name)
+        found_cells.add(material_field)
         slug, tag = parse_cell_name(material_field)
         ref = ref_map.get(slug)
         if not ref:
@@ -203,6 +212,41 @@ def aggregate_phase2_main() -> int:
                 "n_fail": score.n_fail(),
             },
         })
+
+    # artifact 欠落 cell を「dft_failed_no_artifact」として記録
+    missing = expected_cells - found_cells
+    for cell in sorted(missing):
+        slug, tag = parse_cell_name(cell)
+        rows.append({
+            "material_slug": slug,
+            "tag": tag,
+            "is_ensemble": tag.startswith("ensemble-"),
+            "wall_seconds": None,
+            "total_energy_Ry": None,
+            "fermi_eV": None,
+            "converged": False,
+            "n_scf_iter": None,
+            "scores": {
+                "convergence": {
+                    "name": "convergence",
+                    "status": "unphysical",
+                    "value": None,
+                    "threshold": None,
+                    "reason": "no artifact uploaded — DFT likely failed before bundle (probable pre-SCF rejection)",
+                    "extra": {"no_artifact": True},
+                },
+                "smearing_validity": {"status": "unknown"},
+                "band_gap_validity": {"status": "unknown"},
+                "cost_efficiency": {"status": "unknown"},
+                "overall": "unphysical",
+                "n_pass": 0,
+                "n_fail": 0,
+                "n_unphysical": 1,
+                "no_artifact": True,
+            },
+        })
+    if missing:
+        print(f"  WARN: {len(missing)} cells without artifact (recorded as unphysical)")
 
     PHASE2_RESULTS.mkdir(parents=True, exist_ok=True)
     table_path = PHASE2_RESULTS / "accuracy_table.json"
@@ -268,17 +312,36 @@ def render_summary_md(rows: list[dict], materials: dict, ref_map: dict) -> str:
     lines += [
         "## Per-model aggregate (個別 LLM のみ)",
         "",
-        "| model_tag | n_cells | overall_pass_rate | conv_pass_rate | smearing_pass_rate | wall mean s |",
-        "|---|---|---|---|---|---|",
+        "| model_tag | n_cells | pass | fail | **unphysical** | conv_pass | smearing_pass | wall mean s |",
+        "|---|---|---|---|---|---|---|---|",
     ]
     for tag, group in sorted(by_model.items()):
         n = len(group)
         n_pass = sum(1 for r in group if r["scores"]["overall"] == "pass")
+        n_fail = sum(1 for r in group if r["scores"]["overall"] == "fail")
+        n_unphysical = sum(1 for r in group if r["scores"]["overall"] == "unphysical")
         n_conv_pass = sum(1 for r in group if r["scores"]["convergence"]["status"] == "pass")
-        n_sm_pass = sum(1 for r in group if r["scores"]["smearing_validity"]["status"] == "pass")
+        n_sm_pass = sum(1 for r in group if r["scores"].get("smearing_validity", {}).get("status") == "pass")
         walls = [r["wall_seconds"] for r in group if r["wall_seconds"]]
         wmean = sum(walls) / len(walls) if walls else 0
-        lines.append(f"| {tag} | {n} | {n_pass/n*100:.0f}% | {n_conv_pass/n*100:.0f}% | {n_sm_pass/n*100:.0f}% | {wmean:.0f} |")
+        lines.append(
+            f"| {tag} | {n} | {n_pass}/{n} ({n_pass/n*100:.0f}%) | {n_fail}/{n} | "
+            f"**{n_unphysical}/{n}** | {n_conv_pass/n*100:.0f}% | {n_sm_pass/n*100:.0f}% | {wmean:.0f} |"
+        )
+
+    # 「unphysical」cell の詳細リスト (LLM の物理破綻パターン)
+    unphysical_rows = [r for r in rows if r["scores"]["overall"] == "unphysical"]
+    if unphysical_rows:
+        lines += [
+            "",
+            "## ⚠ Unphysical proposals — LLM が物理的に成立しない params を提案",
+            "",
+            "| cell | reason |",
+            "|---|---|",
+        ]
+        for r in sorted(unphysical_rows, key=lambda x: (x["material_slug"], x["tag"])):
+            reason = r["scores"]["convergence"].get("reason", "(no reason)")
+            lines.append(f"| {r['material_slug']}-{r['tag']} | {reason} |")
     return "\n".join(lines) + "\n"
 
 
